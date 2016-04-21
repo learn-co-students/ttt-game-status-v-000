@@ -16,24 +16,8 @@ WIN_COMBINATIONS =[
   [2,4,6]]#Diagonal
 
 def won?(board)
-  WIN_COMBINATIONS.each do |win|
-    position_1 = board[win[0]] # load the value of the board at win_index_1
-    position_2 = board[win[1]] # load the value of the board at win_index_2
-    position_3 = board[win[2]] # load the value of the board at win_index_3
-
-
-    if board.all? do |spot|
-      spot == "" || spot == " "
-      end
-      return false
-    elsif(position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
-      return win
-    else
-     false
-    end
-  if full?(board)
-    return false
-  end
+  WIN_COMBINATIONS.detect do |win|
+    board[win[0]] == board[win[1]] && board[win[1]] ==  board[win[2]] && position_taken?(board,win[0])
   end
 end
 
@@ -44,13 +28,15 @@ def full?(board)
 end
 
 def draw?(board)
-  binding.pry
-  if  !won?(board) && full?(board)
-    return true
-  end
+  !won?(board) && full?(board)
 end
 
 def over?(board)
-  if won?(board) || full?(board) || draw?(board)
+  won?(board) || full?(board)
+end
+
+def winner(board)
+   if won?(board)
+    board[won?(board)[0]]
   end
 end
