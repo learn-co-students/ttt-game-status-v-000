@@ -17,7 +17,7 @@ WIN_COMBINATIONS = [
 ]
 
 # X | X | X
-# board=["X","X","X"," "," "," "," "," "," "]
+# board = ["X","O","X","O","O","X","O","X","O"]
 # board=["O","X","O"," "," "," "," "," "," "]
 def won?(board)
   WIN_COMBINATIONS.detect do |win_combination|
@@ -29,6 +29,28 @@ def won?(board)
   end
 end
 
-# def full?(board)
-#
-# end
+def full?(board)
+  board.each do |location|
+    if location != " " && location != nil
+      true
+    else
+      false
+    end
+  end
+end
+
+def draw?(board)
+  if full?(board) == true && won?(board) == false
+    true
+  else
+    false
+  end
+end
+
+def over?
+
+end
+
+# p won?(board)
+# # puts full?(board)
+# puts draw?(board)
