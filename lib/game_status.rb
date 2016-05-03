@@ -66,13 +66,13 @@ end
 # end
 
 def winner(board)
-  index = won?(board).pop
-  if board[index] == "X"
-    "X"
-  elsif board[index] == "O"
-    "O"
-  elsif won?(board) == nil
+  # index = won?(board).pop
+  if won?(board) == nil
     nil
+  elsif board[won?(board)[0]] == "X"
+    "X"
+  elsif board[won?(board)[0]] == "O"
+    "O"
   end
 end
 
