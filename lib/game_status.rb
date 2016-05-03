@@ -18,7 +18,10 @@ WIN_COMBINATIONS = [
 
 # X | X | X
 # board = ["X","O","X","O","O","X","O","X","O"]
-# board=["O","X","O"," "," "," "," "," "," "]
+# board = ["O","X","O"," "," "," "," "," "," "]
+# board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
+# board = ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
+board = ["X", "O", " ", " ", " ", " ", " ", "O", "X"]
 def won?(board)
   WIN_COMBINATIONS.detect do |win_combination|
     board1 = win_combination[0]
@@ -30,27 +33,50 @@ def won?(board)
 end
 
 def full?(board)
-  board.each do |location|
-    if location != " " && location != nil
-      true
-    else
-      false
-    end
+  if board.include?(" ")
+    return false
+  else
+    return true
   end
 end
 
 def draw?(board)
-  if full?(board) == true && won?(board) == false
+  if full?(board) == true && won?(board) == nil
     true
   else
     false
   end
 end
 
-def over?
-
+def over?(board)
+  if won?(board) || draw?(board) || full?(board)
+    true
+  else
+    false
+  end
 end
 
-# p won?(board)
-# # puts full?(board)
+# def winner?(board)
+#   p won?(board)
+#   if won?(board).include?("X")
+#     puts "X"
+#   elsif won?(board).include?("O")
+#     "O"
+#   end
+# end
+
+def winner(board)
+  index = won?(board).pop
+  if board[index] == "X"
+    "X"
+  elsif board[index] == "O"
+    "O"
+  elsif won?(board) == nil
+    nil
+  end
+end
+
+# won?(board)
+# puts full?(board)
 # puts draw?(board)
+puts winner(board)
