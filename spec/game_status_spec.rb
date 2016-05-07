@@ -92,25 +92,7 @@ describe "./lib/game_status.rb" do
     end
   end
 
-  describe '#draw?' do
-    it 'returns true for a draw' do
-      board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
-
-      expect(draw?(board)).to be_truthy
-    end
-
-    it 'returns false for a won game' do
-      board = ["X", "O", "X", "O", "X", "O", "O", "O", "X"]
-
-      expect(draw?(board)).to be_falsey
-    end
-
-    it 'returns false for an in-progress game' do
-      board = ["X", " ", "X", " ", "X", " ", "O", "O", "X"]
-
-      expect(draw?(board)).to be_falsey
-    end
-  end
+  
 
   describe '#over?' do
     it 'returns true for a draw' do
