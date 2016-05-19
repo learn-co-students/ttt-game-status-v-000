@@ -1,4 +1,5 @@
 require_relative '../lib/game_status.rb'
+#require 'pry'
 
 describe "./lib/game_status.rb" do
   describe 'WIN_COMBINATIONS' do
@@ -43,7 +44,7 @@ describe "./lib/game_status.rb" do
 
     it 'returns an array of matching indexes for a bottom row win' do
       board = [" ", " ", " ", " ", " ", " ", "X", "X", "X"]
-
+      #binding.pry
       expect(won?(board)).to match_array([6,7,8])
     end
 
