@@ -15,6 +15,8 @@ WIN_COMBINATIONS = [
   [2,4,6] # Bottom diagonal win
 ]
 
+#won method
+def won?(Board)
 # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
   # grab each index from the win_combination that composes a win.
   win_index_1 = win_combination[0]
@@ -34,7 +36,8 @@ WIN_COMBINATIONS = [
   end
 end
 
-
+#won method
+def won?(Board)
 # win_combination is a 3 element array of indexes that compose a win, [3,4,5]
   # grab each index from the win_combination that composes a win.
   win_index_4 = win_combination[3]
@@ -54,7 +57,8 @@ end
   end
 end
 
-
+#won method
+def won?(Board)
 # win_combination is a 3 element array of indexes that compose a win, [6,7,8]
   # grab each index from the win_combination that composes a win.
   win_index_7 = win_combination[6]
@@ -74,7 +78,8 @@ end
   end
 end
 
-
+#won method
+def won?(Board)
 # win_combination is a 3 element array of indexes that compose a win, [0,3,6]
   # grab each index from the win_combination that composes a win.
   win_index_1 = win_combination[0]
@@ -94,7 +99,8 @@ end
   end
 end
 
-
+#won method
+def won?(Board)
 # win_combination is a 3 element array of indexes that compose a win, [1,4,7]
   # grab each index from the win_combination that composes a win.
   win_index_2 = win_combination[1]
@@ -114,7 +120,8 @@ end
   end
 end
 
-
+#won method
+def won?(Board)
 # win_combination is a 3 element array of indexes that compose a win, [2,5,8]
   # grab each index from the win_combination that composes a win.
   win_index_3 = win_combination[2]
@@ -134,7 +141,8 @@ end
   end
 end
 
-
+#won method
+def won?(Board)
 # win_combination is a 3 element array of indexes that compose a win, [0,4,8]
   # grab each index from the win_combination that composes a win.
   win_index_1 = win_combination[0]
@@ -154,7 +162,8 @@ end
   end
 end
 
-
+#won method
+def won?(Board)
 # win_combination is a 3 element array of indexes that compose a win, [2,4,6]
   # grab each index from the win_combination that composes a win.
   win_index_3 = win_combination[2]
