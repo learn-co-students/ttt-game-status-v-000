@@ -175,20 +175,17 @@ def full?(board)
 
 #draw? method
 def draw(board)
-  board!(won?) && board(full?)
+  !won?(board) && full?(board)
     true
-  elsif board !(won?) && board !(full) || board(won?)
+  !won?(board) && !full(board) || won?(board)
     false
-  end
 end
 
 #over? method
 def over?(board)
-  if board = won? || board = draw? || board = full?
+  if won?(board) || draw?(board) || full?(board)
     true
-  else
-    false
-  end
+    end
 end
 
 #winner? method
