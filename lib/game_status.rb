@@ -170,18 +170,14 @@ end
 
 #full? method
 def full?(board)
-if board.include?(" ")
-false
-    else
-true
+!board.include?(" ")
   end
-end
 
 #draw? method
 def draw(board)
-  if board != won? && board = full?  #if !board(won?) && board(full?)
+  board(won?) && board(full?)
     true
-  elsif board != won? && board != full || board = won?  # elsif !board(won?) && !board(full?) || board(won?)
+  elsif board !(won?) && board !(full) || board(won?)  
     false
   end
 end
