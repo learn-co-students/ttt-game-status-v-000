@@ -175,9 +175,9 @@ def full?(board)
 
 #draw? method
 def draw(board)
-  board(won?) && board(full?)
+  board!(won?) && board(full?)
     true
-  elsif board !(won?) && board !(full) || board(won?)  
+  elsif board !(won?) && board !(full) || board(won?)
     false
   end
 end
