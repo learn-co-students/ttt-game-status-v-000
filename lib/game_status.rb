@@ -109,7 +109,7 @@ board(WIN_COMBINATIONS)[win_index_8]
 
   # Iterate over WIN_COMBINATIONS
   Def won(board)
-  board.each do|WIN_COMBINATIONS|
+  #board.each do|WIN_COMBINATIONS|
 
   #Or
 
@@ -147,7 +147,9 @@ board(WIN_COMBINATIONS)[win_index_8]
   	Else
 
   		True
-
+    end
+  end
+end
 
 
 
