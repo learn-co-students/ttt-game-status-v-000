@@ -13,7 +13,7 @@ WIN_COMBINATIONS = [
   [2,5,8],  # right vertical win
   [0,4,8],  # Left diagonal win
   [2,4,6] # right diagonal win
-
+]
 #full? method
 def full?(board)
 !board.include?(" ")
@@ -106,4 +106,64 @@ board(WIN_COMBINATIONS)[win_index_8]
     false
     end
   end
-end
+
+  # Iterate over WIN_COMBINATIONS
+  Def won(board)
+  board.each do|WIN_COMBINATIONS|
+
+  #Or
+
+  WIN_COMBINATIONS.each do|board|
+
+  # Check board if same token is in each index of winning combination
+  board.all?position=”X” || board.all?position=”O”
+
+  #Or
+
+  board.all?value=”X” || board.all?value=”O”
+
+  #Or
+
+  board.all?token=”X” || board.all?roken=”O”
+
+  #Or
+
+  board.all?win_combination=”X” || board.all?win_combination=”O”
+
+  #Or
+
+  win_combination.all?position=”X” || win_combination.all?position=”O”
+
+  		True
+  		Return win_combination
+
+  Else
+  		False
+
+  WIN_COMBINATIONS.none?position=”X” || WIN_COMBINATIONS.none?position=”O”
+
+  		False/nil
+
+  	Else
+
+  		True
+
+
+
+
+
+
+  Def won?(board)
+  board.each do |WIN_COMBINATIONS|
+  win_combination.all?token=”X”||win_combination.all?token=”O”
+
+  Def won?(board)
+  WIN_COMBINATIONS.all? do |board == “X” || board == “O”|
+
+
+  Def won?(board)
+  WIN_COMBINATIONS.all? do |board|
+  board.all?
+
+  Def won?(board)
+  board.all?token=”X”||”O”
