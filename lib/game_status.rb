@@ -15,6 +15,19 @@ WIN_COMBINATIONS = [
   [2,4,6] # right diagonal win
 ]
 
+def won?(board)
+  #board.each do|WIN_COMBINATIONS|
+  WIN_COMBINATIONS.each do|board|
+    if win_combination.all? == "X" || win_combination.all? == "O"
+      return win_combination
+    #if WIN_COMBINATIONS.all? == "X" || WIN_COMBINATIONS.all? == "O"
+      #return win_combination
+    else
+      false
+      end
+    end
+  end
+
 #won method
 def won?(board)
 # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
@@ -258,5 +271,6 @@ board(WIN_COMBINATIONS)[win_index_8]
     win_combination
   elsif board.none?WIN_COMBINATIONS
     false
+    end
   end
 end
