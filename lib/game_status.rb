@@ -107,16 +107,15 @@ board(WIN_COMBINATIONS)[win_index_8]
     end
   end
 
-
-  Def won(board)
+  #Def won(board)
     # Iterate over WIN_COMBINATIONS
-  
-  WIN_COMBINATIONS.each do|board|
+
+  #WIN_COMBINATIONS.each do|board|
 
   # Check board if same token is in each index of winning combination
-  board.all?position=”X” || board.all?position=”O”
-    true
-    Return win_combination
+  #board.all?position=”X” || board.all?position=”O”
+    #true
+    #Return win_combination
   #Or
 
   #board.all?value=”X” || board.all?value=”O”
@@ -124,7 +123,7 @@ board(WIN_COMBINATIONS)[win_index_8]
     #Return win_combination
   #Or
 
-#  board.all?token=”X” || board.all?roken=”O”
+  #board.all?token=”X” || board.all?token=”O”
     #True
     #Return win_combination
   #Or
@@ -137,10 +136,10 @@ board(WIN_COMBINATIONS)[win_index_8]
   #win_combination.all?position=”X” || win_combination.all?position=”O”
 
   		#True
-  	#	Return win_combination
+  	  # Return win_combination
 
-    Else
-  		False
+    #Else
+  	#	False
 
   #WIN_COMBINATIONS.none?position=”X” || WIN_COMBINATIONS.none?position=”O”
 
@@ -149,25 +148,24 @@ board(WIN_COMBINATIONS)[win_index_8]
   	#Else
 
   		#True
-    end
-  end
-end
+  #  end
+#  end
+#end
 
 
 
 
 
-  Def won?(board)
-  board.each do |WIN_COMBINATIONS|
-  win_combination.all?token=”X”||win_combination.all?token=”O”
-
-  Def won?(board)
-  WIN_COMBINATIONS.all? do |board == “X” || board == “O”|
+  #Def won?(board)
+  #WIN_COMBINATIONS.all? do |board| == “X” || WIN_COMBINATIONS.all? do |board| == “O”
+  #win_combination.all?token=”X”||win_combination.all?token=”O”
 
 
-  Def won?(board)
-  WIN_COMBINATIONS.all? do |board|
-  board.all?
 
-  Def won?(board)
-  board.all?token=”X”||”O”
+
+  #Def won?(board)
+  #WIN_COMBINATIONS.all? do |board|
+  #board.all?
+
+  #Def won?(board)
+  #board.all?token=”X”||”O”
