@@ -117,19 +117,23 @@ board(WIN_COMBINATIONS)[win_index_8]
 
   # Check board if same token is in each index of winning combination
   board.all?position=”X” || board.all?position=”O”
-
+    true
+    Return win_combination
   #Or
 
   board.all?value=”X” || board.all?value=”O”
-
+    true
+    Return win_combination
   #Or
 
   board.all?token=”X” || board.all?roken=”O”
-
+    True
+    Return win_combination
   #Or
 
   board.all?win_combination=”X” || board.all?win_combination=”O”
-
+    True
+    Return win_combination
   #Or
 
   win_combination.all?position=”X” || win_combination.all?position=”O”
