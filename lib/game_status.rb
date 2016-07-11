@@ -121,36 +121,36 @@ board(WIN_COMBINATIONS)[win_index_8]
     Return win_combination
   #Or
 
-  board.all?value=”X” || board.all?value=”O”
-    true
-    Return win_combination
+  #board.all?value=”X” || board.all?value=”O”
+    #true
+    #Return win_combination
   #Or
 
-  board.all?token=”X” || board.all?roken=”O”
-    True
-    Return win_combination
+#  board.all?token=”X” || board.all?roken=”O”
+    #True
+    #Return win_combination
   #Or
 
-  board.all?win_combination=”X” || board.all?win_combination=”O”
-    True
-    Return win_combination
+  #board.all?win_combination=”X” || board.all?win_combination=”O”
+    #True
+    #Return win_combination
   #Or
 
-  win_combination.all?position=”X” || win_combination.all?position=”O”
+  #win_combination.all?position=”X” || win_combination.all?position=”O”
 
-  		True
-  		Return win_combination
+  		#True
+  	#	Return win_combination
 
-  Else
+    Else
   		False
 
-  WIN_COMBINATIONS.none?position=”X” || WIN_COMBINATIONS.none?position=”O”
+  #WIN_COMBINATIONS.none?position=”X” || WIN_COMBINATIONS.none?position=”O”
 
-  		False/nil
+  		#False/nil
 
-  	Else
+  	#Else
 
-  		True
+  		#True
     end
   end
 end
