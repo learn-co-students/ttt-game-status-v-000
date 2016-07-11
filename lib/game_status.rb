@@ -107,12 +107,10 @@ board(WIN_COMBINATIONS)[win_index_8]
     end
   end
 
-  # Iterate over WIN_COMBINATIONS
+
   Def won(board)
-  #board.each do|WIN_COMBINATIONS|
-
-  #Or
-
+    # Iterate over WIN_COMBINATIONS
+  
   WIN_COMBINATIONS.each do|board|
 
   # Check board if same token is in each index of winning combination
