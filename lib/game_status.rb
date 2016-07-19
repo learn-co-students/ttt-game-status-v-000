@@ -41,7 +41,6 @@ def winner(board)
     return "X"
   elsif board[WIN_COMBINATIONS] == "O"
     return "O"
-    end
   end
 end
 
@@ -52,5 +51,4 @@ win_index.all?{|index| board[index] == "X"} || win_index.all?{|index| board[inde
   return win_index
 else
   false
-end
 end
