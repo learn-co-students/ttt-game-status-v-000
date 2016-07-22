@@ -17,38 +17,52 @@ WIN_COMBINATIONS = [
 
 #full? method
 def full?(board)
-!board.include?(" ")
+  if !board.include?(" ")
+    true
+  else
+    false
   end
+end
 
 #draw? method
-def draw(board)
-  !won?(board) && full?(board)
+def draw?(board)
+  if !won?(board) && full?(board)
     true
-  !won?(board) && !full(board) || won?(board)
+  else
+     !won?(board) && !full?(board) || won?(board)
     false
+  end
 end
 
 #over? method
 def over?(board)
   if won?(board) || draw?(board) || full?(board)
     true
-    end
+  else
+    false
+  end
 end
 
 #winner? method
 def winner(board)
-  if board[WIN_COMBINATIONS] == "X"
-    return "X"
-  elsif board[WIN_COMBINATIONS] == "O"
-    return "O"
-  end
+    if won?(board) && board == X
+    		Return X
+    elsif won?(board) && board  == O
+    		Return O
+      else
+  	 nil
+   end
+ end
 end
 
 #won method
 def won?(board)
-WIN_COMBINATIONS.each{|win_index|}
-win_index.all?{|index| board[index] == "X"} || win_index.all?{|index| board[index] == "O"}
-  return win_index
-else
-  false
+  WIN_COMBINATIONS.each do |win_index|
+    if win_index.all?{|index| board[index] == "X"} || win_index.all?{|index| board[index] == "O"}
+      return win_index
+    else
+      win_index.all?{|index| board[index] == " "}
+    end
+  end
+  nil
 end
