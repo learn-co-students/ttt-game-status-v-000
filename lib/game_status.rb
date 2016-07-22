@@ -53,7 +53,6 @@ def winner(board)
   	 nil
    end
  end
-end
 
 #won method
 def won?(board)
