@@ -45,9 +45,9 @@ end
 
 #winner? method
 def winner(board)
-    if won?(board) && board == X
+    if won?(board) && board == "X"
     		Return X
-    elsif won?(board) && board  == O
+    elsif won?(board) && board  == "O"
     		Return O
       else
   	 nil
