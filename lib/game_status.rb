@@ -12,7 +12,7 @@ WIN_COMBINATIONS =
 
 def won?(board)
 
-  WIN_COMBINATIONS.each do |win_combination|
+  if WIN_COMBINATIONS.each do |win_combination|
     win_index_1 = win_combination[0]
     win_index_2 = win_combination[1]
     win_index_3 = win_combination[2]
@@ -25,18 +25,41 @@ def won?(board)
         return win_combination
       elsif position_1 == "O" && position_2 == "O" && position_3 =="O"
         return win_combination
-      else
-        return false
       end
+  end
+  else
+    false
   end
 end
 
 def full?(board)
   board.all? do |i|
     if i == "X" || i == "O"
-      return true
+     true
     else
-      return false
+     false
     end
+  end
+end
+
+def draw?(board)
+   if !(won?(board)) && full?(board)
+     true
+   else
+     false
+   end
+end
+
+def over?(board)
+  if won?(board) || full?(board) || draw?(board)
+    true
+  else
+    false
+  end
+end
+
+def winner(board)
+  if won?(board)
+    board[won?(board)[0]]
   end
 end
