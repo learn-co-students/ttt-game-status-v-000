@@ -38,7 +38,9 @@ end
 #define a method accepts a board and return if every
 #element in the board contains either an  "X" or an "O"
 def full?(board)
-   board.all? {|x| x != " "}
+   board.all? do |index|
+     index != " "
+   end
 end
 
 #define a method accepts a board and returns true if
