@@ -29,7 +29,7 @@ def won?(board)
      if token1 == "X" && token2 == "X" && token3 == "X"
        win_combo = win_combination
         elsif token1 == "O" && token2 == "O" && token3 == "O"
-        win_combo = win_combination
+            win_combo = win_combination
         end
      end
    win_combo
