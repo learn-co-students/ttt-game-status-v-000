@@ -38,19 +38,20 @@ end
 #define a method accepts a board and return if every
 #element in the board contains either an  "X" or an "O"
 def full?(board)
-   board.all? do |index|
+   board.all? do|index|
      index != " "
    end
 end
 
 #define a method accepts a board and returns true if
-#if the board has not been won and is full and
+#if the board has not been won and is full
+#and
 #false if the board is not and the board is not full,
 #and false if the board is won.
 def draw?(board)
-   if won?board == nil && full?(board)  == true
-      return false
-   end
+   if !won?(board) && full?(board)
+    return true
+     end
 end
 
 #define a method accepts a board and returns true
@@ -60,6 +61,7 @@ def over?(board)
      return true
    end
 end
+
 
 
 #define a method accepts a board and return the token,"X" or "O" that has won
