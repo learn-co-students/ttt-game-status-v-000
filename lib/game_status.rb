@@ -21,5 +21,23 @@ def won?(board)
 end
 
 def full?(board)
-  board.include?(" ")
+  !board.include?(" ")
+end
+
+def draw?(board)
+  !won?(board) && full?(board)
+end
+
+def over?(board)
+  won?(board) || draw?(board) || full?(board)
+end
+
+def winner(board)
+  if !won?(board)
+    return nil
+  elsif board[won?(board)[0]] == "X"
+    "X"
+  elsif board[won?(board)[0]] == "O"
+    "O"
+  end
 end
