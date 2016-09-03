@@ -38,16 +38,8 @@ end
 #accepts a board and returns true if the board has not been won and is full and false if the board is not won and the board is not full,
 #and false if the board is won. You should be able to compose this method solely using the methods you used above with some ruby logic
 def draw?(board)
-  if won?(board)!= true && full?(board)
+  if !won?(board) && full?(board)
     true
-  elsif won?(board) WIN_COMBINATIONS.find {|elem|
-    position_1 = board[win[0]]
-    position_2 = board[win[1]]
-    position_3 = board[win[2]]
-    if position_1 == "X" && position_2 == "X" && position_3 == "X"
-      return false
-    end
-    }
   else
     false
   end
@@ -57,4 +49,25 @@ def full?(board) #defines the full? method w/board array
   board.all? { |elem| # iterate through ALL of the board array
     elem == "X"  || elem == "O" || elem != " "#value is comparable to X OR O OR is not empty
   }
+end
+
+def over?(board)
+    if !won?(board) && full?(board) || won?(board)
+      true
+    else
+      false
+    end
+end
+
+def winner(board)
+  win = won?(board) #sets variable to return value
+  position_1 = board[win[0]]
+  #binding.pry
+  #win[0][0].select{ |i| i.is_X?(String) }
+  #binding.pry
+  if position_1 == "X"
+    return "X"
+  else position_1 == "O"
+    return "O"
+  end
 end
