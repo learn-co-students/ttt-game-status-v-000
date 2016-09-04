@@ -61,13 +61,18 @@ end
 
 def winner(board)
   win = won?(board) #sets variable to return value
+  return if win.nil?
   position_1 = board[win[0]]
+  position_2 = board[win[1]]
+  position_3 = board[win[2]]
   #binding.pry
   #win[0][0].select{ |i| i.is_X?(String) }
   #binding.pry
   if position_1 == "X"
     return "X"
-  else position_1 == "O"
+  elsif position_1 == "O"
     return "O"
+  else
+    false
   end
 end
