@@ -38,8 +38,15 @@ def draw?(board)
 end
 
 def over?(board)
-  binding.pry
-  if full?(board) == true && draw?(board)== true && won?(board) != nil
+  #binding.pry
+  if full?(board) == true && draw?(board)== true || won?(board) != nil
     return true
   end
 end
+
+def winner(board)
+  if won?(board) == WIN_COMBINATIONS[] && WIN_COMBINATIONS[]=="X"
+    return "X"
+  else return "O"
+    end
+  end
