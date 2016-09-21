@@ -45,8 +45,15 @@ def over?(board)
 end
 
 def winner(board)
-  if won?(board) == WIN_COMBINATIONS[] && WIN_COMBINATIONS[]=="X"
+#binding.pry
+won?(board)
+  winning_array_1=won?(board)[0]
+  winning_array_2=won?(board)[1]
+  winning_array_3=won?(board)[2]
+  if board[winning_array_1] == "X" && board[winning_array_2] == "X" && board[winning_array_3] == "X"
     return "X"
-  else return "O"
+  elsif board[winning_array_1] == "O" && board[winning_array_2] == "O" && board[winning_array_3] == "O"
+    return "O"
+  else nil
     end
   end
