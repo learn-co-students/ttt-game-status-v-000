@@ -26,7 +26,6 @@ end
 
 
 def full?(board)
-  #Why am I so proud of myself for making it recursive..? lol
   if board.size == 0
     return true
   elsif !position_taken?(board,0)
