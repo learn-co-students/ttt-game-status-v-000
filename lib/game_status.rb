@@ -1,8 +1,11 @@
+require 'pry'
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
-# Define your WIN_COMBINATIONS constant
+
+
+#WIN_COMBINATIONS constant
 
 WIN_COMBINATIONS = [
   [0,1,2],
@@ -15,17 +18,28 @@ WIN_COMBINATIONS = [
   [6,4,2]
 ]
 
+#Methods
 def won?(board)
-   WIN_COMBINATIONS.any? do |win_index|
-     win_index.any? do |win_combination|
-    if win_combination != board
-      false
-    else WIN_COMBINATIONS.select do |win_combination|
-      if board == win_combination
-        win_combination.to_a
-          end
-        end
-      end
-    end
+  WIN_COMBINATIONS.detect do |win_index|
+    board[win_index[0]] == board[win_index[1]] && board[win_index[1]] == board[win_index[2]] && position_taken?(board, win_index[0])
+  end
+end
+
+def full?(board)
+  board.all? do |board_index|
+    board_index == "X" || board_index == "O"
+  end
+end
+
+def draw?(board)
+  if won?(board)==nil && full?(board) == true
+    return true
+  end
+end
+
+def over?(board)
+  binding.pry
+  if full?(board) == true && draw?(board)== true && won?(board) != nil
+    return true
   end
 end
