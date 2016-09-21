@@ -15,17 +15,14 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  win = WIN_COMBINATIONS.detect do |combo|
+  WIN_COMBINATIONS.detect do |combo|
     combo.all? {|c| position_taken?(board, c) && board[c] == board[combo[0]] }
   end
-  if win && win.size > 0
-    return win
-  end
-  return false
 end
 
 
 def full?(board)
+  #sorry I couldn't resist doing the recursion thing..
   if board.size == 0
     return true
   elsif !position_taken?(board,0)
@@ -38,11 +35,11 @@ end
 
 
 def draw?(board)
-  return !won?(board) && full?(board)
+  !won?(board) && full?(board)
 end
 
 def over?(board)
-  return full?(board)
+  full?(board)
 end
 
 def winner(board)
