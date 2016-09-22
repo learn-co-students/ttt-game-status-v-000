@@ -47,13 +47,12 @@ end
 def winner(board)
 #binding.pry
 won?(board)
-  winning_array_1=won?(board)[0]
-  winning_array_2=won?(board)[1]
-  winning_array_3=won?(board)[2]
-  if board[winning_array_1] == "X" && board[winning_array_2] == "X" && board[winning_array_3] == "X"
-    return "X"
-  elsif board[winning_array_1] == "O" && board[winning_array_2] == "O" && board[winning_array_3] == "O"
-    return "O"
-  else nil
-    end
+if won?(board) != nil
+board[won?(board)[0]]
+end
+  #if board(won?(board)[0]) == "X" && board(won?(board)[1]) == "X" && board(won?(board)[2]) == "X"
+    #return "X"
+  #elsif board(won?(board)[0]) == "O" && board([won?(board)[1]) == "O" && board(won?(board)[2]) == "O"
+    #return "O"
+    #end
   end
