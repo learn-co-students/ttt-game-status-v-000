@@ -1,3 +1,5 @@
+require 'pry'
+
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
@@ -27,6 +29,7 @@ def won?(board)
 
     if (position_1 == 'X' && position_2 == 'X' && position_3 == 'X') ||
       (position_1 == 'O' && position_2 == 'O' && position_3 == 'O')
+      win = true
       return win_combination
     end
   end
@@ -68,8 +71,14 @@ def over?(board)
 end
 
 def winner(board)
-  if (full?(board) == true && won?(board) != false)
+  if (won?(board))
     win_combo = won?(board)
-    return board[win_combo[0]]
+
+    if(board[win_combo[0]] == 'X')
+      return 'X'
+    elsif(board[win_combo[0]] == 'O')
+      return 'O'
+    else return nil
+    end
   end
 end
