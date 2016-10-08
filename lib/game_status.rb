@@ -29,11 +29,10 @@ def won?(board)
       return win_combination
     elsif board[win_index_0] == "O" && board[win_index_1] == "O" && board[win_index_2] == "O"
       return win_combination
-    elsif board.all? { |i| i == " " }
+        elsif board.all? { |i| i == " " }
       return false
-    elsif board.all? { |i| i != " " }
-      return false
-    else
+    
+        else
       next
     end
   end
@@ -50,10 +49,13 @@ def full?(board)
 end
 
 def draw?(board)
-  full?(board) && !won?(board)
+  if full?(board) && !won?(board)
+    true
+  else !won?(board) && !full?
+  false
+end
 end
 
-    
 def over?(board)
   board.each do |x|
      if x == ' '
