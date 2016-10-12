@@ -20,8 +20,8 @@ WIN_COMBINATIONS = [
 #  puts " #o |   | #o "
 #end
 
-def won?(board)
-  WIN_COMBINATIONS.detect do |pos_nes|
+#def won?(board)
+#  WIN_COMBINATIONS.detect do |pos_nes|
     #board = ["", "", "X", "", "X", "", "X", "", ""]
 
     def won?(board)
@@ -38,10 +38,10 @@ def won?(board)
   #  position_3 = board[pos_nes] # load the value of the board at win_index_3 = X
 
   #  if win_index_1 == "X" && win_index_2 == "X" && win_index_3 == "X"
-      return true
+      #return true
        # return the win_combination indexes that won.
-    else
-      false
-    end
-  end
-end
+    #else
+      #false
+  #  end
+#  end
+#end
