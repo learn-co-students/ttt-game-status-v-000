@@ -2,14 +2,14 @@
 
 
 WIN_COMBINATIONS = [
- [0, 1, 2],
- [0, 3, 6],
- [0, 4, 8],
- [1, 4, 7],
- [2, 4, 6],
- [2, 5, 8],
- [3, 4, 5],
- [6, 7, 8]
+ [0,1,2],
+ [0,3,6],
+ [0,4,8],
+ [1,4,7],
+ [2,4,6],
+ [2,5,8],
+ [3,4,5],
+ [6,7,8]
 ]
 
 #def display_board(cell)
@@ -32,7 +32,8 @@ def won?(board)
   #  position_3 = board[pos_nes] # load the value of the board at win_index_3 = X
 
     if win_index_1 == "X" && win_index_2 == "X" && win_index_3 == "X"
-      return pos_nes # return the win_combination indexes that won.
+      return true
+       # return the win_combination indexes that won.
     else
       false
     end
