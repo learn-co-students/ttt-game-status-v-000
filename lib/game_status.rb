@@ -26,7 +26,7 @@ WIN_COMBINATIONS = [
 
     def full?(board)
       board.select do |pos|
-      if x == "X" || x == "O"
+      if pos == "X" || pos == "O"
       true
       end
     end
