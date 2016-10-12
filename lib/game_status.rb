@@ -1,6 +1,3 @@
-# Helper Method
-
-
 WIN_COMBINATIONS = [
  [0,1,2],
  [0,3,6],
@@ -20,14 +17,21 @@ WIN_COMBINATIONS = [
 #  puts " #o |   | #o "
 #end
 
-#def won?(board)
-#  WIN_COMBINATIONS.detect do |pos_nes|
-    #board = ["", "", "X", "", "X", "", "X", "", ""]
+
     def won?(board)
       WIN_COMBINATIONS.detect do |combo|
         (board[combo[0]] == "X" && board[combo[1]] == "X" && board[combo[2]] == "X") || (board[combo[0]] == "O" && board[combo[1]] == "O" && board[combo[2]] == "O")
       end
     end
+
+    def full?(board)
+      board.select do |pos|
+      if x == "X" || x == "O"
+      true
+      end
+    end
+  end
+
   #  win_index_1 = pos_nes[0] #pos_nes[0] = 2, so win_index_1 = 2
   #  win_index_2 = pos_nes[1] #pos_nes[1] = 4, so win_index_2 = 4
 #    win_index_3 = pos_nes[2] #pos_nes[2] = 6, so win_index_3 = 6
