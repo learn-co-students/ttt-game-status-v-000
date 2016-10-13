@@ -9,42 +9,46 @@ WIN_COMBINATIONS = [
  [6,7,8]
 ]
 
-#def display_board(cell)
-#  puts " #x | #x | #x "
-#  puts "-----------"
-#  puts " #x| #o | #x "
-#  puts "-----------"
-#  puts " #o |   | #o "
-#end
-
-
     def won?(board)
       WIN_COMBINATIONS.detect do |combo|
         (board[combo[0]] == "X" && board[combo[1]] == "X" && board[combo[2]] == "X") || (board[combo[0]] == "O" && board[combo[1]] == "O" && board[combo[2]] == "O")
       end
-    end
+          end
+
 
     def full?(board)
-      board.select do |pos|
+      board.all? do |pos|
       if pos == "X" || pos == "O"
-      true
+true
       end
     end
   end
 
-  #  win_index_1 = pos_nes[0] #pos_nes[0] = 2, so win_index_1 = 2
-  #  win_index_2 = pos_nes[1] #pos_nes[1] = 4, so win_index_2 = 4
-#    win_index_3 = pos_nes[2] #pos_nes[2] = 6, so win_index_3 = 6
+def draw?(board)
+  !won?(board) && full?(board)
+end
 
-  #  position_1 = board[pos_nes] # load the value of the board at win_index_1 = X
-  #  position_2 = board[pos_nes] # load the value of the board at win_index_2 = X
-  #  position_3 = board[pos_nes] # load the value of the board at win_index_3 = X
+def over?(board)
+  won?(board) || draw?(board) || full?(board)
+end
 
-  #  if win_index_1 == "X" && win_index_2 == "X" && win_index_3 == "X"
-      #return true
-       # return the win_combination indexes that won.
-    #else
-      #false
-  #  end
+def winner(board)
+  winning_combo = won?(board)
+if !winning_combo
+  return nil
+elsif (board[winning_combo[0]] == "X" && board[winning_combo[1]] == "X" && board[winning_combo[2]] == "X")
+    return "X"
+  else (board[winning_combo[0]] == "O" && board[winning_combo[1]] == "O" && board[winning_combo[2]] == "O")
+      return "O"
+end
+end
+
+
+#def winner(board)
+#  winning_combo = won?(board)
+#  if winning_combo
+#    board[winning_combo[0]]
+#  else
+#    nil
 #  end
 #end
