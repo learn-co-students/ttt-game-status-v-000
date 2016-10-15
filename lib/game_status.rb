@@ -1,3 +1,5 @@
+require 'pry'
+
 WIN_COMBINATIONS = [
  [0,1,2],
  [0,3,6],
@@ -15,11 +17,10 @@ WIN_COMBINATIONS = [
       end
           end
 
-
     def full?(board)
       board.all? do |pos|
-      if pos == "X" || pos == "O"
-true
+    if pos == "X" || pos == "O"
+        true
       end
     end
   end
@@ -33,16 +34,24 @@ def over?(board)
 end
 
 def winner(board)
-  winning_combo = won?(board)
-if !winning_combo
-  return nil
-elsif (board[winning_combo[0]] == "X" && board[winning_combo[1]] == "X" && board[winning_combo[2]] == "X")
-    return "X"
-  else (board[winning_combo[0]] == "O" && board[winning_combo[1]] == "O" && board[winning_combo[2]] == "O")
-      return "O"
-end
+ winning_combo = won?(board)
+ if winning_combo
+   return board[winning_combo[0]]
+ else
+  nil
+ end
 end
 
+# def winner(board)
+#   winning_combo = won?(board)
+# if (board[winning_combo[0]] == "X" && board[winning_combo[1]] == "X" && board[winning_combo[2]] == "X")
+#     return "X"
+#   elsif (board[winning_combo[0]] == "O" && board[winning_combo[1]] == "O" && board[winning_combo[2]] == "O")
+#       return "O"
+# else
+#    nil
+# end
+# end
 
 #def winner(board)
 #  winning_combo = won?(board)
