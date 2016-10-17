@@ -55,8 +55,8 @@ def full?(board)
   end
 
 def winner(board)
-  win_combo = won?(board)
   if won?(board)
+    win_combo = won?(board)
   return board[win_combo[0]]
   end
 end
