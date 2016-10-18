@@ -45,9 +45,9 @@ def over?(board)
 end
 
 def winner(board)
-  variable = won?(board)
-  if variable
-    return board[wincombo[0]]
+  winning_array = won?(board)
+  if won?(board)
+    return board[winning_array[0]]
   else
     return nil
   end
