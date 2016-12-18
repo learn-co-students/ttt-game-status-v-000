@@ -23,7 +23,7 @@ def won?(board) #--> want to use a method that returns true or false. .each does
   board[combo[0]] == board[combo[1]] &&
   board[combo[0]] == board[combo[2]] &&
   board[combo[1]] == board[combo[2]]
-
+position_taken?(board, index)
 
   end
 false
