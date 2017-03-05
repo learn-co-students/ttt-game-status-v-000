@@ -34,15 +34,16 @@ def full?(board)
 end
 
 def draw?(board)
-  full?(board) && won?(board) == false
+  full?(board) && !won?(board)
 end
 
 def over?(board)
-  won?(board).class == Array || draw?(board) == true || full?(board) == true
+  # won?(board).class == Array || draw?(board) == true || full?(board) == true
+  won?(board) || full?(board)
 end
 
 def winner(board)
   won_by = won?(board)
 
-  board[won_by[0]] if won_by.class == Array
+  board[won_by[0]] if won_by
 end
