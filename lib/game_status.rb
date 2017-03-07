@@ -20,3 +20,7 @@ def won?(board)
       board[combination[0]] == board[combination[1]] && board[combination[1]] == board[combination[2]] && position_taken?(board,combination[0])
   end   #end for win combination
 end #end for method
+
+def full?(board)
+  board.none? {|space| space == " "}
+end
