@@ -13,6 +13,7 @@ WIN_COMBINATIONS = [
   [0,4,8], #Diagonal left-to-right
   [6,4,2]  #Diagonal right-to-left
 ]
+# Define won?, full?, draw?, over?, and winner below
 def won?(board)
   won = false
   WIN_COMBINATIONS.each do |combination|
@@ -41,15 +42,7 @@ def full?(board)
 end
 
 def draw?(board)
-  if full?(board) == true && won?(board) == false
-    return true
-  elsif full?(board) == true && won?(board) == true
-    return false
-  elsif full?(board) == false && won?(board) == true
-    return false
-  elsif full?(board) == false && won?(board) == false
-    return false
-  end
+  full?(board) && !won?(board)
 end
 
 def over?(board)
