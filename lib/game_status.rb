@@ -23,15 +23,33 @@ def won?(board)
 end #end for method
 
 def full?(board)
-  board.none? {|space| space == " "} # this asks if there are any spaces on the board and returns true if full and false if there are spaces
+  # this asks if there are any spaces on the board and returns true if full and false if there are spaces
+  board.none? {|space| space == " "}
 end
 
 def draw?(board)
     #  returns true if the board has not been won and is full
-  if full?(board) == true && won?(board) == false
+  if !won?(board) && full?(board)
     return true
     # and false if the board is not won and the board is not full, and false if the board is won.
-  else won?(board) == false && full?(board) == false  && won?(board) == false
+  else
     return false
   end
+end
+
+def over?(board)
+  #returns true if the board has been won, is a draw, or is full.
+  if won?(board) || draw?(board) || full?(board)
+    return true
+  else
+    return false
+  end
+end
+
+def winner(board)
+  #return the token, "X" or "O" that has won the game given a winning board.
+  
+
+
+
 end
