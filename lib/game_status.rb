@@ -37,6 +37,7 @@ def draw?(board)
   end
 end
 
+
 def over?(board)
   #returns true if the board has been won, is a draw, or is full.
   if won?(board) || draw?(board) || full?(board)
@@ -47,9 +48,11 @@ def over?(board)
 end
 
 def winner(board)
-  #return the token, "X" or "O" that has won the game given a winning board.
-  
-
-
-
+  #return the token, "X" or "O" that has won the game given a winning board,returns nil when no winner.
+  combination = won?(board)
+  if combination == nil
+    return nil
+  else
+  return board[combination [0]]
+end
 end
