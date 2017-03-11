@@ -25,11 +25,6 @@ def move (index, current_player = "X")
   board[index] = current_player
 end
 
-def won_board
-  puts "#{board[0]} | #{board[1]} | #{board}[2]}"
-  puts "-----------"
-
-end
 =begin
 
 
