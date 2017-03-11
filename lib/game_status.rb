@@ -25,9 +25,22 @@ def move (index, current_player = "X")
   board[index] = current_player
 end
 
+def won?(board)
+  WIN_COMBINATIONS.detect do |combo|
+    board[combo[0]] == board[combo[1]] &&
+    board[combo[1]] == board[combo[2]] &&
+    position_taken?(board, combo[0])
+  end
+end
+
+def full?(board)
+  board.all?{|token| token == "X" || token == "O"}
+end
+
+def draw?(board)
+  full?(board) && !won?(board)
+end
 =begin
-
-
 [" ", " ", " "], Top
 [" ", " ", " "], Middle
 [" ", " ", " "]; Bottom
@@ -57,13 +70,6 @@ Bottom
 [" ", " ", " "], Top
 [" ", " ", " "], Middle
 ["6", "7", "8"]; Bottom
-
-Left
-["0", " ", " "], Top
-["3", " ", " "], Middle
-["6", " ", " "] Bottom
-
-
 
 
 top       [0]  [1]  [2]
