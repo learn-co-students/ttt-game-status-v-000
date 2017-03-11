@@ -40,11 +40,21 @@ end
 def draw?(board)
   full?(board) && !won?(board)
 end
+
+def over?(board)
+  won?(board) || full?(board)
+end
+
+def winner(board)
+  if winning_combo = won?(board)
+    board[winning_combo.first]
+  end
+end
+
 =begin
 [" ", " ", " "], Top
 [" ", " ", " "], Middle
 [" ", " ", " "]; Bottom
-
 
 board array example
 ["0", "1", "2"], Top
@@ -61,43 +71,18 @@ Middle
 [" ", "4", " "], Middle
 [" ", "7", " "]; Bottom
 
-Left
-["0", " ", " "], Top
-["3", " ", " "], Middle
-["6", " ", " "] Bottom
-
 Bottom
 [" ", " ", " "], Top
 [" ", " ", " "], Middle
 ["6", "7", "8"]; Bottom
 
+Crossing
+["0", " ", " "], Top
+[" ", "4", " "], Middle
+[" ", " ", "8"] Bottom
 
-top       [0]  [1]  [2]
-board = ["X", "X", "X", " ", " ", " ", " ", " ", " ",]
-
-Middle                   [3] [4]  [5]
-board = [" ", " ", " ", "X", "X", "X", " ", " ", " ",]
-
-Bottom                                  [6]  [7]  [8]
-board = [" ", " ", " ", " ", " ", " ", "X", "X", "X",]
-
-Left Vertical
-         [0]            [3]            [6]
-board = ["X", " ", " ", "X", " ", " ", "X", " ", " ",]
-
-Middle Vertical
-               [1]            [4]            [7]
-board = [" ", "X", " ", " ", "X", " ", " ", "X", " ",]
-
-Right Vertical
-                   [2]            [5]             [8]
-board = [" ", " ", "X", " ", " ", "X", " ", " ", "X",]
-
-Crossing left to right
-         [0]                 [4]                  [8]
-board = ["X", " ", " ", " ", "X", " ", " ", " ", "X",]
-
-Crossing right to left
-                   [2]        [4]       [6]
-board = [" ", " ", "X", " ", "X", " ", "X", " ", " ",]
+Crossing
+[" ", " ", "2"], Top
+[" ", "4", " "], Middle
+["6", " ", " "] Bottom
 =end
