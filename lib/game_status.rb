@@ -15,6 +15,9 @@ WIN_COMBINATIONS = [
   [2,4,6]
 ]
 
+=begin
+#my solution
+
 def won?(board)
   winning_x_combination = []
   winning_o_combination = []
@@ -47,27 +50,53 @@ def won?(board)
   end
 end
 
+=end
+
+#better solution
+def won?(board)
+  #detect returns first element matching the criteria (here - a winning combination)
+  #If the first winning board index (win_combination[0) matches the second and third, and the position is taken, then returns that win_combination
+  WIN_COMBINATIONS.detect do |win_combination|
+    board[win_combination[0]] == board[win_combination[1]] &&
+    board[win_combination[1]] == board[win_combination[2]] &&
+    position_taken?(board, win_combination[0])
+  end
+end
+
 def full?(board)
   board.all? {|position| position == "X" || position == "O"}
 end
 
 def draw?(board)
-  if full?(board) == true && won?(board) == false
-    true
-  end
+  #if full?(board) == true && won?(board) == false
+    #true
+  #end
+  #better:
+  full?(board) && !won?(board)
 end
 
 def over?(board)
-  if full?(board) == true || won?(board) == true || draw?(board) == true
-    true
-  end
+  #if full?(board) == true || won?(board) == true || draw?(board) == true
+    #true
+  #end
+  #better:
+  full?(board) || won?(board) #don't need draw?(board) here, bec. draw?(board) true means full and not won
 end
 
 def winner(board)
-  if won?(board) != false
+  if won?(board) #!= false - don't need this: seems to test for if it's anything but false
     winning_combination = won?(board)
     return board[winning_combination[0]]
   else
     nil
   end
 end
+
+=begin
+#suggested solution
+def winner(board)
+  if winning_combo = won?(board) #seems you can define a variable as part of a condition in Ruby
+    board[winning_combo.first]
+  end
+end
+=end
