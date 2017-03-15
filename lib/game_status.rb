@@ -49,12 +49,6 @@ def over?(board)
 end
 
 def winner(board)
-  WIN_COMBINATIONS.each do |wincombo|
-    if (board[wincombo[0]]) == "X" && (board[wincombo[1]]) == "X" && (board[wincombo[2]]) == "X"
-      return "X"
-    elsif (board[wincombo[0]]) == "O" && (board[wincombo[1]]) == "O" && (board[wincombo[2]]) == "O"
-      return "O"
-    end
-  end
+  WIN_COMBINATIONS.each{|winner| (board[winner[0],[1],[2]] == "X" || (board[winner[0],[1],[2]]) == "O"}
   nil
 end
