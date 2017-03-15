@@ -1,5 +1,6 @@
 
-# Define your WIN_COMBINATIONS constant
+#require 'pry'
+
 WIN_COMBINATIONS = [
   [0,1,2],
   [3,4,5],
@@ -40,11 +41,17 @@ def over?(board) #done
 end
 
 def winner(board)
-  if !won?(board)
-    return nil
-  elsif board[won?(board)[0]] == "O"
-    return "O"
-  elsif board[won?(board)[0]] == "X"
-    return "X"
+  #binding.pry
+  if winning_array = won?(board)
+      board[winning_array[0]]
   end
 end
+#def winner(board)
+#  binding.pry
+#    nil
+#  elsif board[won?(board)[0]] == "O"
+#    "O"
+#  elsif board[won?(board)[0]] == "X"
+#    "X"
+#  end
+#end
