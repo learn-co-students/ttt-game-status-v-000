@@ -14,9 +14,12 @@ WIN_COMBINATIONS = [
 [2,4,6]#2 across
 
 ]
+def full?(board)
+  board.all? {|i| i == "X" || i == "O"}
+end
 
 def won?(board)
-  WIN_COMBINATIONS.select do |win_combination|
+  WIN_COMBINATIONS.detect do |win_combination| # full / detect finds an element based on a condition or returns false for nothing found.
     win_index_1 = win_combination[0]
     win_index_2 = win_combination[1]
     win_index_3 = win_combination[2]
@@ -25,10 +28,23 @@ def won?(board)
     position_2 = board[win_index_2]
     position_3 = board[win_index_3]
 
-    if position_1 == "X" && position_2 == "X" && position_3 == "X"
-      win_combination
-    else
-      false
+    if position_1 == position_2 && position_2 == position_3 && position_1 != " "
+      win_combination # if this is soft returns (without the return keyword) detect will return this.
     end
+  end
+end
+
+def draw?(board)
+  !won?(board) && full?(board)# draw in a game of tictactoe happens when the board is full and no one has won
+  # !false evaluates to true, ! stands for not
+end
+
+def over?(board)
+  draw?(board) || won?(board) # a game is over when theres either a draw OR someone has won
+end
+
+def winner(board)
+  if win_combo = won?(board) # what won?(board) returns array of 3 indexes. ex [0,1,2]
+    board[win_combo[1]]
   end
 end
