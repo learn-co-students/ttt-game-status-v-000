@@ -28,8 +28,8 @@ Tic Tac Toe has 8 possible ways to win: 3 horizontal rows, 3 vertical columns, a
    |   |   
 -----------
    |   |   
-```
 
+   ```
 You could represent that as the indexes of the board `[0,1,2]`.
 
 ```ruby
