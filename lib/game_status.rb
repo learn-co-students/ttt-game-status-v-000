@@ -28,11 +28,13 @@ WIN_COMBINATIONS = [
   end
 
   def draw?(board)
-  !won?(board) && board.all?{|token| token == "X" || token == "O"}
+  #!won?(board) && board.all?{|token| token == "X" || token == "O"}
+  full?(board) && !won?(board)
   end
 
-  def over?(board)
-  draw?(board) || won?(board) && board.all?{|token| token == "X" || token == "O"}
+  def over?(board)#return true for a draw and for a won game / return false for an in-progress game
+  #draw?(board) || won?(board) && board.all?{|token| token == "X" || token == "O"}
+  won?(board) || full?(board)
 end
 
 def winner(board)
