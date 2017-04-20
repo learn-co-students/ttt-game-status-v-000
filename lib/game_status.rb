@@ -1,4 +1,5 @@
 # Helper Method
+require "pry"
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
@@ -17,59 +18,38 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-WIN_COMBINATIONS.each do |win_combination|
-  win_combination.each do |win_index|
-    win_index_1 = win_combination[0]
-    win_index_2 = win_combination[1]
-    win_index_3 = win_combination[2]
-    win_index_4 = win_combination[3]
-    win_index_5 = win_combination[4]
-    win_index_6 = win_combination[5]
-    win_index_7 = win_combination[6]
-    win_index_8 = win_combination[7]
-    position_1 = board[win_index_1]
-    position_2 = board[win_index_2]
-    position_3 = board[win_index_3]
-    position_4 = board[win_index_4]
-    position_5 = board[win_index_5]
-    position_6 = board[win_index_6]
-    position_7 = board[win_index_7]
-    position_8 = board[win_index_8]
-   if position_1 == "X" && position_2 == "X" && position_3 == "X"
-     return win_combination[0] # return the win_combination indexes that won.
-   elsif position_1 == "X" && position_2 == "X" && position_3 == "X"
-     return win_combination[1]
-   elsif position_1 == "X" && position_2 == "X" && position_3 == "X"
-     return win_combination[2]
-   elsif position_1 == "X" && position_2 == "X" && position_3 == "X"
-     return win_combination[3]
-   elsif position_1 == "X" && position_2 == "X" && position_3 == "X"
-     return win_combination[4]
-   elsif position_1 == "X" && position_2 == "X" && position_3 == "X"
-     return win_combination[5]
-   elsif position_1 == "X" && position_2 == "X" && position_3 == "X"
-     return win_combination[6]
-   elsif position_1 == "X" && position_2 == "X" && position_3 == "X"
-     return win_combination[7]
-   else
-     false
-   end
+WIN_COMBINATIONS.detect do |win_combination|
+
+board[win_combination[0]] == board[win_combination[1]] && board[win_combination[1]] == board[win_combination[2]] && position_taken?(board, win_combination[0])
+#binding.pry
+#  win_combination.select do |win_index|
+  #  top_row_win_1 = win_index[0][0]
+  #  top_row_win_2 = win_index[0][1]
+  #  top_row_win_3 = win_index[0][2]
+  #  middle_row_win_1 = win_index[1][0]
+
+  #  if board[top_row_win_1] == "X" && board[top_row_win_2] == "X" && board[top_row_win_3] == "X"
+  #    return win_combination[0]
+   #
+  #  else
+  #    false
+  #  end
   end
 end
 
 
-def full?
+def full?(board)
+  #board.all? do||
+end
+
+
+def draw?(board)
 
 end
 
 
-def draw?
 
-end
-
-
-
-def over?
+def over?(board)
 
 end
 
