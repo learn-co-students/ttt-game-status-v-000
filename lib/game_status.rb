@@ -22,18 +22,6 @@ WIN_COMBINATIONS.detect do |win_combination|
 
 board[win_combination[0]] == board[win_combination[1]] && board[win_combination[1]] == board[win_combination[2]] && position_taken?(board, win_combination[0])
 #binding.pry
-#  win_combination.select do |win_index|
-  #  top_row_win_1 = win_index[0][0]
-  #  top_row_win_2 = win_index[0][1]
-  #  top_row_win_3 = win_index[0][2]
-  #  middle_row_win_1 = win_index[1][0]
-
-  #  if board[top_row_win_1] == "X" && board[top_row_win_2] == "X" && board[top_row_win_3] == "X"
-  #    return win_combination[0]
-   #
-  #  else
-  #    false
-  #  end
   end
 end
 
@@ -46,9 +34,7 @@ end
 
 
 def draw?(board)
-  board.all? do|index|
-  !won?(board) || !full?(board)
-  end
+  !won?(board)
 end
 
 
