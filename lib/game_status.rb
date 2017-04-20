@@ -43,6 +43,8 @@ def over?(board)
 end
 
 def winner
+ won?(board) && over?(board)
+ return "X" || "O"
 
 end
 
