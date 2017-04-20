@@ -46,9 +46,10 @@ end
 
 
 def draw?(board)
-
+  board.all? do|index|
+  !won?(board) || !full?(board)
+  end
 end
-
 
 
 def over?(board)
