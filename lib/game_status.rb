@@ -21,7 +21,7 @@ def won?(board)
 WIN_COMBINATIONS.detect do |win_combination|
 
 board[win_combination[0]] == board[win_combination[1]] && board[win_combination[1]] == board[win_combination[2]] && position_taken?(board, win_combination[0])
-#binding.pry
+
   end
 end
 
@@ -39,16 +39,11 @@ end
 
 
 def over?(board)
-
+  !draw?(board) || won?(board) || full?(board)
 end
-
 
 def winner
 
 end
 
-
-#def WIN_COMBINATIONS(board)
-#  if board[top_row_win[0]] == "X" && board[top_row_win[1]] == "X" && board[top_row_win[2]] == "X"
-#    "X won in the top row"
-#  end
+#binding.pry
