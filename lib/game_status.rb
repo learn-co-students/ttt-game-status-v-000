@@ -1,5 +1,5 @@
 # Helper Method
-require "pry"
+#require "pry"
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
@@ -42,10 +42,14 @@ def over?(board)
   !draw?(board) || won?(board) || full?(board)
 end
 
-def winner
- won?(board) && over?(board)
- return "X" || "O"
 
+def winner(board)
+
+  if won?(board)
+    winning_index_array = won?(board) #=> [0,1,2]
+    board[winning_index_array[0]]
+  end
 end
+
 
 #binding.pry
