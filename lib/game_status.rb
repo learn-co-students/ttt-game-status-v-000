@@ -39,24 +39,26 @@ def over?(board)
 end
 end
 
-#def winner(board)
-  #if won?(board) == ["X","X","X"]
-    #return "X"
-  #elsif won?(board) == ["O","O","O"]
-    #return "O"
-  #end
-#end
-
 def winner(board)
-  WIN_COMBINATIONS.any? do |combo|
-    if board[combo[0]] == "X" && board[combo[1]] == "X" &&
-    board[combo[2]] == "X"
+  if won?(board) == ["X","X","X"]
+    binding.pry
     return "X"
-  elsif  board[combo[0]] == "O" && board[combo[1]] == "O" &&
-  board[combo[2]] == "O"
-  return "O"
+  elsif won?(board) == ["O","O","O"]
+    binding.pry
+    return "O"
   end
 end
-else
-  nil
-end
+
+# def winner(board)
+#   WIN_COMBINATIONS.any? do |combo|
+#     if board[combo[0]] == "X" && board[combo[1]] == "X" &&
+#     board[combo[2]] == "X"
+#     return "X"
+#   elsif  board[combo[0]] == "O" && board[combo[1]] == "O" &&
+#   board[combo[2]] == "O"
+#   return "O"
+#   end
+# end
+# else
+#   nil
+# end
