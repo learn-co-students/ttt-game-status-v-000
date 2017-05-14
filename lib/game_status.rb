@@ -15,15 +15,11 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  if true
     WIN_COMBINATIONS .detect do |win_combination|
       board[win_combination[0]] == board[win_combination[1]] &&
       board[win_combination[1]] == board[win_combination[2]] &&
       board[win_combination[0]] !=" "
-    end
-  else
-    false
-  end
+      position_taken?(board, win_combination)
 end
 
 def full?(board)
@@ -49,13 +45,9 @@ def over?(board)
 end
 
 def winner(board)
-  if board == ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
-    return "X"
-  elsif board == ["X", "O", " ", " ", "O", " ", " ", "O", "X"]
-    return "O"
-  else
-    nil
-  end
+  if winning_combo = won?(board)
+  board[winning_combo.first]
+end
 end
 #def won? (board)
 #position_1 = board[0]
