@@ -41,20 +41,12 @@ WINNING_COMBINATION = [
 # elseif same player is not at board[3] then is he at board[4]? if yes, at board[8]?
 # if yes win! not a winner!
 # continue this for the remaining WINNING_COMBINATIONs.
-x_position = [ true, true, true, true, true, true, true, true, true ]
-win = [ ]
-WIN_COMBINATIONS = [[0,1,2]]
-WIN_COMBINATIONS.each do |winner|
-winner.each do |winner_index|
-  puts WIN_COMBINATIONS[[winner], [winner_index]]
+
+WINNING_COMBINATION.each do |win|
+  win.each do |win_index|
+    puts win_index
   end
 end
+
 # check position board# [1] if
-# board# [3], and board# [4].
-all_odd = true
-[1,2,3].each do |number|
-  if number.even? # Will evaluate to false for 1, true for 2, false for 3
-    all_odd = false
-  end
-end
-all_odd #=> false
+# board# [3], and board# [4]. 

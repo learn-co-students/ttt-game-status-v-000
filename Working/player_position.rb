@@ -5,4 +5,6 @@
 board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 board = ["X", "X", "X", "O", "O", " ", " ", " ", " "]
 
-def 
+def player_at_position(board, index)
+
+end
