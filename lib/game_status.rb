@@ -23,7 +23,6 @@ def won?(board)
     while index < 9
       if position_taken?(board, index)
          index =+ 1
-         puts "Space #{index} taken"
       end
       break
     end
