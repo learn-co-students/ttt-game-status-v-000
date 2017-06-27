@@ -12,13 +12,13 @@ WIN_COMBINATIONS = [
 						            [6,4,2]
 																]
 
-
+# Helper Method
 def won?(board)
 	WIN_COMBINATIONS.find do |win|
 	 board[win[0]] == board[win[1]] && board[win[0]] == board[win[2]] && board[win[0]] != " "
  end
 end
-
+# Helper Method
 def position_taken?(board, index)
 	!(board[index].nil? || board[index] == " ")
 end
