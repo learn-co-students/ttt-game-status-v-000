@@ -1,5 +1,4 @@
 board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-player_at_position = [" ", " ", " "]
 # Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS = [
 						            [0,1,2],
@@ -29,13 +28,16 @@ def won?(board)
   end
 	# Helper Method
 	def winning_combination?(board)
+		player_at_position = [" ", " ", " "]
 		WIN_COMBINATIONS.each do |win|
 	  	win.each do |win_index|
 	    	player_at_position.insert(win_index, board[win_index])
 			end
+			if player_at_position[0] == "X" && player_at_position[1] == "X" && player_at_position[2] == "X"
+			else
+				nil
+			end
 		end
-		if player_at_position[0] == "X" && player_at_position[1] == "X" && player_at_position[2] == "X"
-			break
 	end
 	is_empty?(board)
 	winning_combination?(board)
