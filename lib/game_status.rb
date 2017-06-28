@@ -11,17 +11,11 @@ WIN_COMBINATIONS = [
 						            [0,4,8],
 						            [6,4,2]
 																]
-
-# Helper Method
-def won?(board)
-	WIN_COMBINATIONS.find do |win|
-	 board[win[0]] == board[win[1]] && board[win[0]] == board[win[2]] && board[win[0]] != " "
- end
-end
 # Helper Method
 def position_taken?(board, index)
 	!(board[index].nil? || board[index] == " ")
 end
+
 # Helper Method
 def is_empty?(board)
 	index = 0
@@ -31,4 +25,16 @@ def is_empty?(board)
 		end
 		break
 	end
+end
+
+# Helper Method
+def won?(board)
+	WIN_COMBINATIONS.find do |win|
+	 board[win[0]] == board[win[1]] && board[win[0]] == board[win[2]] && board[win[0]] != " "
+ end
+end
+
+# Helper Method
+def full?(board)
+	!board.include?( " " || nil )
 end
