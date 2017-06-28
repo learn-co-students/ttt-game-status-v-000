@@ -12,6 +12,16 @@ WIN_COMBINATIONS = [
 						        [0,4,8],
 						        [6,4,2]]
 # Helper Method
+def turn_count (board)
+	board.count{|token| token == "x" || token == "O"}
+end
+
+# Helper Method
+def current_player(board)
+  turn_count(board) % 2 == 0 ? "X" : "O"
+end
+
+# Helper Method
 def position_taken?(board, index)
 	!(board[index].nil? || board[index] == " ")
 end
@@ -50,12 +60,13 @@ def over?(board)
 end
 
 # Helper Method
-    # return X when X won (FAILED - 1)
-    # returns O when O won (FAILED - 2)
-    # returns nil when no winner (FAILED - 3)
+# return X when X won (FAILED - 1)
+# returns O when O won (FAILED - 2)
+# returns nil when no winner (FAILED - 3)
 def winner(board)
-	won?.find do |winner|
-		winning_player = board[winner[0]]
-		binding.pry 
+	if over?(board)
+		current_player(board)
+	else
+		nil
 	end
 end
