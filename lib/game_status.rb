@@ -13,3 +13,15 @@ WIN_COMBINATIONS = [
 [2,4,6], # Diagonal Right Corner
 [0,4,8] # Diagonal Left Corner
 ]
+
+def won? (board)
+# check board and return the winning combination indexes as an array
+# if there is a win and false/nil if no win combination
+#
+  WIN_COMBINATIONS each. do |win_combination|
+    win_combination each. do |win_index|
+
+    end
+  end
+
+end
