@@ -17,9 +17,10 @@ WIN_COMBINATIONS = [
 def won? (board)
 # check board and return the winning combination indexes as an array
 # if there is a win and false/nil if no win combination
-#
-  WIN_COMBINATIONS each. do |win_combination|
-    win_combination each. do |win_index|
+
+  WIN_COMBINATIONS.each do |win_combination|
+    win_combination.all? do |win_index|
+      if win_index == "X" || win_index == "O"
 
     end
   end
