@@ -1,5 +1,4 @@
 # Helper Method
-require 'pry'
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
@@ -53,7 +52,6 @@ def over?(board)
 end
 true
 end
-binding.pry
 def winner
  if !won?(board)
    return false
