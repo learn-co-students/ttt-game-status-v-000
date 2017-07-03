@@ -41,6 +41,9 @@ end
 
 def full?(board)
 
+board.all? do |board_index|
+  board_index != nil || board_index != " ")
+
 end
 
 def draw?(board)
