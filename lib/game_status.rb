@@ -57,5 +57,5 @@ def winner
  if !won?(board)
    return false
 end
- return board[index]
+ return WIN_COMBINATIONS[0]
 end
