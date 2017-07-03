@@ -52,9 +52,10 @@ def over?(board)
 end
 true
 end
+
 def winner
  if !won?(board)
    return false
 end
- return board[0]
+ return board[index]
 end
