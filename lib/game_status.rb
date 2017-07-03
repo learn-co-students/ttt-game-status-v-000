@@ -19,8 +19,10 @@ def won? (board)
 # if there is a win and false/nil if no win combination
 
   WIN_COMBINATIONS.each do |win_combination|
-    win_combination.all? do |win_index|
-      if win_index == "X" || win_index == "O"
+    win_combination.each do |win_index|
+      if board [win_index[0]] == "X" && board[win_index[1]] == "X" &&
+        board [win_index[2]] == "X
+
 
     end
   end
