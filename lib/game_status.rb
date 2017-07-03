@@ -14,7 +14,7 @@ WIN_COMBINATIONS = [
 [0,4,8] # Diagonal Left Corner
 ]
 
-def won? (board)
+def won?(board)
 # check board and return the winning combination indexes as an array
 # if there is a win and false/nil if no win combination
 
@@ -40,14 +40,15 @@ def won? (board)
 end
 
 def full?(board)
-
   board.all? do |board_index|
     board_index == "X" || board_index == "O"
   end
 end
 
 def draw?(board)
-
+  if full?(board) == true && won?(board) == false
+    return true
+  end
 end
 
 def over?(board)
