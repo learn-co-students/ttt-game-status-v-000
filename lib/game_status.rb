@@ -59,7 +59,7 @@ end
 
 def winner(board)
   if won?(board)
-    winner = won?(board)
+    winner = won?(board) # get return value of # #won method (win_combination)
     return board[winner[0]]
   else
     return nil
