@@ -36,8 +36,10 @@ def won?(board)
       return win_combination
 
     end
+
+    end
+      return false
   end
-end
 
 def full?(board)
   board.all? do |board_index|
