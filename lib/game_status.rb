@@ -37,9 +37,9 @@ def won?(board)
 
     end
 
-    end
-      return false
   end
+      return false
+end
 
 def full?(board)
   board.all? do |board_index|
