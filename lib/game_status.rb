@@ -60,21 +60,28 @@ def over?(board)
 end
 #returns true if the board has been won, is a draw, or is full.
 
+# def winner(board)
+#   WIN_COMBINATIONS.each do |win_combination|
+#     win_index_1 = win_combination[0]
+#     win_index_2 = win_combination[1]
+#     win_index_3 = win_combination[2]
+#
+#     position_1 = board[win_index_1]
+#     position_2 = board[win_index_2]
+#     position_3 = board[win_index_3]
+#
+#     if position_1 == "X" && position_2 == "X" && position_3 == "X"
+#       return "X"
+#     elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+#       return "O"
+#     end
+#   end
+#   nil
+# end
+
+#more eloquent, non-repetitive solution
 def winner(board)
-  WIN_COMBINATIONS.each do |win_combination|
-    win_index_1 = win_combination[0]
-    win_index_2 = win_combination[1]
-    win_index_3 = win_combination[2]
-
-    position_1 = board[win_index_1]
-    position_2 = board[win_index_2]
-    position_3 = board[win_index_3]
-
-    if position_1 == "X" && position_2 == "X" && position_3 == "X"
-      return "X"
-    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
-      return "O"
-    end
+  if winning_combo = won?(board)
+    board[winning_combo.first]
   end
-  nil
 end
