@@ -59,7 +59,7 @@ end
 def winner(board)
   # If winning_move is #won? that returns true
   if winning_move = won?(board)
-    # Then return if #winner is "X" or "O" by checking the first array in winning_move
+    # Then return if #winner is "X" or "O" by checking the first array (which is 0) in winning_move
     board[winning_move[0]]
   end
 end
