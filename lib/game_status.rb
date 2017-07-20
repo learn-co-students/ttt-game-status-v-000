@@ -58,3 +58,50 @@ def draw?(board)
    end
   end
 end
+
+def over?(board)
+  WIN_COMBINATIONS.each do |win_combination|
+
+   position_1 = board[win_combination[0]]
+   position_2 = board[win_combination[1]]
+   position_3 = board[win_combination[2]]
+
+   if position_1 == "X" && position_2 == "X" && position_3 == "X" || position_1 == "O" && position_2 == "O" && position_3 == "O"
+    return true
+  end
+end
+board.each do |position|
+ if position == "" || position == " "
+  return false
+ end
+end
+board.detect do |i|
+ if i == "X" || i == "O"
+   return true
+ end
+end
+end
+
+def winner(board)
+  WIN_COMBINATIONS.each do |win_combination|
+
+   position_1 = board[win_combination[0]]
+   position_2 = board[win_combination[1]]
+   position_3 = board[win_combination[2]]
+
+   if position_1 == "X" && position_2 == "X" && position_3 == "X"
+    return "X"
+  end
+end
+WIN_COMBINATIONS.each do |win_combination|
+
+ position_1 = board[win_combination[0]]
+ position_2 = board[win_combination[1]]
+ position_3 = board[win_combination[2]]
+
+ if position_1 == "O" && position_2 == "O" && position_3 == "O"
+  return "O"
+end
+end
+  return nil
+end
