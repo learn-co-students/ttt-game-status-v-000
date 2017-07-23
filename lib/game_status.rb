@@ -48,11 +48,19 @@ def over?(board)
   end
 end
 
+#def winner(board)
+#  win_index = won?(board)
+#  if win_index != nil
+#    return board[win_index[0]]
+#  else
+#    nil
+#  end
+#end
+
 def winner(board)
   win_index = won?(board)
   if win_index != nil
     return board[win_index[0]]
   else
-    nil
   end
 end
