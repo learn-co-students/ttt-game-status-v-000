@@ -55,7 +55,7 @@ end
 def winner(board)
   combo = won?(board)
   if combo
-    index = [combo][0][0]
+    index = combo[0]
     board[index]
   else
     return nil
