@@ -1,3 +1,4 @@
+require 'pry'
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
@@ -51,9 +52,7 @@ def over?(board)
 end
 
 def winner(board)
-  winning_combination = won?(board)
-  if won?(board)
-    winning_combination[0]
-    return "X"
+  if winning_combination = won?(board)  
+    board[winning_combination[0]]
+    end
   end
-end
