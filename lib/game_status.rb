@@ -32,6 +32,21 @@ def won?(board)
   false
 end
 
+# much more pro with detect: returns the first array.
+# covers x and o.
+# if spot 1 and 2 are equal and 2 and 3 are equal (good chaining)
+#   clutch: and they're equal and not cause they're just blanks...
+
+# SOLUTION VERSION
+
+# def won?(board)
+#   WIN_COMBINATIONS.detect do |combo|
+#     board[combo[0]] == board[combo[1]] &&
+#     board[combo[1]] == board[combo[2]] &&
+#     position_taken?(board, combo[0])
+#   end
+# end
+
 def full?(board)
   board.all? do |square|
   !(square.nil? || square == " ")
@@ -39,23 +54,17 @@ def full?(board)
 end
 
 def draw?(board)
-  if (won?(board) == false && full?(board) == true)
-    true
-  elsif (won?(board) == false && full?(board) == false)
-    false
-  elsif (won?(board) == true)
-    false
-  end
+  full?(board) && !won?(board)
 end
 
 def over?(board)
-  (won?(board) != false || draw?(board) || full?(board))
+  won?(board) != false || full?(board)
 end
 
 def winner(board)
   if (won?(board) == false)
     return nil
   else
-    board[won?(board)[0]]
+    board[won?(board).first]
   end
 end
