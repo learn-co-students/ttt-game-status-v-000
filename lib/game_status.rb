@@ -27,5 +27,9 @@ def won?(board)
       puts array
   }
 end
-board = ["X","O","X","O","X"," "," "," "," "]
-board.each {|index| index if board[index] == "X" puts true else puts false end }
+board = ["O","O","X","O","X"," "," "," "," "]
+board.each {|player|
+  for (i = 0, i < 9, i ++)
+    player = board[i]
+    puts board[i]
+}
