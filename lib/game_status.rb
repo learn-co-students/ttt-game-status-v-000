@@ -52,3 +52,10 @@ end
 def over?(board)
   return true if draw?(board) || won?(board)
 end
+
+def winner(board)
+  if won?(board)
+    index = won?(board).first
+    board[index]
+  end
+end
