@@ -1,8 +1,5 @@
 require 'pry'
-<<<<<<< HEAD
 
-=======
->>>>>>> 34e955a76bea1104b266cdf3fc88f19c3038350c
 # Helper Method
 def position_taken?(board, index)
   (board[index] == "X" || board[index] == "O") ? true : false
@@ -56,4 +53,3 @@ def winner(board)
     board[winning_combo.first]
   end
 end
->>>>>>> 34e955a76bea1104b266cdf3fc88f19c3038350c
