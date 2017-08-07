@@ -1,5 +1,8 @@
 require 'pry'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 34e955a76bea1104b266cdf3fc88f19c3038350c
 # Helper Method
 def position_taken?(board, index)
   (board[index] == "X" || board[index] == "O") ? true : false
@@ -36,10 +39,21 @@ def won?(board)
   return false
 end
 
+def full?(board)
+  board.all? { |token| token == "X" || token == "O" }
+end
 
-# Refactor example given my Learn mentor
-# def won?(board)
-#   WIN_COMBINATIONS.detect do |combo|
-#     board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]] && board[combo[0]] != " "
-#   end
-# end
+def draw?(board)
+  full?(board) && !won?(board)
+end
+
+def over?(board)
+  draw?(board) || won?(board)
+end
+
+def winner(board)
+  if winning_combo =  won?(board)
+    board[winning_combo.first]
+  end
+end
+>>>>>>> 34e955a76bea1104b266cdf3fc88f19c3038350c
