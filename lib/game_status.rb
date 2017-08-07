@@ -36,11 +36,7 @@ def won?(board)
 end
 
 def full?(board)
-  indexes = []
-  board.select do |index|
-    indexes << index if index == "X" || index == "O"
-  end
-  indexes.size == 9 ? true : false
+  board.all? { |token| token == "X" || token == "O" }
 end
 
 def draw?(board)
