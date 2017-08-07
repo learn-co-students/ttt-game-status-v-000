@@ -44,7 +44,7 @@ def full?(board)
 end
 
 def draw?(board)
-  if board.size == 9 && !won?(board)
+  if full?(board) && !won?(board)
     true
   end
 end
