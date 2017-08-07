@@ -47,6 +47,7 @@ def full?(board)
       return false
     end
   end
+end
 
   ## my refactor attempt is not passing tests
   # board.detect do |index|
@@ -57,4 +58,3 @@ def full?(board)
   #     return false
   #   end
   # end
-end
