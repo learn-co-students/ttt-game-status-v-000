@@ -34,3 +34,17 @@ def won?(board)
   end
   return false
 end
+
+def full?(board)
+  indexes = []
+  board.each do |index|
+    if index == "X" || index == "O"
+      indexes << index
+      if indexes.size == 9
+        return true
+      end
+    else
+      return false
+    end
+  end
+end
