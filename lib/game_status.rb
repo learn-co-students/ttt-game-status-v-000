@@ -42,3 +42,9 @@ def full?(board)
   end
   indexes.size == 9 ? true : false
 end
+
+def draw?(board)
+  if board.size == 9 && !won?(board)
+    true
+  end
+end
