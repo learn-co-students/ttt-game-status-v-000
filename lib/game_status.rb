@@ -47,4 +47,14 @@ def full?(board)
       return false
     end
   end
+
+  ## my refactor attempt is not passing tests
+  # board.detect do |index|
+  #   indexes << index if index == "X" || index == "O"
+  #   if indexes.size == 9
+  #     return true
+  #   else
+  #     return false
+  #   end
+  # end
 end
