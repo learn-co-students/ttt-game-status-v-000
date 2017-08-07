@@ -37,24 +37,8 @@ end
 
 def full?(board)
   indexes = []
-  board.each do |index|
-    if index == "X" || index == "O"
-      indexes << index
-      if indexes.size == 9
-        return true
-      end
-    else
-      return false
-    end
+  board.select do |index|
+    indexes << index if index == "X" || index == "O"
   end
+  indexes.size == 9 ? true : false
 end
-
-  ## my refactor attempt is not passing tests
-  # board.detect do |index|
-  #   indexes << index if index == "X" || index == "O"
-  #   if indexes.size == 9
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
