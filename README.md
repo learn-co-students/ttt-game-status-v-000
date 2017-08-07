@@ -203,7 +203,7 @@ o_win_center_column = ["X", "O", " ", " ", "O", " ", " ", "O", "X"]
 winner(o_win_center_column) #=> "O"
 
 no_winner_board = ["X", "O", " ", " ", " ", " ", " ", "O", "X"]
-winner(no_winner_board) #=> nil
+winner(no_winner_bard) #=> nil
 ```
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/ttt-game-status' title='Tic Tac Toe Game Status'>Tic Tac Toe Game Status</a> on Learn.co and start learning to code for free.</p>
