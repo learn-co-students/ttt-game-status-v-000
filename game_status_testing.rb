@@ -20,14 +20,16 @@ def won?(board)
   index = 0
   board.each{|player|
     position_taken?(board,index)
-      if player == "X"
-        for i in 0..2
-          if i == index
-            WIN_COMBINATIONS[index][i] = "X"
+      for i in 0..2
+        if player == "X" && i == index
+        #for i in 0..2 do
+          #if i == index
+          WIN_COMBINATIONS[index][i] = "X"
+        elsif player == "O" && i == index
           end
         end
       elsif player == "O"
-        for i in 0..2
+        for i in 0..2 do
           if i == index
             WIN_COMBINATIONS[index][i] = "O"
           end
