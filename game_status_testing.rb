@@ -17,30 +17,35 @@ def position_taken?(board, index)
 end
 
 def won?(board)
-  index = 0
-  board.each{|player|
+  #index = 0
+  #board.each{|player|
+  for index in 0..8 do
+    board[index]
     position_taken?(board,index)
-      for i in 0..2
-        if player == "X" && i == index
+      for i in 0..2 do
+        #if player == "X" && i == index
+        if board[index] == "X" && i == index
         #for i in 0..2 do
           #if i == index
           WIN_COMBINATIONS[index][i] = "X"
-        elsif player == "O" && i == index
-          end
+        #elsif player == "O" && i == index
+        elsif board[index] == "O" && i == index
+          WIN_COMBINATIONS[index][i] = "O"
         end
-      elsif player == "O"
-        for i in 0..2 do
-          if i == index
-            WIN_COMBINATIONS[index][i] = "O"
-          end
-        end
+      end
+  end    #elsif player == "O"
+      #  for i in 0..2 do
+      #    if i == index
+      #      WIN_COMBINATIONS[index][i] = "O"
+      #    end
+      #  end
       #else
         #WIN_COMBINATIONS[index][i] = " "
-      end
+      #end
 
         #WIN_COMBINATIONS.each { |array| array[index] = "X" puts array }
-    index += 1}
-    puts WIN_COMBINATIONS
+  #index += 1}
+  puts WIN_COMBINATIONS
 end
 # Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS = [
