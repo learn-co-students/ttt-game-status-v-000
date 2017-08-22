@@ -64,7 +64,7 @@ def winner(board)
   win_array = won?(board)
 
   if win_array
-    board[win_array.to_a[0]]
+    board[win_array[0]]
   else
     nil
   end
