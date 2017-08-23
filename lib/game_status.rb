@@ -39,15 +39,17 @@ def full?(board)
   board.all? {|i| i == "X" || i == "O"}
 end
 
-def draw?(board)
-  if won?(board) == false && full?(board) == true
+def draw?(board) #accepts a board and returns true if the board has not been won and is full and false if the board is not won and the board is not full, and false if the board is won.
+  if !won?(board) && full?(board)
     return true
-  else
+  elsif !won?(board) && !full?(board)
+    return false
+  else won?(board)
     return false
   end
 end
 
-def over?(board)
+def over?(board) #accepts a board and returns true if the board has been won, is a draw, or is full.
   if draw?(board) || won?(board) || full?(board)
     return true
   else
@@ -55,7 +57,7 @@ def over?(board)
   end
 end
 
-def winner(board)
+def winner(board) #accept a board and return the token, "X" or "O" that has won the game given a winning board.
   if won?(board)
     return board[won?(board)[0]]
   end
