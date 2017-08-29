@@ -51,11 +51,7 @@ def over?(board)
 end
 
 def winner(board)
-   if board[4] == "X"
-    "X"
-  elsif board[4] == "O"
-    "O"
-   else
-     nil
-   end
- end
+  if winning_combo = won?(board)
+    board[winning_combo.first]
+  end
+end
