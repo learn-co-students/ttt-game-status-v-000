@@ -19,7 +19,8 @@ WIN_COMBINATIONS = [
 
 def won?(board)
   WIN_COMBINATIONS.detect do | win_combo |
-    board[win_combo[0]] == "X" && board[win_combo[1]] == "X" && board[win_combo[2]] == "X" || board[win_combo[0]] == "O" && board[win_combo[1]] == "O" && board[win_combo[2]] == "O"
+    board[win_combo[0]] == board[win_combo[1]] && board[win_combo[1]] == board[win_combo[2]] &&
+    position_taken?(board, win_combo[0])
 end
 end
 
@@ -33,6 +34,7 @@ def full?(board)
   end
   full_board
 end
+
 
 def draw?(board)
   if (!won?(board) && full?(board))
@@ -52,6 +54,6 @@ end
 
 def winner(board)
   if winning_combo = won?(board)
-    board[winning_combo.first]
+    board[winning_combo[0]]
   end
 end
