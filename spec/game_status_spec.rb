@@ -136,12 +136,6 @@ describe "./lib/game_status.rb" do
 
       expect(over?(board)).to be_truthy
     end
-
-    it 'returns false for an in-progress game' do
-      board = ["X", " ", "X", " ", "X", " ", "O", "O", " "]
-
-      expect(over?(board)).to be_falsey
-    end
   end
 
   describe '#winner' do
