@@ -15,6 +15,7 @@ WIN_COMBINATIONS = [
   [2,4,6]
 ]
 
+<<<<<<< HEAD
 def won?(board) #board = ["O", "O", "O", "X", " ", " ", " ", " ", " ", " "]
 
     WIN_COMBINATIONS.each do |win_combo| #win_combo = [3, 4, 5]
@@ -50,4 +51,3 @@ def winner(board)
   if winning_combo = won?(board)
      board[winning_combo.first]
   end
-end
