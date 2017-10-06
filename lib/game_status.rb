@@ -27,20 +27,35 @@ def won?(board)
       end
     end
 
-    def full?(board)
-      full?(board) =="" || full?(board) ==" "
-      false
-
-      # full?[board].all do |token|
-      # false
-    end
-
+def full?(board)
+  board.all? do |index|
+    index == "X" || index == "O"
+  end
+end
 
 def draw?(board)
+  full?(board) && !won?(board)
 end
 
 def over?(board)
+  full?(board) || won?(board) || draw?(board)
+
+
 end
 
 def winner(board)
+if won?(board)
+  win_index = won?(board)[0]
+  board[win_index]
+end
+
+
+  #board.each do |combo|
+  #  winner_1 = [board[combo[0]],board[combo[4]],board[combo[8]],]
+  #  winner_2 = [board[combo[1]],board[combo[4]],board[combo[7]],]
+  #  board ==  winner_1 = "X" || winner_2 = "O" || nil
+#
+#  end
+
+
 end
