@@ -26,8 +26,8 @@ def won?(board)
       #wins = 2nd thing in WIN_C
       char1 = "X"
       char2 = "O"
-      if board[wins[0]] == char1 && board[wins[1]] == char1 && board[wins[2]] == char1 || board[wins[0]] == char2 && board[wins[1]] ==char2 && board[wins[2]] == char2
-        winning_combo = wins
+        if board[wins[0]] == char1 && board[wins[1]] == char1 && board[wins[2]] == char1 || board[wins[0]] == char2 && board[wins[1]] ==char2 && board[wins[2]] == char2
+          winning_combo = wins
       end
     end
     winning_combo
@@ -57,16 +57,10 @@ def over?(board)
 end
 
 def winner(board)
+  won?(board)
   if won?(board) != false
-    WIN_COMBINATIONS.any? do |wins|
-      char1 = "X"
-      char2 = "O"
-      if board[wins[0]] == char1 && board[wins[1]] == char1 && board[wins[2]] == char1
-        return "X"
-      else
-        return "O"
-      end
-    end
+    winner = won?(board)
+    board[winner[0]]
   else
     return nil
   end
