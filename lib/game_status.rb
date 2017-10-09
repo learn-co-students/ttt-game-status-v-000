@@ -2,7 +2,7 @@ def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
 
-board = ["O", "X", "O", " ", "X", "O", "X", "O", "X"]
+board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
 WIN_COMBINATIONS = [
   [0, 1, 2],
