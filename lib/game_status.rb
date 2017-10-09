@@ -5,26 +5,34 @@ end
 
 def won?(board)
   # win_combination is a 3 element ar
-  # grab each index from the win_combination that composes a win.
-  win_index_1 = win_combination[0]
-  win_index_2 = win_combination[1]
-  win_index_3 = win_combination[2]
+  WIN_COMBINATIONS.each do |win_combination|# grab each index from the win_combination that composes a win.
+    win_index_1 = win_combination[0]
+    win_index_2 = win_combination[1]
+    win_index_3 = win_combination[2]
 
-  position_1 = board[win_index_1] # load the value of the board at win_index_1
-  position_2 = board[win_index_2] # load the value of the board at win_index_2
-  position_3 = board[win_index_3] # load the value of the board at win_index_3
+    position_1 = board[win_index_1] # load the value of the board at win_index_1
+    position_2 = board[win_index_2] # load the value of the board at win_index_2
+    position_3 = board[win_index_3]
+    # load the value of the board at win_index_3
 
-  if position_1 == "X" && position_2 == "X" && position_3 == "X"
-    return win_combination # return the win_combination indexes that won.
-  else
-    false
+    if position_1 == "X" && position_2 == "X" && position_3 == "X"
+      return win_combination
+    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+        return win_combination
+    end
   end
+  false
 end
 # board = ["X", "X", "X", " ", " ", " ", " ", " ", " "]
- #
+def full?(board)
+  board.all? {|token| token == "X" || token == "O"}
+
+end
  #  top_row_win = [0,1,2]
- #
- #  if board[top_row_win[0]] == "X" && board[top_row_win[1]] == "X" && board
+def draw?(board)
+  draw?(draw_board)
+  true
+end #  if board[top_row_win[0]] == "X" && board[top_row_win[1]] == "X" && board
  #    [top_row_win[2]] == "X"
  #    "X won in the top row"
  #
