@@ -26,7 +26,6 @@ def full?(board)
   board.all? do |index|
     if index != " "
         true
-
     elsif
       index  == " "
         false
@@ -37,10 +36,25 @@ end
 
 
 def draw?(board)
-  if won?(board) == false && full?(board) == true
-    return true
-
+  if full?(board) && !won?(board)
+    true
   else
     false
+  end
+end
+
+
+def over?(board)
+  if won?(board) || draw?(board) || full?(board)
+    true
+  else
+    false
+  end
+end
+
+
+def winner(board)
+  if win = won?(board)
+  board[win.first]
   end
 end
