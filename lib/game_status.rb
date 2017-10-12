@@ -17,48 +17,42 @@ WIN_COMBINATIONS = [
 ]
 
 # helper method to find wins based on character
-def won_var?(board, char = "X")
-  WIN_COMBINATIONS.find do |win_combo|
-    win_combo.all? {|win_index| board[win_index] == char}
-  end # WIN_COMBINATIONS.find do block
-end # def won?
-
-#defining the method #won? that accepts the argument of a boardß
 def won?(board)
-  if won_var?(board, "X") == nil
-    won_var?(board, "O")
-  else
-    won_var?(board, "X")
+  WIN_COMBINATIONS.each do |win_combination|
+    win_index_1 = win_combination[0]
+    win_index_2 = win_combination[1]
+    win_index_3 = win_combination[2]
+    position_1 = board[win_index_1] # load the value of the board at win_index_1
+    position_2 = board[win_index_2] # load the value of the board at win_index_2
+    position_3 = board[win_index_3] # load the value of the board at win_index_3
+
+    if position_1 == "X" && position_2 == "X" && position_3 == "X"
+      return win_combination # return win_combination indexes that won
+
+    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+      return win_combination # return win_combination indexes that won
+    end
   end
-end # def won?
+  return false
+end
 
 def full?(board)
-  board.none? {|space| space == " "}
+  board.all? {|space| space != " "}
 end
 
 def draw?(board)
-  # return true if the board has not been won and is full
-  if won?(board) == nil && full?(board) == true
-    return true
-  else
-    return false
-  end
+  full?(board) && !won?(board) # full and not won > true, else false
 end
 
-def over?(board)
-  if won?(board) == true || full?(board) == true || draw?(board) == true
-    return true
-  else
-    return false
-  end
+def over?(board) # full or won?
+  full?(board) || won?(board)
 end
 
 def winner(board)
-  if won_var?(board, "X") != nil
-    return "X"
-  elsif won_var?(board, "O") != nil
-    return "O"
-  else
-    return nil
+  # won = won?(board) > can use this instead and have "won" be a variable to make it look cleaner?
+    if won?(board)
+      return board[won?(board)[0]]
+    else
+      return nil
   end
-end # def won?
+end
