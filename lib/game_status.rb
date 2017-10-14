@@ -13,7 +13,8 @@ def won?(board)
     position_1 = board[win_index_1] # load the value of the board at win_index_1
     position_2 = board[win_index_2] # load the value of the board at win_index_2
     position_3 = board[win_index_3]
-    # load the value of the board at win_index_3
+    # load the value of the board at
+    win_index_3
 
     if position_1 == "X" && position_2 == "X" && position_3 == "X"
       return win_combination
@@ -30,11 +31,19 @@ def full?(board)
 end
  #  top_row_win = [0,1,2]
 def draw?(board)
-  draw?(draw_board)
-  true
+  if full?(board) == true && won?(board) == false
+  return true
+  else
+  return false
+  end
 end #  if board[top_row_win[0]] == "X" && board[top_row_win[1]] == "X" && board
- #    [top_row_win[2]] == "X"
- #    "X won in the top row"
+
+ def over?(board)
+   won?(board) || full?(board)
+ end
+
+
+ #   "X won in the top row"
  #
  #  end
 WIN_COMBINATIONS = [
