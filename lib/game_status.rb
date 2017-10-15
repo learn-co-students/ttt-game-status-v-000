@@ -42,6 +42,18 @@ end #  if board[top_row_win[0]] == "X" && board[top_row_win[1]] == "X" && board
    won?(board) || full?(board)
  end
 
+ def winner(board)
+   if win_combination = won?(board)
+   board[win_combination[0]]
+ end
+ end
+#board == array of 9
+#win combination
+#board[0]
+#return
+#token
+#board[win_combination[0]]
+#return "X"
 
  #   "X won in the top row"
  #
