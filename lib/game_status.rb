@@ -1,4 +1,4 @@
-# Helper Method
+ require "pry"
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
@@ -43,4 +43,14 @@ end
 
 def draw?(board)
 full?(board) && !won?(board)
+end
+
+def over?(board)
+won?(board) || full?(board)
+end
+
+def winner(board)
+  if winning = won?(board)
+    board[winning.first]
+  end
 end
