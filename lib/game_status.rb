@@ -29,8 +29,5 @@ def over?(board)
 end
 
 def winner(board)
-    if x = won?(board)
-      board[x.first]
-    else
-    end
+  won?(board) ? board[won?(board).first] : nil
 end
