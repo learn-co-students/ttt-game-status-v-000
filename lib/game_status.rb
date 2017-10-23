@@ -14,3 +14,7 @@ WIN_COMBINATIONS = [
   [0,4,8], # Left diagonal
   [2,4,6]  # Right diagonal
 ]
+def won? (board) # check a tic tac toe board and return true if there is a win and false if not
+
+
+end
