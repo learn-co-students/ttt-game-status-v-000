@@ -20,12 +20,12 @@ WIN_COMBINATIONS = [
 # Definitions of indexes that compose wins
 top_row_win = [0,1,2]
 middle_row_win = [3,4,5]
-[6,7,8], # Bottom row
-[0,3,6], # Left column
-[1,4,7], # Middle column
-[2,5,8], # Right column
-[0,4,8], # Left diagonal
-[2,4,6]  # Right diagonal
+bottom_row_win = [6,7,8]
+left_column_win = [0,3,6]
+middle_column_win = [1,4,7]
+right_column_win = [2,5,8]
+left_diagonal_win = [0,4,8]
+right_diagonal_win = [2,4,6]
 
 # Check if each index in the top_row_win array contains an "X"
 if board[top_row_win[0]] == "X" && board[top_row_win[1]] == "X" && board[top_row_win[2]] == "X"
