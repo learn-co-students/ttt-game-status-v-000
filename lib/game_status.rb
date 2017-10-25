@@ -1,3 +1,5 @@
+# levels: board, index,
+
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
@@ -14,17 +16,43 @@ WIN_COMBINATIONS = [
   [0,4,8], # Left diagonal
   [2,4,6]  # Right diagonal
 ]
-def won? (board) # check a tic tac toe board and return true if there is a win and false if not
-  for each win_combination in WIN_COMBINATIONS
+
+# Definitions of indexes that compose wins
+top_row_win = [0,1,2]
+middle_row_win = [3,4,5]
+[6,7,8], # Bottom row
+[0,3,6], # Left column
+[1,4,7], # Middle column
+[2,5,8], # Right column
+[0,4,8], # Left diagonal
+[2,4,6]  # Right diagonal
+
+# Check if each index in the top_row_win array contains an "X"
+if board[top_row_win[0]] == "X" && board[top_row_win[1]] == "X" && board[top_row_win[2]] == "X"
+  "X won in the top row"
+end
+
+def won?(board) # check a tic tac toe board and return true if there is a win and false if not
+  WIN_COMBINATIONS.each { |win_combination| }
     # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
     # grab each index from the win_combination that composes a win.
     win_index_1 = win_combination[0]
     win_index_2 = win_combination[1]
     win_index_3 = win_combination[2]
+    win_index_4 = win_combination[3]
+    win_index_5 = win_combination[4]
+    win_index_6 = win_combination[5]
+    win_index_7 = win_combination[6]
+    win_index_8 = win_combination[7]
 
-    position_1 = board[win_index_1] # load the value of the board at win_index_1
-    position_2 = board[win_index_2] # load the value of the board at win_index_2
-    position_3 = board[win_index_3] # load the value of the board at win_index_3
+    position_1 = board[win_index_1] # load the value of the board at win_index_1..8
+    position_2 = board[win_index_2]
+    position_3 = board[win_index_3]
+    position_4 = board[win_index_4]
+    position_5 = board[win_index_5]
+    position_6 = board[win_index_6]
+    position_7 = board[win_index_7]
+    position_8 = board[win_index_8]
 
     if position_1 == "X" && position_2 == "X" && position_3 == "X"
       return win_combination # return the win_combination indexes that won.
