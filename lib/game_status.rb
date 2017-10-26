@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
 # Helper Method
@@ -33,7 +34,11 @@ if board[top_row_win[0]] == "X" && board[top_row_win[1]] == "X" && board[top_row
 end
 
 def won?(board) # check a tic tac toe board and return true if there is a win and false if not
+<<<<<<< HEAD
   WIN_COMBINATIONS.each do |win_combination|
+=======
+  WIN_COMBINATIONS.each { |win_combination| }
+>>>>>>> b573c0d2fe288bcbda130494c3a0ff272dff6367
     # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
     # grab each index from the win_combination that composes a win.
     win_index_1 = win_combination[0]
@@ -48,15 +53,27 @@ def won?(board) # check a tic tac toe board and return true if there is a win an
     position_1 = board[win_index_1] # load the value of the board at win_index_1..8
     position_2 = board[win_index_2]
     position_3 = board[win_index_3]
+<<<<<<< HEAD
 #    position_taken?(board, index)
     if position_1 == "X" && position_2 == "X" && position_3 == "X"
       return win_combination # return the win_combination indexes that won.
     elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
         return win_combination # return the win_combination indexes that won.
+=======
+    position_4 = board[win_index_4]
+    position_5 = board[win_index_5]
+    position_6 = board[win_index_6]
+    position_7 = board[win_index_7]
+    position_8 = board[win_index_8]
+
+    if position_1 == "X" && position_2 == "X" && position_3 == "X"
+      return win_combination # return the win_combination indexes that won.
+>>>>>>> b573c0d2fe288bcbda130494c3a0ff272dff6367
     else
       false
     end
   end
+<<<<<<< HEAD
 end
 
 def full?(board)
@@ -95,3 +112,6 @@ def winner(board)
 # The `#winner` method should accept a board and return the token, "X" or "O" that has won the game given a winning board.
 
 The `#winner` method can be greatly simplified by using the methods and their return values you defined above.
+=======
+
+end
