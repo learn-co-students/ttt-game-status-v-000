@@ -17,16 +17,6 @@ WIN_COMBINATIONS = [
   [2,4,6]  # Right diagonal
 ]
 
-# Definitions of indexes that compose wins
-top_row_win = [0,1,2]
-middle_row_win = [3,4,5]
-bottom_row_win = [6,7,8]
-left_column_win = [0,3,6]
-middle_column_win = [1,4,7]
-right_column_win = [2,5,8]
-left_diagonal_win = [0,4,8]
-right_diagonal_win = [2,4,6]
-
 # Check if each index in the top_row_win array contains an "X"
 if board[top_row_win[0]] == "X" && board[top_row_win[1]] == "X" && board[top_row_win[2]] == "X"
   "X won in the top row"
@@ -36,6 +26,17 @@ def won?(board) # check a tic tac toe board and return true if there is a win an
   WIN_COMBINATIONS.each do |win_combination|
     # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
     # grab each index from the win_combination that composes a win.
+
+    # Definitions of indexes that compose wins
+    top_row_win = [0,1,2]
+    middle_row_win = [3,4,5]
+    bottom_row_win = [6,7,8]
+    left_column_win = [0,3,6]
+    middle_column_win = [1,4,7]
+    right_column_win = [2,5,8]
+    left_diagonal_win = [0,4,8]
+    right_diagonal_win = [2,4,6]
+
     win_index_1 = win_combination[0]
     win_index_2 = win_combination[1]
     win_index_3 = win_combination[2]
@@ -103,7 +104,6 @@ end
 
 def winner(board)
 # The `#winner` method should accept a board and return the token, "X" or "O" that has won the game given a winning board.
-
-The `#winner` method can be greatly simplified by using the methods and their return values you defined above.
+# The `#winner` method can be greatly simplified by using the methods and their return values you defined above.
 
 end
