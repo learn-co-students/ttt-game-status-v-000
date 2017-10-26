@@ -14,4 +14,11 @@ WIN_COMBINATIONS = [
   [2,4,6]
 ]
 
-def won?(board)
+#return false/nil if there is no win combination present in the board and
+#return the winning combination indexes as an array if there is a win.
+  def won?(board)
+    WIN_COMBINATIONS.find do |wins|
+      board[wins[0]] == board[wins[1]] && board[wins[0]] ==
+      board[wins[2]] && position_taken?(board, wins[1])
+    end
+  end
