@@ -31,3 +31,36 @@ def won?(board)
   end
   return false
 end
+
+def full?(board)
+  board.none? do |index|
+    index == " "
+  end
+end
+
+def draw?(board)
+  if !won?(board) && full?(board)
+    return true
+  else
+    return false
+  end
+end
+
+def over?(board)
+  if won?(board) || draw?(board) || full?(board)
+    return true
+  else
+    return false
+  end
+end
+
+def winner(board)
+  if won?(board)
+    array = won?(board)
+    if board[array[0]] == "X"
+      return "X"
+    else
+      return "O"
+    end
+  end
+end
