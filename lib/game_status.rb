@@ -44,17 +44,20 @@ def over?(board)
 end
 
 def winner(board)
-  if won?(board)
-  win_combination = won?(board)
-	position_1 = win_combination[0]
-	position_2 = win_combination[1]
-	position_3 = win_combination[2]
-
-	  if board[position_1]== "X" && board[position_2]=="X" && board[position_3] == "X"
-	    return "X"
-		elsif board[position_1]== "O" && board[position_2]=="O" && board[position_3] == "O"
-	    return "O"
-    end
+  # if won?(board)
+  # win_combination = won?(board)
+	# position_1 = win_combination[0]
+	# position_2 = win_combination[1]
+	# position_3 = win_combination[2]
+  #
+	#   if board[position_1]== "X" && board[position_2]=="X" && board[position_3] == "X"
+	#     return "X"
+	# 	elsif board[position_1]== "O" && board[position_2]=="O" && board[position_3] == "O"
+	#     return "O"
+  #   end
+  # end
+  # return nil
+  if win_combination = won?(board)
+    board[win_combination[0]]
   end
-  return nil
 end
