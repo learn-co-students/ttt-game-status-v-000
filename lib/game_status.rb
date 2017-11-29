@@ -18,5 +18,17 @@ WIN_COMBINATIONS = [
 
 
 def won?(board)
-  WIN_COMBINATIONS.select do |win_combination|
+  WIN_COMBINATIONS.detect do |i|
+    board[i[0]]==board[i[1]] && board[i[0]]==board[i[2]] && position_taken?(board,i[0])
+  end
+end
+
+def full?(board)
+  board.all? do |token|
+    token=="X" || token=="O"
+  end
+end
+
+def draw?(board)
+  full?(board) && !won?(board)
 end
