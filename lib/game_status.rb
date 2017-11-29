@@ -24,8 +24,8 @@ def won?(board)
 end
 
 def full?(board)
-  board.all? do |token|
-    token=="X" || token=="O"
+  board.all? do |i|
+    i=="X" || i=="O"
   end
 end
 
@@ -38,4 +38,5 @@ def over?(board)
 end
 
 def winner(board)
+  board[won?(board)[0]]if won?(board)
 end
