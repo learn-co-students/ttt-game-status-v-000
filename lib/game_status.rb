@@ -16,6 +16,7 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
+  winning = false
   WIN_COMBINATIONS.each do |win_combination|
     win_index_1 = win_combination[0]  #assigning variables to use the wininng index variable later
     win_index_2 = win_combination[1]
@@ -26,12 +27,11 @@ def won?(board)
     position_3 = board[win_index_3]
 
     if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
-      board[win_index_1, win_index_2, win_index_3]
-      else
-        false
+      winning = win_combination
     end
 
-  return false
+
   end
+return winning
 
 end
