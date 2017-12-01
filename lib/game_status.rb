@@ -48,10 +48,14 @@ end
 
 def over?(board)
   over = false
-  if (full?(board) == true || draw?(board) == true || won?(board) == true)
+  if full?(board) == true
+    over = true
+  end
+  if won?(board) != false || draw?(board) == true
     over = true
   end
 end
+
 
 def winner(board)
   if won?(board) != false
