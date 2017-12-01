@@ -36,3 +36,26 @@ end
 def full?(board)
   board.all? {|value| value == "X" || value == "O"}
 end
+
+def draw?(board)
+  draw = false
+  if (won?(board) == false)
+    if (full?(board) == true)
+      draw = true
+    end
+  end
+end
+
+def over?(board)
+  over = false
+  if (full?(board) == true || draw?(board) == true || won?(board?) == true)
+    over = true
+  end
+end
+
+def winner(board)
+  if won?(board) != false
+    win_combination = won?(board)
+    return board[win_combination[0]]
+    end
+end
