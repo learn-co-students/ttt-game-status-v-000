@@ -17,16 +17,14 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  WIN_COMBINATIONS.detect { |win_combination| #returns only 1st combo that matches below conditions
-  #checks if all 3 (passed_to_board) WIN_COMBINATIONS[indexes]) are the same (==) by comparing indexes to eachother until all 3 indexes have been compared
-    board[win_combination[0]] == board[win_combination[1]] && #win/board 1st_Index == win/board 2nd_Index ...AND
-    board[win_combination[1]] == board[win_combination[2]] && #win/board 1st_Index == win/board 3rd_Index ...AND
-    position_taken?(board, win_combination[0]) #last check ...win/board index is not an empty string
+  WIN_COMBINATIONS.detect { |win_combination|
+    board[win_combination[0]] == board[win_combination[1]] &&
+    board[win_combination[1]] == board[win_combination[2]] &&
+    position_taken?(board, win_combination[0])
   }
 end
 
 def full?(board)
-  #no winning combo && every index either "X" or "O"
   !won?(board) && board.all? { |i| i == "X" || i == "O" }
 end
 
