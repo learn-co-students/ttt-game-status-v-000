@@ -37,29 +37,44 @@ def full?(board)
   board.all? {|value| value == "X" || value == "O"}
 end
 
-def draw?(board)
-  draw = false
-  if (won?(board) == false)
-    if (full?(board) == true)
-      draw = true
-    end
-  end
+#original answer. This is way too long and convuluted
+#def draw?(board)
+#  draw = false
+#  if (won?(board) == false)
+#    if (full?(board) == true)
+#      draw = true
+#    end
+#  end
+#end
+
+#the formal solution relies only on a single comparative line of logic
+def draw?
+  full?(board) && !win?(board)
 end
 
 def over?(board)
-  over = false
-  if full?(board) == true
-    over = true
-  end
-  if won?(board) != false || draw?(board) == true
-    over = true
-  end
+  won?(board) && full?(board)
 end
 
 
-def winner(board)
-  if won?(board) != false
-    win_combination = won?(board)
-    return board[win_combination[0]]
-    end
+#my solution first ensures that the return of won?(board) ISN"T nil.
+#we can also account for this with a simplified if statement and the first method
+#first returns the first element or the first n elements of the array.
+#KEY-- if the array is empty, the first form returns nil
+#example
+#a = ["q", "r", "s", "t"]
+#a.first #=> "q"
+#a.first(2) #=> ["q", "r"]
+
+#def winner(board)
+#  if won?(board) != false
+#    win_combination = won?(board)
+#    return board[win_combination[0]]
+#  end
+#end
+
+def winner?(board)
+  if win_combination = won?(board)
+    win_combination.first
+  end
 end
