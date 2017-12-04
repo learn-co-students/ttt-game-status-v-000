@@ -103,7 +103,7 @@ def winner(board)
   if win_combo = won?(board) #remember won?(board) has a default return value of
     # true or false. this reads, if won?combo is true, then assign the return
     #value of the method (the winning indexes) to win_combo.
-    board[win_combo.first] #goes into array win_combination[0,1,2] and
+    board[win_combo.first] #goes into array win_combo[0,1,2] and
     #returns the board value at the first winning indice. aka goes into
     #board[0--or whatever the first winning indices]
   end
