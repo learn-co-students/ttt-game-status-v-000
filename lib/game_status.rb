@@ -15,23 +15,49 @@ WIN_COMBINATIONS = [
   [2,4,6] #up_diagonal_win
 ]
 
+
+#detect returns the first for which the block is true
+#ALL of the following conditions must be true
+# 1. value at board position [winning index 0] == the same at board[winning index 1]
+#2. value at board position [winning index 1] == the same at board[winning index 2]
+# the position at the first winning index IS taken (NOT EMPTY)
+
 def won?(board)
-  winning = false
-  WIN_COMBINATIONS.each do |win_combination|
-    win_index_1 = win_combination[0]  #assigning variables to use the wininng index variable later
-    win_index_2 = win_combination[1]
-    win_index_3 = win_combination[2]
-
-    position_1 = board[win_index_1]  #evaluates the value of board at board[1] for example. could be X or O or nil
-    position_2 = board[win_index_2]
-    position_3 = board[win_index_3]
-
-    if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
-      winning = win_combination
-    end
+  WIN_COMBINATIONS.detect do |win_combo|
+    board[win_combo[0]] == board[win_combo[1]] &&
+    board[win_combo[1]] == board[win_combo[2]] &&
+    position_taken?(board, win_combo[0])
   end
-return winning
 end
+
+
+
+#my original solution. sets a default value outside of the if scope. so
+#that if the if condition is never met, we method will still return the
+#default value we need it to.
+#the detect method is more intuitive since it's default return value is true or false.
+#whereas the return value of each is the original array
+
+#def won?(board)
+#  winning = false
+#  WIN_COMBINATIONS.each do |win_combination|
+#    win_index_1 = win_combination[0]  #assigning variables to use the wininng index variable later
+#    win_index_2 = win_combination[1]
+#    win_index_3 = win_combination[2]
+
+#    position_1 = board[win_index_1]  #evaluates the value of board at board[1] for example. could be X or O or nil
+#    position_2 = board[win_index_2]
+#    position_3 = board[win_index_3]
+
+#    if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
+#      winning = win_combination
+#    end
+#  end
+#return winning
+#end
+
+
+
 
 def full?(board)
   board.all? {|value| value == "X" || value == "O"}
@@ -48,12 +74,12 @@ end
 #end
 
 #the formal solution relies only on a single comparative line of logic
-def draw?
-  full?(board) && !win?(board)
+def draw?(board)
+  full?(board) && !won?(board)
 end
 
 def over?(board)
-  won?(board) && full?(board)
+  won?(board) || full?(board)
 end
 
 
@@ -73,8 +99,9 @@ end
 #  end
 #end
 
-def winner?(board)
-  if win_combination = won?(board)
-    win_combination.first
+def winner(board)
+  if win_combo = won?(board)
+    board[win_combo.first] #goes into array win_combination[0,1,2] and
+    #returns the board value at the first winning indice. aka goes into board[0--or whatever the first winning indices]
   end
 end
