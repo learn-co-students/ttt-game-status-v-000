@@ -69,6 +69,6 @@ end
 
 def winner(board)
    if winner1 = won?(board)
-     board[winner1[0]]
+     board[winner1[0]] #pass in winner1 into board
    end
 end
