@@ -116,7 +116,5 @@ indexes = won?(board)
   if won?(board) != nil
    winning_player = board[indexes[0]]
    winning_player
- else
-   puts "nobody has won"
 end
-end 
+end
