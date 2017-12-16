@@ -1,9 +1,3 @@
-# Helper Method
-def position_taken?(board, index)
-  !(board[index].nil? || board[index] == " ")
-end
-
-# Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS = [
   [0,1,2],
   [3,4,5],
@@ -15,33 +9,35 @@ WIN_COMBINATIONS = [
   [2,4,6]
 ]
 
+def position_taken?(board, index)
+  !(board[index].nil? || board[index] == " ")
+end
+
 def won?(board)
   WIN_COMBINATIONS.detect do |win_combo|
-    board[win_combo[0]] == board[win_combo[1]] && board[win_combo[1]] == board[win_combo[2]] && position_taken?(board, win_combo[0])
+    board[win_combo[0]] == board[win_combo[1]] &&
+    board[win_combo[1]] == board[win_combo[2]] &&
+    position_taken?(board, win_combo[0])
   end
 end
 
 def full?(board)
-  if board.all? {|x| x != " "}
-    true
-  else
+  if board.detect{|thing| thing == " "}
     false
+  else
+    true
   end
 end
 
 def draw?(board)
   if won?(board) == nil && full?(board) == true
     true
-  else
-    false
   end
 end
 
 def over?(board)
   if won?(board) == true || draw?(board) == true || full?(board) == true
     true
-  else
-    false
   end
 end
 
