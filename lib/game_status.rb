@@ -31,3 +31,37 @@ def won?(board)
   end
   false
 end
+
+
+def full?(board)
+  board.all? do |token|
+   token == "X" || token == "O"
+  end
+end
+
+
+def draw?(board)
+  if !won?(board) && full?(board)
+    return true
+  elsif !won?(board) && !full?(board)
+    return false
+  else
+    false
+  end
+end
+
+
+def over?(board)
+  if won?(board) || full?(board) || draw?(board)
+    return true
+  end
+end
+
+
+def winner(board)
+  if winning_combo = won?(board)
+    return board[winning_combo[0]]
+  else
+    return nil
+end
+end
