@@ -16,47 +16,13 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  if
-  WIN_COMBINATIONS[0].all? do |i|
-    i == "X" || i == "O"
+  WIN_COMBINATIONS.detect do |win|
+    board[win[0]] == board[win[1]] && board[win[1]] == board[win[2]] && position_taken?(board, win[0])
   end
-  WIN_COMBINATIONS[0]
-elsif
-  WIN_COMBINATIONS[1].all? do |i|
-    i == "X" || i == "O"
-  end
-  WIN_COMBINATIONS[1]
-  elsif
-  WIN_COMBINATIONS[2].all? do |i|
-    i == "X" || i == "O"
-  end
-  WIN_COMBINATIONS[2]
-  elsif
-  WIN_COMBINATIONS[3].all? do |i|
-    i == "X" || i == "O"
-  end
-  WIN_COMBINATIONS[3]
-elsif
-  WIN_COMBINATIONS[4].all? do |i|
-    i == "X" || i == "O"
-  end
-  WIN_COMBINATIONS[4]
-  elsif
-  WIN_COMBINATIONS[5].all? do |i|
-    i == "X" || i == "O"
-  end
-  WIN_COMBINATIONS[5]
-  elsif
-  WIN_COMBINATIONS[6].all? do |i|
-    i == "X" || i == "O"
-  end
-  WIN_COMBINATIONS[6]
-elsif
-  WIN_COMBINATIONS[7].all? do |i|
-    i == "X" || i == "O"
-  end
-  WIN_COMBINATIONS[7]
-else
-  false
 end
+
+def full?(board)
+  board.all do |i|
+    board[i] == "X" && board[i] == "O"
+  end
 end
