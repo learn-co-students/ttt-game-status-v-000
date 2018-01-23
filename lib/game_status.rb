@@ -28,9 +28,25 @@ def full?(board)
 end
 
 def draw?(board)
-  if full?(board)
+  if won?(board)
+    false
+  elsif full?(board)
     true
   else
     false
+  end
+end
+
+def over?(board)
+  if won?(board) || draw?(board) || full?(board)
+    true
+  else
+    false
+  end
+end
+
+def winner(board)
+  if won?(board)
+    board[won?(board).first]
   end
 end
