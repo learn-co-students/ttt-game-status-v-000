@@ -16,7 +16,7 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  if board.none?{|i| i == "X" || i = "O"}
+  if board.none?{|i| i == "X" || i == "O"}
     false
   elsif
     WIN_COMBINATIONS.select do |win_combination|
@@ -37,17 +37,17 @@ def full?(board)
 end
 
 def draw?(board)
-  if won?(board) == false && full?(board) == true
+  if !won?(board) && full?(board)
     true
-  elsif won?(board) == false && full?(board) == false
+  elsif !won?(board) && !full?(board)
     false
-  elsif won?(board) == true
+  elsif won?(board)
     false
   end
 end
 
 def over?(board)
-  if won?(board) == true || draw?(board) == true || full?(board) == true
+  if won?(board) || draw?(board) || full?(board)
     true
   else
     false
@@ -55,6 +55,9 @@ def over?(board)
 end
 
 def winner(board)
-  if won?(board) == true
+  if won?(board) && board[won?(board)[0]] == "X"
+    return "X"
+  elsif won?(board) && board[won?(board)[0]] == "O"
+    return "O"
   end
 end
