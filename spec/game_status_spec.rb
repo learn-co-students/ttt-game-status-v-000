@@ -1,5 +1,5 @@
 require_relative '../lib/game_status.rb'
-
+require 'pry'
 describe "./lib/game_status.rb" do
   describe 'WIN_COMBINATIONS' do
     it 'defines a constant WIN_COMBINATIONS with arrays for each win combination' do
@@ -144,10 +144,11 @@ describe "./lib/game_status.rb" do
     end
   end
 
+
   describe '#winner' do
     it 'return X when X won' do
       board = ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
-
+#binding.pry
       expect(winner(board)).to eq("X")
     end
 
