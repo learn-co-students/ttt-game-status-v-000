@@ -25,7 +25,6 @@ describe "./lib/game_status.rb" do
 
     it 'returns false for a draw' do
       board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
-
       expect(won?(board)).to be_falsey
     end
 
