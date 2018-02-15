@@ -25,3 +25,10 @@ def won?(board)
     position_taken?(board, combo[0])
   end
 end
+
+def full?(board)
+  board.all? do |position|
+  position.include?("X") ||
+  position.include?("O")
+ end
+end
