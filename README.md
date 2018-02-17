@@ -1,4 +1,4 @@
-# Tic Tac Toe Game Status
+lear# Tic Tac Toe Game Status
 
 ## Objectives
 
