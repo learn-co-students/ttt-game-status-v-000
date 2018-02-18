@@ -32,3 +32,21 @@ def full?(board)
   position.include?("O")
  end
 end
+
+def draw?(board)
+  if won?(board)
+    false
+  else full?(board) && !won?(board)
+    true
+  end
+end
+
+def over?(board)
+  if full?(board)
+    true
+  elsif draw?(board)
+    true
+  elsif won?(board) && !full?(board)
+    true
+  end
+end
