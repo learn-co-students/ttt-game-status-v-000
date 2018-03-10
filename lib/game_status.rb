@@ -76,11 +76,12 @@ def over?(board)
   end
 end
 
+
 def winner(board)
   if over?(board) && won?(board)
     combo = won?(board)
     letter = combo[0]
-    return board[letter]
-  else return nil
+    board[letter]
+  else nil
   end
 end
