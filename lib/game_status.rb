@@ -66,3 +66,21 @@ def draw?(board)
     false
   end
 end
+
+
+def over?(board)
+  if won?(board) || draw?(board) || full?(board)
+    true
+  else
+    false
+  end
+end
+
+def winner(board)
+  if over?(board) && won?(board)
+    combo = won?(board)
+    letter = combo[0]
+    return board[letter]
+  else return nil
+  end
+end
