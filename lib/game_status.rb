@@ -55,12 +55,12 @@ def full?(board)
 end
 
 
-def draw(board)
-  if !won? && full?
+def draw?(board)
+  if !won?(board) && full?(board)
     true
-  elsif !won? && !full?
+  elsif !won?(board) && !full?(board)
     false
-  elsif won?
+  elsif won?(board)
     false
   else
     false
