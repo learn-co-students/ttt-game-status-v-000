@@ -14,7 +14,13 @@ WIN_COMBINATIONS = [
   [6,4,2]
 ]
 
-def won(board)
+def won?(board)
+  if board.all?{|space|space==" "}
+    return false
+  elsif board[0] == "X" && board[1] == "X" && board[2] == "X"
+    return WIN_COMBINATIONS[0]
+    
+  end
 end
 
 def full(board)
