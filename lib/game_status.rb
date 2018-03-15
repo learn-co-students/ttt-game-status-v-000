@@ -35,8 +35,8 @@ def won?(board)
   if board.all?{ |space| space == " "}
     return false
   elsif board[0] == "X" && board[1] == "X" && board[2] == "X"
-    return [WIN_COMBINATIONS[0][0], WIN_COMBINATIONS[0][1], WIN_COMBINATIONS[0][2]]
-  elsif board[3] == "X" && board[4] == "X" && board[5] == "X"
+    return WIN_COMBINATIONS[0]
+  elsif (board[3] == "X" && board[4] == "X" && board[5] == "X") || (board[3] == "O" && board[4] == "O" && board[5] == "O")
     return WIN_COMBINATIONS[1]
   elsif board[6] == "X" && board[7] == "X" && board[8] == "X"
     return WIN_COMBINATIONS[2]
@@ -64,7 +64,6 @@ def full?(board)
 end
 
 def draw?(board)
-  # binding.pry
   if full?(board) && !(won?(board))
     return true
   else
@@ -73,14 +72,23 @@ def draw?(board)
 end
 
 def over?(board)
-  if draw?(board)
+  if !full?(board) && won?(board)
     return true
   elsif !full?(board) && !won?(board)
+    return false
+  elsif draw?(board)
     return true
-  elsif full?(board)
+  elsif full?(board) && (won?(board) != false)
     return true
   end
 end
 
-def winner?(board)
+def winner(board)
+  if won?(board) && (board.count("X") >= 3)
+    return "X"
+  elsif won?(board) && (board.count("O") >= 3)
+    return "O"
+  elsif won?(board) || draw?(board)
+    return nil
+  end
 end
