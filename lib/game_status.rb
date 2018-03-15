@@ -16,23 +16,27 @@ WIN_COMBINATIONS = [
   [6,4,2]
 ]
 
-def won?(board)
-  # board.each_with_index { |space, index|
-  #   space = board[index]
-  #   if space == board[index+1] && space == board[index+2]
-  #     return true
-  #   elsif space == board[index-1] && space == board[index-2]
-  #     return true
-  #   elsif space == board[index-2] && space == board[index-4]
-  #     return true
-  #   elsif board.all?{ |space| space == "X" || space == "O"}
-  #     return false
-  #   elsif board.all?{ |space| space==" "}
-  #     return false
-  #   end
-  # }
+# # attempt at refactoring - currently failing
+# def won?(board)
+#   match = []
+#   if full?(board)
+#     board.each_with_index { |element, index|
+#       if (element == element[index.to_i + 1]) && (element == element[index.to_i + 2])
+#         match << [index]
+#         match << [index.to_i + 1]
+#         match << [index.to_i + 2]
+#         return match
+#       else
+#         return false
+#       end
+#     }
+#   else
+#     return false
+#   end
+# end
 
-  if board.all?{ |space| space == " "}
+def won?(board)
+  if board.all?{ |space| space == " " }
     return false
   elsif board[0] == "X" && board[1] == "X" && board[2] == "X"
     return WIN_COMBINATIONS[0]
@@ -50,7 +54,7 @@ def won?(board)
     return WIN_COMBINATIONS[6]
   elsif board[2] == "O" && board[4] == "O" && board[6] == "O"
     return WIN_COMBINATIONS[7]
-  elsif board.all?{ |space| space == "X" || space == "O"}
+  elsif board.all?{ |space| space == "X" || space == "O" }
     return false
   end
 end
@@ -58,7 +62,7 @@ end
 def full?(board)
   if board.any? { |space| space == " " }
     return false
-  elsif board.all? { |space| space == "X" || space == "O"}
+  elsif board.all? { |space| space == "X" || space == "O" }
     return true
   end
 end
