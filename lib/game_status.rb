@@ -1,3 +1,5 @@
+require 'pry'
+
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
@@ -15,9 +17,22 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  if board.all?{ |space| space==" "}
-    return false
-  elsif board.all?{ |space| space == "X" || space == "O"}
+  # board.each_with_index { |space, index|
+  #   space = board[index]
+  #   if space == board[index+1] && space == board[index+2]
+  #     return true
+  #   elsif space == board[index-1] && space == board[index-2]
+  #     return true
+  #   elsif space == board[index-2] && space == board[index-4]
+  #     return true
+  #   elsif board.all?{ |space| space == "X" || space == "O"}
+  #     return false
+  #   elsif board.all?{ |space| space==" "}
+  #     return false
+  #   end
+  # }
+
+  if board.all?{ |space| space == " "}
     return false
   elsif board[0] == "X" && board[1] == "X" && board[2] == "X"
     return [WIN_COMBINATIONS[0][0], WIN_COMBINATIONS[0][1], WIN_COMBINATIONS[0][2]]
@@ -35,17 +50,37 @@ def won?(board)
     return WIN_COMBINATIONS[6]
   elsif board[2] == "O" && board[4] == "O" && board[6] == "O"
     return WIN_COMBINATIONS[7]
+  elsif board.all?{ |space| space == "X" || space == "O"}
+    return false
   end
 end
 
-def full(board)
+def full?(board)
+  if board.any? { |space| space == " " }
+    return false
+  elsif board.all? { |space| space == "X" || space == "O"}
+    return true
+  end
 end
 
-def draw(board)
+def draw?(board)
+  # binding.pry
+  if full?(board) && !(won?(board))
+    return true
+  else
+    return false
+  end
 end
 
-def over(board)
+def over?(board)
+  if draw?(board)
+    return true
+  elsif !full?(board) && !won?(board)
+    return true
+  elsif full?(board)
+    return true
+  end
 end
 
-def winner(board)
+def winner?(board)
 end
