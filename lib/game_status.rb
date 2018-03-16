@@ -50,8 +50,7 @@ def over?(board)
 end
 
 def winner(board)
-  token = board[won?(board)[0]]
-  if token == "X" || token == "O"
-    token
+  if winning_combo = won?(board)
+    board[winning_combo.first]
   end
 end
