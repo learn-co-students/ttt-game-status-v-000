@@ -1,0 +1,32 @@
+
+[1mFrom:[0m /home/ICanDoAllThingThroughChrist/code/labs/ttt-game-status-v-000/lib/game_status.rb @ line 62 Object#won?:
+
+    [1;34m44[0m: [32mdef[0m [1;34mwon?[0m (board)
+    [1;34m45[0m:   [1;34;4mWIN_COMBINATIONS[0m.each [32mdo[0m |win| [1;34m#|win,position|[0m
+    [1;34m46[0m:     [1;34m#iteratiing through the first win combination array[0m
+    [1;34m47[0m:     [1;34m#win = WIN_COMBINATIONS[0] #missed win = to reference win argument,flatiron indicated[0m
+    [1;34m48[0m:     [1;34m#that i'm overwriting the win variable here[0m
+    [1;34m49[0m:     win_index_1 = [1;34;4mWIN_COMBINATIONS[0m[[1;34m0[0m][[1;34m0[0m][1;34m#chain method # [0,0] = 1st time[0m
+    [1;34m50[0m:     win_index_2 = [1;34;4mWIN_COMBINATIONS[0m[[1;34m0[0m][[1;34m1[0m]
+    [1;34m51[0m:     win_index_3 = [1;34;4mWIN_COMBINATIONS[0m[[1;34m0[0m][[1;34m2[0m]
+    [1;34m52[0m:     [1;34m#position = position_combo[0][0m
+    [1;34m53[0m:     [1;34m# use comparison == instead of = # changed to = after syntax error, unexpected == message[0m
+    [1;34m54[0m:     [1;34m# noticed WIN_COMBINATIONS[0] refers to 0,1,2 NOT 0[0m
+    [1;34m55[0m:     [1;34m#win = win_index_2 = WIN_COMBINATIONS[1] #missed array matching case 1stX.[0m
+    [1;34m56[0m:     [1;34m#win = win_index_3 = WIN_COMBINATIONS[2][0m
+    [1;34m57[0m:     position_1 = board[win_index_1] [1;34m# load the value of the board at win_index_1, no implicit arry conversion to integer = + .to_i @ win_index[0m
+    [1;34m58[0m:     [1;34m#, failed #add .to_i to position_1, failed for error msg undefined local variable 'position_1', #add .to_i to board[win_index_1].to_i[0m
+    [1;34m59[0m:     position_2 = board[win_index_2] [1;34m# load the value of the board at win_index_2[0m
+    [1;34m60[0m:     position_3 = board[win_index_3] [1;34m# load the value of the board at win_index_3[0m
+    [1;34m61[0m:     [1;34m#position = position_combo[0][0m
+ => [1;34m62[0m:     binding.pry
+    [1;34m63[0m:     [32mif[0m position_1 == [31m[1;31m"[0m[31mX[1;31m"[0m[31m[0m && position_2 == [31m[1;31m"[0m[31mX[1;31m"[0m[31m[0m && position_3 == [31m[1;31m"[0m[31mX[1;31m"[0m[31m[0m
+    [1;34m64[0m:          [32mreturn[0m [1;34;4mWIN_COMBINATIONS[0m [1;34m#return the win_combination indexes that won.[0m
+    [1;34m65[0m:         [32melse[0m
+    [1;34m66[0m:             [1;36mfalse[0m
+    [1;34m67[0m:     [32mend[0m
+    [1;34m68[0m:                     [32mend[0m
+    [1;34m69[0m:   [1;34m#end[0m
+    [1;34m70[0m: [1;34m#end[0m
+    [1;34m71[0m: [32mend[0m
+
