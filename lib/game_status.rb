@@ -57,15 +57,8 @@ def over?(board)
 end
 
 def winner(board)
-  winner_index = won?(board)[0]
-  win_position_1 = winner_index[0]
-  win_position_2 = winner_index[1]
-  win_position_3 = winner_index[2]
-    
-  if (win_position_1 == "X" || win_position_2 == "X" || win_position_3 == "X")
-    return "X"
-  else if (win_position_1 == "O" || win_position_2 == "O" || win_position_3 == "O")
-    return "O"
-  end
+  winner_index = won?(board)
+  if winner_index
+    board[winner_index[0]]
   end
 end
