@@ -33,3 +33,28 @@ def draw?(board)
     return true
   end
 end
+
+
+def over?(board)
+  if won?(board) != false
+    return true
+  elsif full?(board)
+    return true
+  elsif draw?(board)
+    return true
+  else
+    return false
+  end
+end
+
+def winner(board)
+  moves = won?(board)
+  if moves.is_a? Array
+    if board[moves[0]] == "O"
+      return "O"
+    else
+      return "X"
+    end
+  end
+  return nil
+end
