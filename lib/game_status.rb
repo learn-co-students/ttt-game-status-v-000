@@ -31,15 +31,55 @@ WIN_COMBINATIONS = [
     
       
       
-    if position_1  == "X"  && position_2 == "X" && position_3 == "X"
-    #if position_taken?(board, position_1) 
-      #&& position_taken?(board, position_2) 
-      #&& position_taken?(board, position_3)
-      return win
+    if position_1  ==  position_2 && position_2 == position_3 && position_taken?(board, win_index_2) 
+    
+    return win
     else
-     #position_taken?(board, index)
-     false
     end
   end
+  return false
 end
+
+#full?
+def full?(board)
+  board.each do |move|
     
+if  move == "X" || move == "O"
+  next
+else  
+move = " "|| move = nil
+return false
+    end
+ end
+end
+
+#draw?
+def draw?(board)
+  if !won?(board) && full?(board)
+    then true
+  else 
+    false
+  end
+end
+
+#over?
+def over?(board)
+  if draw?(board) || full?(board) || won?(board)
+  true
+  else
+    return false
+  end
+end
+
+#winner
+def winner(board)
+  x = board.count("X")
+  o = board.count("O")
+  if over?(board) && won?(board) && x > o
+ "X"
+  elsif over?(board) && won?(board) && o > x
+  "O"
+  else
+    nil
+  end
+end
