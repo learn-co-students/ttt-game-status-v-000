@@ -15,16 +15,6 @@ def won?(board)
   end
 end
 
-# def won?(board)
-#   win = WIN_COMBINATIONS.select do |i|
-#     i.all? { |index| board[index] == "X" } || i.all? { |index| board[index] == "O" }
-#   end
-#   if win == []
-#     false 
-#   else 
-#     win[0]
-#   end
-# end
 
 def full?(board = [" ", " ", " ", " ", " ", " ", " ", " ", " "])
   if board.any? {|z| z == " "}
@@ -35,7 +25,7 @@ def full?(board = [" ", " ", " ", " ", " ", " ", " ", " ", " "])
 end
 
 def draw?(board)
-  won?(board) == false && full?(board) == true 
+  full?(board) && !(won?(board))
 end
 
 def over?(board)
