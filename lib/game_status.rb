@@ -32,14 +32,19 @@ def over?(board)
   full?(board) || draw?(board) || won?(board)
 end
 
-def winner(board)
-  if  won?(board) == "X"
-    return "X"
-    elsif won?(board) == "O"
-    return "O"
-  else
-    nil
-  end
-end
+# def winner(board)
+#   if won?(board) == "X"
+#     return "X"
+#     elsif won?(board) == "O"
+#     return "O"
+#   else
+#     nil
+#   end
+# end
 
+def winner(board)
+  if winning_combo = won?(board)
+    board[winning_combo.first]
+  end
+end  
 
