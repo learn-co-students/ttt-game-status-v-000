@@ -16,13 +16,12 @@ def won?(board)
 end
 
 # def won?(board)
-#   win = WIN_COMBINATIONS.detect do |i|
+#   win = WIN_COMBINATIONS.select do |i|
 #     i.all? { |index| board[index] == "X" } || i.all? { |index| board[index] == "O" }
 #   end
 #   if win == []
 #     false 
 #   else 
-#     binding.pry
 #     win[0]
 #   end
 # end
