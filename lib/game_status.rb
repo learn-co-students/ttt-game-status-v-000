@@ -1,4 +1,5 @@
 # Helper Method
+require 'pry'
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
@@ -19,21 +20,20 @@ def won?(board)
   end
 end
 
-  def full?(board)
-    board.all? {|token| token == "X" || token == "O"}
-  end
+def full?(board)
+  board.all?{|token| token == "X" || token == "O"}
+end
 
-  def draw?(board)
-
-  full?(board) && !won?(board)
+def draw?(board)
+  !won?(board) && full?(board)
 end
 
 def over?(board)
-  full?(board) || won?(board)
+  won?(board) || full?(board) || draw?(board)
 end
 
 def winner(board)
-  if winning_combo = won?(board)
-    board[winning_combo.first]
+  if won?(board)
+    board[won?(board).first]
   end
 end
