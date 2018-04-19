@@ -1,7 +1,7 @@
 require 'pry'
 # Helper Method
 def position_taken?(board, index)
-  !(board[index].nil? || board[index] == " ")
+  !(board[index].nil? || board[index] = " ")
 end
 
 # Define your WIN_COMBINATIONS constant
@@ -19,16 +19,16 @@ WIN_COMBINATIONS = [
 def won?(board)
 
   WIN_COMBINATIONS.each do |win_combination|
-
-    if win_combination[0]  && win_combination[1]   && win_combination[2] == "X"
-    
-      return win_combination
   
-    elsif win_combination[0]  && win_combination[1]   && win_combination[2] == == "O"
-      return win_combination
+    if win_combination[0] && win_combination[1]  && win_combination[2] == "X"
+    
+      return  win_combination
+  
+    elsif win_combination[0] && win_combination[1]  && win_combination[2] == "O"
+      return  win_combination
     else
        return false 
-    end
+    end 
   end
 end
 
