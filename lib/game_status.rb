@@ -8,8 +8,28 @@ def empty_board?(board)
   position == nil || position == "" || position == " "
  end
 end
- 
 
+def full_board?(board)
+  board.all? do |position|
+    position != nil || position != "" || position != " "
+  end
+end
+
+def draw?(board)
+  if full_board?(board) == true
+    return true
+  end
+end
+
+def top_board_win?(board)
+  if board[0] == "X" &&  board[1] == "X" && board[2] == "X"
+    return true
+   elsif board[0] == "O" &&  board[1] == "O" && board[2] == "O"
+     return true
+  end
+end
+ 
+def 
 # Define your WIN_COMBINATIONS constant
 
 WIN_COMBINATIONS = [
@@ -26,7 +46,7 @@ WIN_COMBINATIONS = [
 # for each win_combination in WIN_COMBINATIONS
   # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
   # grab each index from the win_combination that composes a win.
-  # win_index_1 = win_combinations[0]
+  # win_index_1 = WIN_COMBINATIONS[0]
   # win_index_2 = win_combinations[1]
   # win_index_3 = win_combinations[2]
   # win_index_4 = win_combinations[3]
@@ -49,11 +69,13 @@ WIN_COMBINATIONS = [
 
 def won?(board)
   if empty_board?(board) == true
-  return false
-  
+    return false
+  elsif draw?(board) == true
+    false
+  elsif top_board_win?(board) == true
+    return WIN_COMBINATIONS[0]
  end
 end
- 
  
  
  
