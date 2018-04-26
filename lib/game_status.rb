@@ -3,6 +3,10 @@ def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
 
+def empty_board?(board)
+  
+
+
 # Define your WIN_COMBINATIONS constant
 
 WIN_COMBINATIONS = [
@@ -16,3 +20,41 @@ WIN_COMBINATIONS = [
   [2,5,8] # Right column
 ]
  
+# for each win_combination in WIN_COMBINATIONS
+  # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
+  # grab each index from the win_combination that composes a win.
+  win_index_1 = win_combination[0]
+  win_index_2 = win_combination[1]
+  win_index_3 = win_combination[2]
+  win_index_4 = win_combination[3]
+  win_index_5 = win_combination[4]
+  win_index_6 = win_combination[5]
+  win_index_7 = win_combination[6]
+  win_index_8 = win_combination[7]
+  win_index_9 = win_combination[8]
+  
+
+  position_1 = board[win_index_1] # load the value of the board at win_index_1
+  position_2 = board[win_index_2] # load the value of the board at win_index_2
+  position_3 = board[win_index_3] # load the value of the board at win_index_3
+  position_4 = board[win_index_4] # load the value of the board at win_index_4
+  position_5 = board[win_index_5] # load the value of the board at win_index_5
+  position_6 = board[win_index_6] # load the value of the board at win_index_6
+  position_7 = board[win_index_7] # load the value of the board at win_index_7
+  position_8 = board[win_index_8] # load the value of the board at win_index_8
+  position_9 = board[win_index_9] # load the value of the board at win_index_9
+
+def won?
+  if empty_board? == true
+    false
+end
+ 
+ 
+ 
+ 
+  # if position_1 == "X" && position_2 == "X" && position_3 == "X"
+  #   true
+  # elsif position_7 == "X" && position_2 == "X" && position_3 == "X"
+  #   false
+  # end
+end
