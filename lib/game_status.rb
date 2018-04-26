@@ -21,13 +21,8 @@ def won?(board)
     board_location1 = win_combination[0]
     board_location2 = win_combination[1]
     board_location3 = win_combination[2]
-    board_location4 = win_combination[3]
-    board_location5 = win_combination[4]
-    board_location6 = win_combination[5]
-    board_location7 = win_combination[6]
-    board_location8 = win_combination[7]
-    {board_location1} and #{board_location2} and #{board_location3}
-    board[board_location1] == board[board_location2] && board[board_location2] && board_location3 == board[0] != " "
+    board[board_location1]==board[board_location2]&& board[board_location2]==board[board_location3] && board[board_location3] !=" "
+  end
 end
 
 def full?(board)
@@ -44,9 +39,10 @@ end
 
 def winner(board)
   win_combination = won?(board)
-  winning_location = win_combination[0]
-  board[winning_location]
-else
-  nil
-end
+  if win_combination !=nil
+    winning_location = win_combination[0]
+    return board[winning_location] 
+  else 
+    return nil
+  end
 end
