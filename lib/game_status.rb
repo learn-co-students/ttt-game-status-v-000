@@ -29,10 +29,7 @@ def top_board_win?(board)
   end
 end
  
-def 
-# Define your WIN_COMBINATIONS constant
-
-WIN_COMBINATIONS = [
+ WIN_COMBINATIONS = [
   [0,1,2], # Top row
   [3,4,5],  # Middle row
   [6,7,8], # Bottom row
@@ -68,16 +65,30 @@ WIN_COMBINATIONS = [
   # position_9 = board[win_index_9] # load the value of the board at win_index_9
 
 def won?(board)
-  if empty_board?(board) == true
-    return false
-  elsif draw?(board) == true
+WIN_COMBINATIONS.detect do |position| 
+  if board[position[0]] == "X" && board[position[1]] == "X" && board[position[2]] == "X"
+    position
+  elsif board[position[0]] == "O" && board[position[1]] == "O" && board[position[2]] == "O"
+    position
+  else
     false
-  elsif top_board_win?(board) == true
-    return WIN_COMBINATIONS[0]
- end
+  end
+  end 
+end
+
+
+def full?(board)
+  board.all?{|occupied| occupied != " "}
 end
  
- 
+def draw?(board)
+  if !won?(board) && full_board?(board)
+    true
+  # elsif !won?(board) && !full_board?(board)
+end
+end
+  
+
  
   # if position_1 == "X" && position_2 == "X" && position_3 == "X"
   #   true
