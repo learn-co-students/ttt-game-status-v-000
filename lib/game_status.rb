@@ -9,12 +9,6 @@ def empty_board?(board)
  end
 end
 
-# def full_board?(board)
-#   board.all? do |position|
-#     position != nil || position != "" || position != " "
-#   end
-# end
-
 def draw?(board)
   if full_board?(board) == true
     return true
@@ -53,30 +47,30 @@ WIN_COMBINATIONS.detect do |position|
 end
 
 def full?(board)
-  board.all?{|occupied| occupied != " "}
+  board.all?{|i| i == "X" || i == "O"}
 end
  
 def draw?(board)
-  if !won?(board) && full_board?(board)
+  if !won?(board) && full?(board)
     true
-  # elsif !won?(board) && !full_board?(board)
+  # elsif !won?(board) && !full?(board)
   end
 end
 
 def over?(board)
   if won?(board) || full?(board) || draw?(board)
     true
-  elsif !full?(board)
+  elsif 
     false
   end
 end
+
+def winner(board)
+  if !won?(board)
+    return nil
+  elsif won?(board)
+    return board[won?(board)[0]]
+end
+end
+
   
-
- 
-  # if position_1 == "X" && position_2 == "X" && position_3 == "X"
-  #   true
-  # elsif position_7 == "X" && position_2 == "X" && position_3 == "X"
-  #   false
-  # end
-
-#end
