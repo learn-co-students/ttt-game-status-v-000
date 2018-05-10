@@ -22,12 +22,8 @@ def won?(board)
     position_1 = board[win_combo[0]]
     position_2 = board[win_combo[1]]
     position_3 = board[win_combo[2]]
-    position_4 = board[win_combo[3]]
-    position_5 = board[win_combo[4]]
-    position_6 = board[win_combo[5]]
 
-
-    position_1 == "X" && position_2 == "X" && position_3 == "X"
-    position_4 == "O" && position_5 == "0" && position_6 == "0"
+    position_1 == "X" && position_2 == "X" && position_3 == "X" ||
+    position_4 == "O" && position_5 == "O" && position_6 == "O"
   end
 end
