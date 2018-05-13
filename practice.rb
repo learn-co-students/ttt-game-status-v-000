@@ -28,7 +28,17 @@ def won?(board)
 end
 
 def winner(board)
-  won?(board).detect do |winning_index|
-    board[winning_index].inspect == "X"
+  won?(board).detect do |x|
+    board[x].is_a?(String)
+  end
+end
+
+
+def winner(board)
+  winning_array = won?(board)
+  if winning_array == false
+    nil
+  else
+    board[winning_array[0]]
   end
 end
