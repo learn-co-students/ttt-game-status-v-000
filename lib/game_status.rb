@@ -16,34 +16,44 @@ WIN_COMBINATIONS = [
     !(board[index].nil? || board[index] == " ")
   end
 
-  # Define your WIN_COMBINATIONS constant
+def won?(board)
+  WIN_COMBINATIONS.each {|win_combo|
+    index_0 = win_combo[0]
+    index_1 = win_combo[1]
+    index_2 = win_combo[2]
 
-    def won?(board)
-      WIN_COMBINATIONS.detect do |combo|
-        board[combo[0]] == board[combo[1]] &&
-        board[combo[1]] == board[combo[2]] &&
-        position_taken?(board, combo[0])
-      end
+    position_1 = board[index_0]
+    position_2 = board[index_1]
+    position_3 = board[index_2]
+
+    if position_1 == "X" && position_2 == "X" && position_3 == "X"
+      return win_combo
+    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+      return win_combo
     end
-
-    def full?(board)
-      board.all?{|element| element == "X" || element == "O"}
-    end
-
-
-  def draw?(board)
-    full?(board) && !won?(board)
-  end
-
-  def over?(board)
-    won?(board) || full?(board)
-  end
-
- def winner(board)
-  if winning_combo = won?(board)
-    board[winning_combo.first]
-  end
+  }
+  return false
 end
 
+def full?(board)
+  board.all? {|index| index == "X" || index == "O"}
+  end
+  
+  
+def draw?(board)
+ !won?(board)  && full?(board)
+  end
 
-  #i > 10 ? "greater than" : "less than or equal to"
+
+def over?(board)
+  won?(board) && draw?(board) || full?(board)
+end
+ 
+def winner(board)
+  win_combo = won?(board)
+  if won 
+    return board[won[0]]
+  end
+end
+ 
+ 
