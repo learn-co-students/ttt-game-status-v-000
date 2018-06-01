@@ -20,47 +20,54 @@ WIN_COMBINATIONS = [
   
   def won?(board)
     WIN_COMBINATIONS.detect do |wins|
-      #binding.pry
-      win1 = wins[0]
-      win2 = wins[1]
-      win3 = wins[2]
-      if board[win1] == "X" && board[win2] == "X" && board[win3] == "X"
+      wins1 = wins[0]
+      wins2 = wins[1]
+      wins3 = wins[2]
+      if board[wins1] == "X" && board[wins2] == "X" && board[wins3] == "X"
         wins 
-      elsif board[win1] == "O" && board[win2] == "O" && board[win3] == "O"
-        wins 
-      end
+      elsif board[wins1] == "O" && board[wins2] == "O" && board[wins3] == "O"
+        wins
+      end 
     end 
-    # binding.pry
   end 
   
-def full?(board)
-  board.all? do |move|
-    move == "X" || move == "O"
+  def full?(board)
+    board.all? do |move|
+      move == "X" || move == "O"
+    end
   end 
-end 
- 
-def draw?(board)
-  if !won?(board) && full?(board) == true 
-    return true 
+  
+  def draw?(board)
+    if !won?(board) && full?(board)
+      return true
+    elsif !won?(board) && !full?(board)
+      return false 
+    end 
   end 
-end 
 
 def over?(board)
-  if won?(board) && draw?(board) || full?(board)
+  if won?(board) || draw?(board) || full?(board)
     return true
-  elsif won?(board) && !full?(board)
-    return true 
   else 
     return false
-  end 
+  end
 end 
 
 def winner(board)
-  if won?(board) 
-    combo = won?(board)
-    board[combo.first]
+  if won?(board)
+  winnerwinner = won?(board)
+  board[winnerwinner.first]
   end 
 end 
+  
+  
+
+
+
+
+
+
+
 
 
     
