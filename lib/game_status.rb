@@ -24,7 +24,8 @@ def won?(board)
       end
     end
       false
-  end  
+end  
+
    
 def full?(board)
  if board.include?(" ")
@@ -34,11 +35,31 @@ def full?(board)
   end
 end  
 
-
 def draw?(board)
+  if full?(board) == true && won?(board) == false
+    true
+  else
+   false
+  end
 end
 
 def over?(board)
+  if full?(board) == true
+    true
+    elsif won?(board) != false
+    true
+  else
+    false
+  end
 end
 
 def winner(board)
+  WIN_COMBINATIONS.each do |combo|
+      if board[combo[0]] == "X" && board[combo[1]] == "X" && board[combo[2]] == "X"
+      return "X"
+      elsif board[combo[0]] == "O" && board[combo[1]] == "O" && board[combo[2]] == "O"
+      return "O"
+      end
+    end
+    return nil
+end  
