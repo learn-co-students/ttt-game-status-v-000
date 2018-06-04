@@ -28,7 +28,7 @@ def won?(board)
 end
 
 def full?(board)
-  board.all? {|space| position_taken(board, board[space])}
+  board.all? {|token| token == "X" || token == "O"}
 end 
 
 def draw?(board)
@@ -48,15 +48,9 @@ def over?(board)
 end
 
 def winner(board)
-  WIN_COMBINATIONS.each do |win_group|
-    if win_group.all? {|win_index| board[win_index] == current_player(board)}
-      puts current_player(board)
-      return current_player(board)
-    else
-      nil 
-    end 
+  if winning_combo = won?(board)
+    board[winning_combo.first]
   end
-  return nil
 end
 
 
