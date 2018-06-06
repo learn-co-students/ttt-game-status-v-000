@@ -35,14 +35,12 @@ def won?(board)
         false
     end
   end
-  return false;
-  #if full?(board)
-  #  return false;
-  #end
+  #returning the WIN_COMBINATIONS array
+  false; #explicitly tell ruby to return false if we've cycled through the board and no win combinations can be found
 end
 
 def full?(board)
-  return board.detect{|i| i == " "} ? false : true
+  board.all? {|position| position_taken?(board, board.index(position))}
 end
 
 def draw?(board)
