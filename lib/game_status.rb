@@ -33,17 +33,9 @@ def won?(board)
 
   board.reject do |refuse_array|
 
-    binding.pry
-     board[refuse_array[0]] == "X" || board [refuse_array[0]]== "O"
-     board[refuse_array[1]] == "X" || board [refuse_array[1]]== "O"
-     board[refuse_array[2]] == "X" || board [refuse_array[2]]== "O"
-     board[refuse_array[3]] == "X" || board [refuse_array[3]]== "O"
-     board[refuse_array[4]] == "X" || board [refuse_array[4]]== "O"
-     board[refuse_array[5]] == "X" || board [refuse_array[5]]== "O"
-     board[refuse_array[6]] == "X" || board [refuse_array[6]]== "O"
-     board[refuse_array[7]] == "X" || board [refuse_array[7]]== "O"
-     board[refuse_array[8]] == "X" || board [refuse_array[8]]== "O"
-#binding.pry
+    #binding.pry
+     board[refuse_array] == "X" || board [refuse_array]== "O" || board [refuse_array] == nil
+
    end
 return board[refuse_array]
 
@@ -55,9 +47,15 @@ return board[refuse_array]
     # 1. First postition must be takengh
     # 2. the second position must be the
     # 3. same as the first the same for the third
-  position_taken?(board, win_combination[0]) && win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
+  position_taken?(board, win_combination[0]) && board [win_combination[0]] == board [win_combination[1]] && board [win_combination[1]] == board [win_combination[2]]
+  position_taken?(board, win_combination[3]) && board [win_combination[3]] == board [win_combination[4]] && board [win_combination[4]] == board [win_combination[5]]
+  position_taken?(board, win_combination[6]) && board [win_combination[6]] == board [win_combination[7]] && board [win_combination[7]] == board [win_combination[8]]
+  position_taken?(board, win_combination[0]) && board [win_combination[0]] == board [win_combination[3]] && board [win_combination[3]] == board [win_combination[6]]
+  position_taken?(board, win_combination[1]) && board [win_combination[1]] == board [win_combination[4]] && board [win_combination[4]] == board [win_combination[7]]
+  position_taken?(board, win_combination[2]) && board [win_combination[2]] == board [win_combination[5]] && board [win_combination[5]] == board [win_combination[8]]
+  position_taken?(board, win_combination[0]) && board [win_combination[0]] == board [win_combination[4]] && board [win_combination[4]] == board [win_combination[8]]
+  position_taken?(board, win_combination[2]) && board [win_combination[2]] == board [win_combination[4]] && board [win_combination[4]] == board [win_combination[6]]
 
-  #position_taken?(board, win_combination[3]) && win_combination[3] == win_combination[4] && win_combination[4] == win_combination[5]
 #binding.pry
   end
 
@@ -66,7 +64,7 @@ return board[refuse_array]
   #position_taken?(board, win_combination[3]) && win_combination[3] == win_combination[4] && win_combination[4] == win_combination[5]
 
 
-return win_combination
+return board [win_combination]
 
 
 #binding.pry
