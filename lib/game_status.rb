@@ -48,18 +48,10 @@ end
     # 1. First postition must be takengh
     # 2. the second position must be the
     # 3. same as the first the same for the third
-
-
-    position_taken?(board, win_combination[0]) && win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
+  position_taken?(board, win_combination[0]) && win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
 #binding.pry
-
-
-    #binding.pry
-    win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
-
 end
 
-if board == "X" || board == "O"
 return win_combination
 binding.pry
 end
