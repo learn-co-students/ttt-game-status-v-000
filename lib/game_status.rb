@@ -34,10 +34,18 @@ def won?(board)
   board.reject do |refuse_array|
 
     #binding.pry
-     board[refuse_array] == "X" || board [refuse_array]== "O" || board [refuse_array] == nil
+
+    #binding.pry
+
+     if board[0] == "X" || board [0] == "O"
+     refuse_array [0] = board [0]
+   elsif  board[1] == "X" || board [1] == "O"
+    refuse_array [1] = board [1]
+  end
+
 
    end
-return board[refuse_array]
+return board
 
 
 
