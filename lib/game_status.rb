@@ -1,10 +1,13 @@
+
 require "pry"
 # Helper Method
+#board=[" ", " ", " ", " ", " ", " ", " ", " ", " "]
+#index=8
 def position_taken?(board, index)
-  !(board[index].nil? || board[index] == " ")
-#binding.pry
+  (board[index].nil? || board[index] == " ")
+
 end
-binding.pry
+#binding.pry
 # Define your WIN_COMBINATIONS constant
 
 WIN_COMBINATIONS =
@@ -24,9 +27,6 @@ WIN_COMBINATIONS =
 def won?(board)
 # what variable represents the board, and where does it come from?
 
-
-binding.pry
-
 =begin WIN_COMBINATIONS.reject do |u|
 if position_taken?(board,u)
 binding.pry
@@ -45,10 +45,8 @@ end
     # 2. the second position must be the
     # 3. same as the first the same for the third
 
-#binding.pry
-    position_taken?(board, win_combination[0])==true
-    win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
-
+    position_taken?(board, win_combination[0]) && win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
+binding.pry
   end
   if board == nil && board == " "
   return false
