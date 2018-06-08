@@ -23,17 +23,19 @@ WIN_COMBINATIONS =
 
 def won?(board)
 # what variable represents the board, and where does it come from?
-#binding.pry
-if position_taken?(board,index)==false
-binding.pry
-  return false
-end
+ position_taken?(board, index)
+ binding.pry
 
+=begin WIN_COMBINATIONS.reject do |u|
+if position_taken?(board,u)
+binding.pry
+end
 
 WIN_COMBINATIONS.detect do |element_array|
 #binding.pry
   position_taken?(board, element_array)==true
 end
+=end
 
 
   WIN_COMBINATIONS.select do |win_combination|
@@ -43,11 +45,11 @@ end
     # 3. same as the first the same for the third
 
 #binding.pry
-    position_taken?(board, win_combination[0])
+    position_taken?(board, win_combination[0])==true
     win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
 
   end
-
-
-
+  if board == nil && board == " "
+  return false
   end
+end
