@@ -4,7 +4,7 @@ def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 #binding.pry
 end
-
+binding.pry
 # Define your WIN_COMBINATIONS constant
 
 WIN_COMBINATIONS =
@@ -23,8 +23,9 @@ WIN_COMBINATIONS =
 
 def won?(board)
 # what variable represents the board, and where does it come from?
- position_taken?(board, index)
- binding.pry
+
+
+binding.pry
 
 =begin WIN_COMBINATIONS.reject do |u|
 if position_taken?(board,u)
