@@ -41,22 +41,27 @@ WIN_COMBINATIONS.detect do |element_array|
   position_taken?(board, element_array)==true
 end
 =end
-
+  WIN_COMBINATIONS.reject do |refuse_array|
+     !position_taken?(board, refuse_array) && board[refuse_array] != " " && board[refuse_array] != nil
+   end
+binding.pry
 
   WIN_COMBINATIONS.select do |win_combination|
     # what is the condition that we want to match to return the win_combination array ?
     # 1. First postition must be takengh
     # 2. the second position must be the
     # 3. same as the first the same for the third
-  position_taken?(board, win_combination[0]) && win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
+  position_taken?(board, win_combination) && win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
+  #position_taken?(board, win_combination[3]) && win_combination[3] == win_combination[4] && win_combination[4] == win_combination[5]
 #binding.pry
-end
+  end
 
-return win_combination
-binding.pry
-end
 
-if board == nil && board == " "
-return false
-end
+
+#binding.pry
+
+#if board = nil && board = " "
+#return false
+#end
+
 end
