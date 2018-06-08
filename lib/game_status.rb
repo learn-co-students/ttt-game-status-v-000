@@ -4,10 +4,14 @@ require "pry"
 #board=[" ", " ", " ", " ", " ", " ", " ", " ", " "]
 #index=8
 def position_taken?(board, index)
+
   (board[index].nil? || board[index] == " ")
 
 end
 #binding.pry
+
+
+
 # Define your WIN_COMBINATIONS constant
 
 WIN_COMBINATIONS =
@@ -45,10 +49,22 @@ end
     # 2. the second position must be the
     # 3. same as the first the same for the third
 
+
     position_taken?(board, win_combination[0]) && win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
+#binding.pry
+
+
+    #binding.pry
+    win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
+
+end
+
+if board == "X" || board == "O"
+return win_combination
 binding.pry
-  end
-  if board == nil && board == " "
-  return false
-  end
+end
+
+if board == nil && board == " "
+return false
+end
 end
