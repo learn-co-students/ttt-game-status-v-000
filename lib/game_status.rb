@@ -1,3 +1,5 @@
+require "pry"
+
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
@@ -16,64 +18,19 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  
-  win_index_1 = WIN_COMBINATIONS[0]
-  win_index_2 = WIN_COMBINATIONS[1]
-  win_index_3 = WIN_COMBINATIONS[2]
-  
-  position_1 = board[win_index_1]
-  position_2 = board[win_index_2]
-  position_3 = board[win_index_3]
+  WIN_COMBINATIONS.detect do |winning_array|
 
-    # if empty board, return FALSE
-    if board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-      return false 
-    # if not empty board and not draw, then evaluate for winning combo 
-    elsif
-      if position_1 == "X" && position_2 == "X" && position_3 == "X"
-        return win_combination # return the win_combination indexes that won.
-      elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
-        return win_combination # return the win_combination indexes that won.
-      else
-        return false
-      end
-    else
-      return false
-    end
+    win_index_1 = winning_array[0]
+    win_index_2 = winning_array[1]
+    win_index_3 = winning_array[2]
+  
+    position_1 = board[win_index_1]
+    position_2 = board[win_index_2]
+    position_3 = board[win_index_3]
+    
+  position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1)
+  end
 end 
-
-#this passed!!!
-        # if draw, return FALSE
-    # elsif !WIN_COMBINATIONS == true
-    #   return false 
-
-
-#old thought on how to pass
-      # if board.each do |played_move|
-      #   played_move << check if position_taken?(board, 0..8)
-      #   end
-      #   WIN_COMBINATIONS
-      # else false
-      #   return "Next player's turn"
-  
-  
-# position_taken?.detect do |winning_array|
-#    if artist_element.class != Array
-#       puts "Artist: #{artist_element}"
-#     else
-#       artist_element.each do |album_element|
-#         if album_element.class != Array
-#           puts "Album: #{album_element}"
-#         else
-#           album_element.each do |song_element|
-#             puts "Song: #{song_element}"
-#     end
-
-# def won?(board)
-#   if position_taken?.each do |winning_array|
-#     winning_array.WIN_COMBINATIONS?
-#   end
-# end
 
 
 # Define full? Method
@@ -95,4 +52,45 @@ end
 
 
 
+
+
+
+
+
+#SOLVE FOR WON? LIKE THIS - OPTION 1
+    # elsif position_taken?(board, index).to match_array(WIN_COMBINATIONS)
+    #   return WIN_COMBINATIONS[]
+
+
+#SOLVE FOR WON? LIKE THIS - OPTION 2
+      # if board.each do |played_move|
+      #   played_move << check if position_taken?(board, 0..8)
+      #   end
+      # WIN_COMBINATIONS
+      # else
+      #   false
+      # end
+
+
+#SOLVE FOR WON? LIKE THIS - OPTION 3
+    # elsif board[win_index_1] == "X" && board[win_index_2] == "X" && board[win_index_3] == "X"
+    #     return WIN_COMBINATIONS[]
+    # elsif board[win_index_1] == "O" && board[win_index_2] == "O" && board[win_index_3] == "O"
+    #     return WIN_COMBINATIONS[]
+
+
+#SOLVE FOR WON? LIKE THIS - OPTION 4
+    # X_moves = []
+    # elsif board.select do |X|
+    #   X.is_a?("X")
+    # end
+    # X_moves
+    
+    # O_moves = []
+    # elsif board.select do |X|
+    #   O.is_a?("O")
+    # end
+    # O_moves
+    
+    # WIN_COMBINATIONS.include?("X" 3 times)
 
