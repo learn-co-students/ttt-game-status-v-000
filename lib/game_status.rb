@@ -22,7 +22,7 @@ WIN_COMBINATIONS =
 # is there a method for arrays in ruby that returns the first element that matches a certain criterion?
 
 def won?(board)
-#inding. pry
+#binding.pry
 # what variable represents the board, and where does it come from?
 
 # what variable represents the board, and where does it come from?
@@ -46,5 +46,6 @@ WIN_COMBINATIONS.detect do |win_combination|
 position_taken?(board, win_combination[0]) && win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
 
 end
+
   binding.pry
 end
