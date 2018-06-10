@@ -41,22 +41,32 @@ end
 
 
 # Define draw? Method
-
-
+def draw?(board)
+  !won?(board) && full?(board)
+end
 
 
 # Define over? Method
-
-
+def over?(board)
+  draw?(board) || won?(board)
+end
 
 
 # Define winner Method
+def winner(board)
+  if won?(board) == true
+    token = won?(board)[0]
+  binding.pry
+  end
+end
 
 
+#SOLVE FOR WINNER METHOD
+    # board.max_by { |token| board.count("X" || "O") }
 
-
-
-
+    # WIN_COMBINATIONS.detect{|token| token.is_a?("X" || "O")}
+    
+    # freq = board.inject(Hash.new(0)) { |h,v| h[v] += 1}.max_by(&last)
 
 
 #SOLVE FOR WON? LIKE THIS - OPTION 1
@@ -96,3 +106,12 @@ end
     
     # WIN_COMBINATIONS.include?("X" 3 times)
 
+#SOLVE FOR DRAW? LIKE THIS - OPTION win_index_1
+  # if full?(board) == true && board != WIN_COMBINATIONS
+  #   return true
+  # elsif
+  #   full?(board) == false && board != WIN_COMBINATIONS
+  #   return false
+  # else won?(board) == WIN_COMBINATIONS
+  #   return false
+  # end  
