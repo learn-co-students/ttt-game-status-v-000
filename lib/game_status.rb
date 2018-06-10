@@ -29,7 +29,7 @@ def won?(board)
 empty_board=board
 
 empty_board.all? do |empty_array|
-binding.pry
+
   empty_array == " "
 end
     if empty_board.all? == true
@@ -37,7 +37,7 @@ end
       end
 win_combination = WIN_COMBINATIONS
 WIN_COMBINATIONS.detect do |win_combination|
-
+binding.pry
 # what is the condition that we want to match to return the win_combination array ?
 # 1. First postition must be taken
 # 2. the second position must be the
