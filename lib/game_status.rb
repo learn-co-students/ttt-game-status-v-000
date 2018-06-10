@@ -55,7 +55,8 @@ end
 # Define winner Method
 def winner(board)
   if won?(board) == true
-    winning_array[0].detect
+    token = won?(board)[0]
+  binding.pry
     end
 end
 
