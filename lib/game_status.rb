@@ -55,14 +55,14 @@ end
 # Define winner Method
 def winner(board)
   if won?(board)
-  token = won?(board)[0]
-    binding.pry
+  board[won?(board)[0]]
   end
 end
 
 
 #SOLVE FOR WINNER METHOD
-
+  # token = won?(board)[0]
+  
   # if won?(board) == true
   #   winning_array[0].detect
 
