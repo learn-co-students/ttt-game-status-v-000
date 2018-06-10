@@ -24,9 +24,10 @@ WIN_COMBINATIONS =
 def won?(board)
 #inding. pry
 # what variable represents the board, and where does it come from?
-empty_board=board
+
 # what variable represents the board, and where does it come from?
 
+empty_board=board
 
 empty_board.all? do |empty_array|
 
@@ -36,14 +37,14 @@ end
       return false
       end
 
-# what variable represents the board, and where does it come from?
+WIN_COMBINATIONS.detect do |win_combination|
 
-        WIN_COMBINATIONS.detect do |win_combination|
-          # what is the condition that we want to match to return the win_combination array ?
-          # 1. First postition must be taken
-          # 2. the second position must be the
-          # 3. same as the first the same for the third
-          position_taken?(board, win_combination[0]) && win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
+# what is the condition that we want to match to return the win_combination array ?
+# 1. First postition must be taken
+# 2. the second position must be the
+# 3. same as the first the same for the third
+position_taken?(board, win_combination[0]) && win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
 
 end
+  binding.pry
 end
