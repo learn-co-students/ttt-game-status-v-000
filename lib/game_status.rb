@@ -54,14 +54,18 @@ end
 
 # Define winner Method
 def winner(board)
-  if won?(board) == true
-    token = won?(board)[0]
-  binding.pry
-    end
+  if won?(board)
+    binding.pry
+  token = won?(board)[0]
+  end
 end
 
 
 #SOLVE FOR WINNER METHOD
+
+  # if won?(board) == true
+  #   winning_array[0].detect
+
     # board.max_by { |token| board.count("X" || "O") }
 
     # WIN_COMBINATIONS.detect{|token| token.is_a?("X" || "O")}
