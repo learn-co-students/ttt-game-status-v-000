@@ -34,8 +34,10 @@ end
 
 
 # Define full? Method
-
-
+def full?(board)
+  board.include?("X" && "O") == true
+  board.include?(" ") == false
+end
 
 
 # Define draw? Method
