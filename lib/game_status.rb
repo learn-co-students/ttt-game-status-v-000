@@ -2,7 +2,7 @@ require "pry"
 # Helper Method
 def position_taken?(board, index)
 
-  (board[index].nil? || board[index] == " ")
+  !(board[index].nil? || board[index] == " ")
 
 end
 
@@ -23,26 +23,31 @@ WIN_COMBINATIONS =
 
 def won?(board)
 # what variable represents the board, and where does it come from?
-
 # what variable represents the board, and where does it come from?
+#empty_board.all? do |empty_array|
+#empty_array == " "
+#end
+#if empty_board.all? == true
+#return false
+#end
 
-empty_board=board
 
-empty_board.all? do |empty_array|
-
-  empty_array == " "
-end
-    if empty_board.all? == true
-      return false
-      end
-win_combination = WIN_COMBINATIONS
 WIN_COMBINATIONS.detect do |win_combination|
-binding.pry
+
 # what is the condition that we want to match to return the win_combination array ?
 # 1. First postition must be taken
 # 2. the second position must be the
 # 3. same as the first the same for the third
-position_taken?(board, win_combination[0]) && win_combination[0] == win_combination[1] && win_combination[1] == win_combination[2]
+index_0 = win_combination[0]
+index_1 = win_combination[1]
+index_2 = win_combination[2]
+
+ position_1= board[index_0]
+ position_2= board[index_1]
+ position_3= board[index_2]
+
+position_taken?(board, win_combination[0]) && position_1 == position_2 && position_2 == position_3
+
 
 end
 end
