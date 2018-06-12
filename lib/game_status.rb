@@ -42,9 +42,11 @@ def full?(board)
 1. Must accept board as par of the methods' argument
 2. return true if the board has all of its arrays occupied by eithe 'X' or 'O'
 3. return false if has emtpy slots.
-
-pseudocode
-1. let me start with iterator .all?
+=end
+=begin board.all? do |a|
+  a=="X" || a=="O"
+end
+return board.all?
 =end
 #board.all? do |full_board|
   #binding.pry
@@ -52,9 +54,10 @@ pseudocode
 #end
 #if board.all? = true
 #return board.all?
-board.any? do |i|
-#binding.pry
+board.none? do |i|
+
   i == " "
+  binding.pry
 end
-return board.any?
+
 end
