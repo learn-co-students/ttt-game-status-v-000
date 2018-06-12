@@ -43,21 +43,44 @@ def full?(board)
 2. return true if the board has all of its arrays occupied by eithe 'X' or 'O'
 3. return false if has emtpy slots.
 =end
-=begin board.all? do |a|
-  a=="X" || a=="O"
-end
-return board.all?
-=end
-#board.all? do |full_board|
-  #binding.pry
-#full_board == "X" && full_board == "O"
-#end
-#if board.all? = true
-#return board.all?
 board.none? do |i|
 #binding.pry
   i == " "
-
+end
 end
 
+def draw?(board)
+=begin
+1. accpets a board and returns true if the baord has not been won(that is
+a full board)
+2. false if the board is not won and board is not full
+3. false if the board is won
+=end
+#binding.pry
+=begin
+if won?(board)==true&& full?(board) == false
+    return false
+elsif won?(board)!=false && full?(board) == false
+  return false
+elsif won?(board)!= false && full?(board) == true
+  return true
+end
+=end
+if won?(board) == nil && full?(board) == true
+  return true
+else return false
+end
+end
+
+def over?(board)
+=begin
+1. returns true if thw board is won
+                if there is a draw
+                if it is full
+
+=end
+ if won?(board) != nil || draw?(board) == true || full?(board) == true
+   return true
+ else return false
+ end
 end
