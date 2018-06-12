@@ -84,3 +84,30 @@ def over?(board)
  else return false
  end
 end
+
+def winner (board)
+=begin
+1. accept board and return the token x or o given a winning board
+2. the winner should be simplified by the methods above
+=end
+if draw?(board) !=true && over?(board) !=true
+return nil
+end
+=begin board.find do |winner|
+  binding.pry
+  winner == "X"
+end
+board.find do |winnerO|
+  winnerO == "O"
+end
+=end
+won?(board).detect do |winner|
+board[winner]== "X"
+end
+if board[winner] == "X"
+  return board[winner]
+elsif board[winner] == "O"
+  return board[winner]
+end
+
+end
