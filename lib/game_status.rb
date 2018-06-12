@@ -17,23 +17,9 @@ WIN_COMBINATIONS =
 [ 0, 4, 8 ], #first diagonal
 [ 2, 4, 6 ] #second diagonal
 ]
-
-
 # is there a method for arrays in ruby that returns the first element that matches a certain criterion?
-
 def won?(board)
-# what variable represents the board, and where does it come from?
-# what variable represents the board, and where does it come from?
-#empty_board.all? do |empty_array|
-#empty_array == " "
-#end
-#if empty_board.all? == true
-#return false
-#end
-
-
 WIN_COMBINATIONS.detect do |win_combination|
-
 # what is the condition that we want to match to return the win_combination array ?
 # 1. First postition must be taken
 # 2. the second position must be the
@@ -42,16 +28,33 @@ index_0 = win_combination[0]
 index_1 = win_combination[1]
 index_2 = win_combination[2]
 
-
- position_1= board[index_0]
- position_2= board[index_1]
- position_3= board[index_2]
+position_1= board[index_0]
+position_2= board[index_1]
+position_3= board[index_2]
 
 position_taken?(board, win_combination[0]) && position_1 == position_2 && position_2 == position_3
-
-
 # what variable represents the board, and   does it come from?
-
+end
 end
 
+def full?(board)
+=begin
+1. Must accept board as par of the methods' argument
+2. return true if the board has all of its arrays occupied by eithe 'X' or 'O'
+3. return false if has emtpy slots.
+
+pseudocode
+1. let me start with iterator .all?
+=end
+#board.all? do |full_board|
+  #binding.pry
+#full_board == "X" && full_board == "O"
+#end
+#if board.all? = true
+#return board.all?
+board.any? do |i|
+#binding.pry
+  i == " "
+end
+return board.any?
 end
