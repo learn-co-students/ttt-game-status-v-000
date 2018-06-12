@@ -96,10 +96,13 @@ end
 
 
 won?(board).detect do |winner|
-winner = won?(board)
+winner= won?(board)
+if board[winner[0]] == "X"
+  return board[winner[0]]
+elsif board[winner[0]] == "O"
+  return board[winner[0]]
+end
 binding.pry
 end
-
-ab = board[winner]
-return ab
+#binding.pry
 end
