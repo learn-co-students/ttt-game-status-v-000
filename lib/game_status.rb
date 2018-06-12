@@ -55,9 +55,9 @@ return board.all?
 #if board.all? = true
 #return board.all?
 board.none? do |i|
-
+binding.pry
   i == " "
-  binding.pry
+
 end
 
 end
