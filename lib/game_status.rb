@@ -93,14 +93,7 @@ def winner (board)
 if draw?(board) !=true && over?(board) !=true
 return nil
 end
-=begin board.find do |winner|
-  binding.pry
-  winner == "X"
-end
-board.find do |winnerO|
-  winnerO == "O"
-end
-=end
+
 
 won?(board).detect do |winner|
 winner = won?(board)
@@ -109,5 +102,4 @@ end
 
 ab = board[winner]
 return ab
-binding.pry
 end
