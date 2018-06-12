@@ -1,28 +1,30 @@
 
-[1mFrom:[0m /home/Eudaimonius/ttt-game-status-v-000/lib/game_status.rb @ line 60 Object#full?:
+[1mFrom:[0m /home/Eudaimonius/ttt-game-status-v-000/lib/game_status.rb @ line 107 Object#winner:
 
-    [1;34m40[0m: [32mdef[0m [1;34mfull?[0m(board)
-    [1;34m41[0m: [1;34m=begin[0m
-    [1;34m42[0m: [1;34m1[0m. Must accept board as par of the methods[31m[1;31m'[0m[31m argument[0m
-    [1;34m43[0m: [1;34m2[0m. return [1;36mtrue[0m [32mif[0m the board has all of its arrays occupied by eithe [31m[1;31m'[0m[31mX[1;31m'[0m[31m[0m [32mor[0m [31m[1;31m'[0m[31mO[1;31m'[0m[31m[0m
-    [1;34m44[0m: [1;34m3[0m. return [1;36mfalse[0m [32mif[0m has emtpy slots.
-    [1;34m45[0m: =[32mend[0m
-    [1;34m46[0m: [1;34m=begin board.all? do |a|[0m
-    [1;34m47[0m:   a==[31m[1;31m"[0m[31mX[1;31m"[0m[31m[0m || a==[31m[1;31m"[0m[31mO[1;31m"[0m[31m[0m
-    [1;34m48[0m: [32mend[0m
-    [1;34m49[0m: [32mreturn[0m board.all?
-    [1;34m50[0m: =[32mend[0m
-    [1;34m51[0m: [1;34m#board.all? do |full_board|[0m
-    [1;34m52[0m:   [1;34m#binding.pry[0m
-    [1;34m53[0m: [1;34m#full_board == "X" && full_board == "O"[0m
-    [1;34m54[0m: [1;34m#end[0m
-    [1;34m55[0m: [1;34m#if board.all? = true[0m
-    [1;34m56[0m: [1;34m#return board.all?[0m
-    [1;34m57[0m: board.none? [32mdo[0m |i|
-    [1;34m58[0m: 
-    [1;34m59[0m:   i == [31m[1;31m"[0m[31m [1;31m"[0m[31m[0m
- => [1;34m60[0m:   binding.pry
-    [1;34m61[0m: [32mend[0m
-    [1;34m62[0m: 
-    [1;34m63[0m: [32mend[0m
+     [1;34m88[0m: [32mdef[0m [1;34mwinner[0m (board)
+     [1;34m89[0m: [1;34m=begin[0m
+     [1;34m90[0m: [1;34m1[0m. accept board [32mand[0m [32mreturn[0m the token x [32mor[0m o given a winning board
+     [1;34m91[0m: [1;34m2[0m. the winner should be simplified by the methods above
+     [1;34m92[0m: =[32mend[0m
+     [1;34m93[0m: [32mif[0m draw?(board) !=[1;36mtrue[0m && over?(board) !=[1;36mtrue[0m
+     [1;34m94[0m: [32mreturn[0m [1;36mnil[0m
+     [1;34m95[0m: [32mend[0m
+     [1;34m96[0m: [1;34m=begin board.find do |winner|[0m
+     [1;34m97[0m:   binding.pry
+     [1;34m98[0m:   winner == [31m[1;31m"[0m[31mX[1;31m"[0m[31m[0m
+     [1;34m99[0m: [32mend[0m
+    [1;34m100[0m: board.find [32mdo[0m |winnerO|
+    [1;34m101[0m:   winnerO == [31m[1;31m"[0m[31mO[1;31m"[0m[31m[0m
+    [1;34m102[0m: [32mend[0m
+    [1;34m103[0m: =[32mend[0m
+    [1;34m104[0m: 
+    [1;34m105[0m: won?(board).detect [32mdo[0m |winner|
+    [1;34m106[0m: winner = won?(board)
+ => [1;34m107[0m: binding.pry
+    [1;34m108[0m: [32mend[0m
+    [1;34m109[0m: 
+    [1;34m110[0m: ab = board[winner]
+    [1;34m111[0m: [32mreturn[0m ab
+    [1;34m112[0m: binding.pry
+    [1;34m113[0m: [32mend[0m
 

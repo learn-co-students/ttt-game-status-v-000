@@ -101,13 +101,13 @@ board.find do |winnerO|
   winnerO == "O"
 end
 =end
+
 won?(board).detect do |winner|
-board[winner]== "X"
-end
-if board[winner] == "X"
-  return board[winner]
-elsif board[winner] == "O"
-  return board[winner]
+winner = won?(board)
+binding.pry
 end
 
+ab = board[winner]
+return ab
+binding.pry
 end
