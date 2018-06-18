@@ -31,9 +31,7 @@ def won?(board)
     return win_combination
   end
  end
- else 
-   false
-end
+ end
 
 def full?(board)
   board.all? do |full_board| 
@@ -48,4 +46,10 @@ end
 def over?(board)
   won?(board) || draw?(board) || full?(board)
 end
+
+def winner(board)
+  won?.detect {|token| token == "X"}
+end
   
+
+    
