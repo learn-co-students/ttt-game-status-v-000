@@ -29,11 +29,10 @@ def won?(board)
       position_1 == "O" && position_2 == "O" && position_3 == "O"
       
       return win_combination
+    else
+      false
     end
   end
-else
-  false
-end
 
 def full?(board)
   board.all? do |full_board| 
@@ -42,17 +41,22 @@ def full?(board)
 end
 
 def draw?(board)
-   !won?(board) && full?(board)
-    return true
-end
-
-def over?(board)
-  if won?(board) && draw?(board) || full?(board)
-    return true 
-  else
-    false
+  if
+   !won?(board) && full?(board) 
+   return true 
+  elsif
+   !won?(board) && !full?(board) ||
+   won?(board)
+   return false
   end
 end
+
+
+def over?(board)
+  won?(board) || draw?(board) || full?(board)
+  end
+else 
+  false
 end
 
 
