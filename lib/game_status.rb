@@ -23,23 +23,36 @@ def won?(board)
     position_1 = board[win_index_1]
     position_2 = board[win_index_2]
     position_3 = board[win_index_3]
-  if
-    position_1 == "X" && position_2 == "X" && position_3 == "X" ||
-    position_1 == "O" && position_2 == "O" && position_3 == "O"
+    
+    if 
+      position_1 == "X" && position_2 == "X" && position_3 == "X" ||
+      position_1 == "O" && position_2 == "O" && position_3 == "O"
     return win_combination
-  end
-
+    else
+  false
+  false
+end
+end
 
 def full?(board)
   board.all? do |full_board| 
   full_board == "X" || full_board == "O"
-    return true
+ end
 end
 
 def draw?(board)
    !won?(board) && full?(board)
-  return true
 end
+end
+
+def over?(board)
+  won?(board) && draw?(board) || full?(board)
+end
+
+def winner(board)
+  won?(board)
+
+  
 
 
 
