@@ -59,7 +59,10 @@ else
   false
 end
 
-
+def winner(board)
+  win_combination
+  
+    
 
   
 
