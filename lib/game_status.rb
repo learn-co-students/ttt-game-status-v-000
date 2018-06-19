@@ -60,8 +60,10 @@ else
 end
 
 def winner(board)
-  board[won?(board)[0]]
-  binding.pry
+  if won?(board)
+    board[won?(board)[0]]
+  end
+  
 end
   
 
