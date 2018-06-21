@@ -1,3 +1,4 @@
+require 'pry'
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
@@ -15,6 +16,7 @@ WIN_COMBINATIONS = [
   [6, 4, 2],
 ]
 
+# return win combination or false
 def won?(board)
   # confirm that there are three of the same token at the indices defined in win combinations
   WIN_COMBINATIONS.detect do |combination|
@@ -29,14 +31,25 @@ def won?(board)
   end
 end
 
+# is there an "O" or "X" at every position?
 def full?(board)
+  board.all? do |position|
+    ["O", "X"].include?(position)
+  end
 end
 
+# is the board full and there is no winner
 def draw?(board)
+  full?(board) && !won?(board)
 end
 
+# returns true if the board has been won, is a draw, or is full
 def over?(board)
+  won?(board) || draw?(board) || full?(board)
 end
 
-def winner?(board)
+def winner(board)
+  if winning_positions = won?(board)
+    first_winning_board_element = board[winning_positions[0]]
+  end
 end
