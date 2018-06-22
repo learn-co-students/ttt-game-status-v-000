@@ -8,7 +8,7 @@ WIN_COMBINATIONS = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5
 
 def won?(board)
   WIN_COMBINATIONS.detect do |winning_combination|
-    board[winning_combination[0]] == board[winning_combination[1]] && board[winning_combination[1]] == board[winning_combination[2]] && board[winning_combination[2]] == "X" || board[winning_combination[0]] == board[winning_combination[1]] && board[winning_combination[1]] == board[winning_combination[2]] && board[winning_combination[2]] == "O"
+    board[winning_combination[0]] == board[winning_combination[1]] && board[winning_combination[1]] == board[winning_combination[2]] && position_taken?(board, winning_combination[2])
   end
 end
 
