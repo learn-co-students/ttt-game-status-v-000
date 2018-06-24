@@ -15,28 +15,20 @@ WIN_COMBINATIONS = [
   [2,4,6]
 ]
 
-#def won?(board)
-#WIN_COMBINATIONS.each do |win_set|
-#if win_set.all? {|win_position| board[win_position] == "X" || board[win_position] == "O"}
-#return true
-
 def won?(board)
   WIN_COMBINATIONS.each do |win_set|
-    if win_set.all? {|w| board[w] == "X"} || win_set.all? {|w| board[w] == "O"}
+    if win_set.all? {|win_position| board[win_position] == "X"} || win_set.all? {|win_position| board[win_position] == "O"}
       return win_set
-    elsif board.all? {|w| w == " "} || board.all? {|w| w == ""}
+    elsif board.all? {|win_position| win_position == " "} || board.all? {|win_position| win_position == ""}
       false
     end
   end
   false
 end
-#else
-#win_set.each do |win_position|
-#    if board[w] != "X" || board[w] != "O"
-#      return false
-#    elsif win_position[0] = 0 && win_position[1] = 1 && win_position[2] = 2
-#  end
-#    end
-#end
-#end
-#end
+
+def full? (board)
+WIN_COMBINATIONS.each do |win_set|
+  if win_set.all? {|win_position| board[win_position] != "X"} || win_set.all? {|win_position| board[win_position] != "O"} && win_set.all? {|win_position| board[win_position] != " "}
+    return true
+end
+end
