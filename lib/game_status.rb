@@ -28,7 +28,44 @@ end
 
 def full? (board)
 WIN_COMBINATIONS.each do |win_set|
-  if win_set.all? {|win_position| board[win_position] != "X"} || win_set.all? {|win_position| board[win_position] != "O"} && win_set.all? {|win_position| board[win_position] != " "}
-    return true
+  if win_set.none? {|win_position| board[win_position] == " "}
+return true
+else
+return false
+end
+end
+end
+
+def draw? (board)
+WIN_COMBINATIONS.each do |win_set|
+if win_set.all? {|win_position| board[win_position] != "X"} && win_set.all? {|win_position| board[win_position] != "O"} && win_set.none? {|win_position| board[win_position] != " "}
+  return true
+elsif win_set.all? {|win_position| board[win_position] != "X"} || win_set.all? {|win_position| board[win_position] != "O"}
+  return false
+end
+end
+end
+
+def over? (board)
+if draw?(board)
+  return true
+elsif won?(board) && full?(board)
+  return true
+elsif won?(board) && !full?(board)
+  return true
+elsif !won?(board) && !full?(board)
+  return false
+end
+end
+
+def winner(board)
+WIN_COMBINATIONS.each do |win_set|
+if win_set.all? {|win_position| board[win_position] == "X"} && over?(board)
+    return "X"
+  elsif win_set.all? {|win_position| board[win_position] == "O"} && over?(board)
+    return "O"
+  elsif !won?(board) && over?(board)
+    return nil
+end
 end
 end
