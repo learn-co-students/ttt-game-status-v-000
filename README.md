@@ -2,7 +2,7 @@
 
 ## Objectives
 
-1. Define a constant.
+1. Define a constant.exx
 2. Create a nested array.
 3. Use iteration.
 4. Iterate over a nested array.
