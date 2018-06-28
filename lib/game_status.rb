@@ -1,4 +1,6 @@
 # Helper Method
+require 'pry'
+
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
@@ -16,30 +18,35 @@ WIN_COMBINATIONS = [
   ]
   
   def won?(board)
-  WIN_COMBINATIONS.detect do |win_move|
-    if board[win_move[0]] == "X"
-    win_move
-  elsif board[win_move[1]] == "X"
-    win_move
-  elsif board[win_move[2]] == "X"
-    win_move
-  elsif board[win_move[3]] == "X"
-    win_move
-  elsif board[win_move[4]] == "X"
-    win_move
-  elsif board[win_move[5]] == "X"
-    win_move
-  elsif board[win_move[6]] == "X"
-    win_move
-  elsif board[win_move[7]] == "X"
-    win_move
-  end
-end
-end
-  
+    WIN_COMBINATIONS.each do |win_move|
+      if board[win_move[0]] == "X" && board[win_move[1]] == "X" && board[win_move[2]]== "X"
+        return win_move
+      elsif board[win_move[0]] == "O" && board[win_move[1]] == "O" && board[win_move[2]] == "O"
+        return win_move
+      end
+   end
+   return false 
+ end
+
   def full?(board)
      board.all?{|token| token == "X" || token == "O"}
   end
+  
+  def draw?(board)
+    full?(board) && !won?(board)
+  end
+  
+  def over?(board)
+    full?(board) || won?(board)
+  end
+  
+  def winner(board)
+    if winning_move = won?(board)
+      board[winning_move.first]
+    end
+  end
+  
+  
   
   
   
