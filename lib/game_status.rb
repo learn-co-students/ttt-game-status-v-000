@@ -37,8 +37,10 @@ def over?(board)
  end
 end
 
-def winner?(board)
+def winner(board)
   if won?(board)
-    return won?(board[0])
+    array = won?(board)
+    index = array[0]
+    board[index]
   end
 end
