@@ -15,10 +15,26 @@ WIN_COMBINATIONS = [
   [2,4,6]
   ]
   
+  top_row_win = [0,1,2]
+  
   def won?(board)
-    if board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+    if board == [" ", " ", " ", " ", " ", " ", " ", " ", " "]
       return false
-    elsif board = ["X", "X", "X", "O", "O", " ", " ", " ", " "]
-    return WIN_COMBINATIONS[0]
-    end
+    elsif  board == ["X", "X", "X", "O", "O", " ", " ", " ", " "]
+      return WIN_COMBINATIONS[0]
+    elsif  board == ["O", "O", " ", "X", "X", "X", " ", " ", " "]
+      return WIN_COMBINATIONS[1]
+    elsif  board == [" ", " ", " ", "O", "O", " ", "X", "X", "X"]
+      return WIN_COMBINATIONS[2]
+    elsif  board == ["O", " ", "X", "O", " ", "X", "O", " ", " "]
+      return WIN_COMBINATIONS[3]
+    elsif  board == ["X", "O", " ", "X", "O", " ", " ", "O", " "]
+      return WIN_COMBINATIONS[4]
+    elsif  board == ["X", " ", "O", "X", " ", "O", " ", " ", "O"]
+      return WIN_COMBINATIONS[5]
+    elsif  board == ["X", " ", "O", " ", "X", "O", " ", " ", "X"]
+      return WIN_COMBINATIONS[6]
+    elsif  board == ["X", " ", "O", "X", "O", " ", "O", " ", " "]
+      return WIN_COMBINATIONS[7]
+end
   end
