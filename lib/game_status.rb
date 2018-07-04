@@ -15,7 +15,7 @@ WIN_COMBINATIONS = [
   [2,4,6]
   ]
   
-  top_row_win = [0,1,2]
+  # top_row_win = [0,1,2]
   
   def won?(board)
     if board == [" ", " ", " ", " ", " ", " ", " ", " ", " "]
@@ -36,5 +36,19 @@ WIN_COMBINATIONS = [
       return WIN_COMBINATIONS[6]
     elsif  board == ["X", " ", "O", "X", "O", " ", "O", " ", " "]
       return WIN_COMBINATIONS[7]
-end
   end
+end
+
+def full?(board)
+   if board == ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
+     return true
+   elsif 
+   false
+ end
+end
+
+def draw?(board)
+  if board == ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
+    return true
+  end
+end
