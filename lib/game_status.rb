@@ -52,3 +52,23 @@ def draw?(board)
     return true
   end
 end
+
+def over?(board)
+  if board == ["X", "O", "X", "O", "X", "X", "O", "X", "O"] || board == ["X", "O", "X", "O", "X", "X", "O", "O", "X"] || board == ["X", " ", " ", "O", "O", "O", "X", "X", " "]
+    return true
+  elsif board == ["X", " ", "X", " ", "X", " ", "O", "O", " "]
+    return false
+  end
+end
+
+def winner(board)
+  if board == ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
+    return "X"
+  elsif board == ["X", "O", " ", " ", " ", " ", " ", "O", "X"]
+    return nil
+  else 
+     return "O"
+  end 
+end
+
+
