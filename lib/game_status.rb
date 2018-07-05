@@ -1,3 +1,4 @@
+require 'pry'
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
@@ -15,13 +16,13 @@ WIN_COMBINATIONS = [
   [2,4,6] # Top Right diagonal [8]
 ]
 
+
 def won?(board)
   WIN_COMBINATIONS.detect do |combo|
-    board[combo[0]] == board[combo[1]] &&
-    board[combo[1]] == board[combo[2]] &&
-    position_taken?(board, combo[0])
+      board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]] && board[combo[0]] != " "
   end
 end
+
 
 def full?(board)
   board.all? do |letter|
@@ -50,7 +51,10 @@ def over?(board)
 end
 
 def winner(board)
-  if winning_combo = won?(board)
-    board[winning_combo.first] #not sure how this works
+  status = won?(board)
+  if status.nil?
+    nil
+  else
+    board[status[0]]
   end
 end
