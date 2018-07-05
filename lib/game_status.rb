@@ -20,23 +20,28 @@ WIN_COMBINATIONS = [
 
  
   def won?(board)
-  WIN_COMBINATIONS.each |win_combo|
+  WIN_COMBINATIONS.each {|win_combo|
   
-   win_index_0 = win_combo[0]
-   win_index_1 = win_combo[1]
-   win_index_2 = win_combo[2]
+   index_0 = win_combo[0]
+   index_1 = win_combo[1]
+   index_2 = win_combo[2]
    
-   position_1 = board[win_index_0]
-   position_2 = board[win_index_1]
-   position_3 = board[win_index_2]
+   position_1 = board[index_0]
+   position_2 = board[index_1]
+   position_3 = board[index_2]
   
   if position_1 == "X" && position_2 == "X" && position_3 == "X"
     return win_combo
     
   elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
     return win_combo
-  end
-  
+
+end
+}
     return false
  
+ end
+ 
+ def full?(board)
+   board.all? |index| index == "X" || index == "O"
  end
