@@ -16,9 +16,27 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  blah = []
-  board.each do ||
-
+  WIN_COMBINATIONS.detect do |combo|
+    board[combo[0]] == board[combo[1]] &&
+    board[combo[1]] == board[combo[2]] &&
+    position_taken?(board, combo[0])
   end
-  blah
+end
+
+def full?(board)
+  board.all? do |letter|
+    if letter == "X" || letter == "O"
+      true
+    else
+      false
+    end
+  end
+end
+
+def draw?(board)
+  if full?(board) == true && won?(board) == false
+    true
+  else
+    false
+  end
 end
