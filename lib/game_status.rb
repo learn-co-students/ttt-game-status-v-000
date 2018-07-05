@@ -34,9 +34,23 @@ def full?(board)
 end
 
 def draw?(board)
-  if full?(board) == true && !won?(board) == true
+  if full?(board) && !won?(board)
     true
   else
     false
+  end
+end
+
+def over?(board)
+  if draw?(board)|| won?(board) || full?(board)
+    true
+  else
+    false
+  end
+end
+
+def winner(board)
+  if winning_combo = won?(board)
+    board[winning_combo.first]
   end
 end
