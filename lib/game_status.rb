@@ -25,19 +25,13 @@ def won?(board)
       return array
   elsif draw?(board)
     return true
-  elsif
-    false
+  else
+    return false
   end
 end
 
 def full?(board)
-  board.each do |i|
-    if i!="X"&&i!="O"
-      return false
-      break
-    end
-  end
-  return true
+  !board.any? { |x| x == " " }
 end
 
 def draw?(board)
