@@ -18,16 +18,22 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  array = []
-  WIN_COMBINATIONS.each do |i|
-  if board[i[0]]==board[i[1]]&&board[i[1]]==board[i[2]] && board[i[0]]!=" "
-      array = i
-      return array
-  elsif draw?(board)
-    return true
-  else
-    return false
-  end
+  WIN_COMBINATIONS.each {|win_combo|
+    index_0 = win_combo[0]
+    index_1 = win_combo[1]
+    index_2 = win_combo[2]
+
+    position_1 = board[index_0]
+    position_2 = board[index_1]
+    position_3 = board[index_2]
+
+    if position_1 == "X" && position_2 == "X" && position_3 == "X"
+      return win_combo
+    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+      return win_combo
+    end
+  }
+  return false
 end
 
 def full?(board)
@@ -35,7 +41,7 @@ def full?(board)
 end
 
 def draw?(board)
-  if !won?(board)&&full?(board)
+  if !won?(board) && full?(board)
     return true
   else
     return false
