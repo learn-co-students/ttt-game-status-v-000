@@ -35,6 +35,15 @@ def won?(board)
   return false
 end
 
+# Alternate solution
+# def won?(board)
+#   WIN_COMBINATIONS.detect do |combo|
+#     board[combo[0]] == board[combo[1]] &&
+#     board[combo[1]] == board[combo[2]] &&
+#     position_taken?(board, combo[0])
+#   end
+# end
+
 # Check to see if the board is full
 def full?(board)
   board.all? {|position| position == "X" || position == "O"}
@@ -70,3 +79,10 @@ def winner(board)
     end
   end
 end
+
+# Alternate solution **THAT WE HAVEN'T LEARNED YET!!
+# def winner(board)
+#   if winning_combo = won?(board)
+#     board[winning_combo.first]
+#   end
+# end
