@@ -25,10 +25,41 @@ def won?(board)
 
 
 
-    if (position_1 = "X" && position_2 = "X" && position_3 = "X") || (position_1 = "O" && position_2 = "O" && position_3 = "O")
+    if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
       return win_combination
+
+    end
+  end
+  return false
+end
+
+
+def full?(board)
+  board.none?{|location| location == " "}
+end
+
+def draw?(board)
+  if won?(board) == false && full?(board) == true
+    return true
+  end
+end
+
+def over?(board)
+  if won?(board) || draw?(board) == true
+    return true
+  end
+end
+
+def winner(board)
+  wins = won?(board)
+  piece = board[wins[0]]
+  if won?(board)
+    if piece == "X"
+      return "X"
+    elsif piece == "O"
+      return "O"
     else
-      return false
+      return nil
     end
   end
 end
