@@ -10,18 +10,6 @@ WIN_COMBINATIONS = [[0,1,2], [3,4,5], [6,7,8], [0,4,8], [2,4,6], [0,3,6], [1,4,7
 #accept a board as an argument and return false/nil if there is no win combination present in
 #the board and return the winning combination indexes as an array if there is a win
 def won?(board)
-#  board.each do |position|
-#    position_taken?(board, position)
-#  end
-  #if the board is empty
-    #return false/nil
-  #if the board is a draw
-    #return false/nil
-  #if there is no win combination present
-    #return false/nil
-  #if there is a win combination present
-    #return the winning combination indexes as an array
-
     WIN_COMBINATIONS.each do |win_combination|
     # grab each index from the win_combination that composes a win.
     win_index_1 = win_combination[0]
@@ -32,16 +20,10 @@ def won?(board)
     position_2 = board[win_index_2] # load the value of the board at win_index_2
     position_3 = board[win_index_3] # load the value of the board at win_index_3
 
-    empty_board = board.all?{|i| i.nil?}
-
-      if empty_board == true
-        false
-      elsif position_1 == "X" && position_2 == "X" && position_3 == "X"
+      if position_1 == "X" && position_2 == "X" && position_3 == "X"
         return win_combination # return the win_combination indexes that won.
       elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
         return win_combination # return the win_combination indexes that won.
-      elsif position_1 == " " && position_2 == " " && position_3 == " "
-        false
       else
         false
       end
