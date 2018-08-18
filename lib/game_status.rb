@@ -21,15 +21,12 @@ def won?(board)
       return win_combination 
     end     
   end
-  
   return false
 end
 
-def full(board)
-  if board.all? {|position| position = "X" || position = "O"}
-  end
-else
-  return false
-end
+def full?(board)
+  if board.include? " "
+    return true
+  end 
 end
 
