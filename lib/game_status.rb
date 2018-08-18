@@ -25,8 +25,11 @@ def won?(board)
 end
 
 def full?(board)
-  if board.include? " "
-    return true
-  end 
+  board.all? do |board_array|
+    board_array == "X" || board_array == "O"
+  end
 end
+
+
+
 
