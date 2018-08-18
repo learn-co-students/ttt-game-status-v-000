@@ -25,9 +25,13 @@ def won?(board)
   return false
 end
 
-def full?(board)
+def full(board)
   board.all? do |position|
-  position = "X" || position = "O"
+  if position = "X" || position = "O"
+    return true
+  else
+    return false
+  end
 end
     
 
