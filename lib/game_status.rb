@@ -24,3 +24,14 @@ def won?(board)
   
   return false
 end
+
+def full?(board)
+  if board.all? do |position|
+    position = "X" || position = "O"
+    return true
+  else
+    return false
+  end
+end
+    
+
