@@ -21,13 +21,10 @@ def won?(board)
     position_1 = board[combo[0]]
     position_2 = board[combo[1]]
     position_3 = board[combo[2]]
-    #Now check if all of these have the same marker and use position_taken? method to see if there is a marker in one of them
-  if position_1 === position_2 && position_2 === position_3
-    position_taken?(board, position_1.to_i)
-    [position_1, position_2, position_3]
-  else 
-    false
+  if position_1 == position_2 && position_2 == position_3 && position_taken?(board, combo[0])
+    return combo #it wants the indexes, not the board markers
   end
-end
-  #if it makes it through the loop without finding a winning combo, then return false. 
+	#do not set an else, as otherwise you are forcing a return before the loop finishes. 
+  end
+  false
 end
