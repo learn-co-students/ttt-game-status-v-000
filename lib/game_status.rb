@@ -35,15 +35,26 @@ def draw?(board)
 end
 
 def over?(board)
-  won?(board) == true || draw?(board) == true || full?(board) == true
-  
-  
-  #end
+  if won?(board) == true && full?(board) == false
+    return true
+  elsif draw?(board) == true || full?(board) == true || won?(board) == true
+    return true
+  else 
+    return false
+  end
 end
 
 
 
-
+def winner(board)
+  won?(board).all? do |won|
+    won == "X"
+      return "X"
+    won == "O"
+      return "O"
+    
+  end
+end
 
 
 
