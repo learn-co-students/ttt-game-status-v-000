@@ -13,10 +13,9 @@ def position_taken?(board, index)
     [2,5,8],
     [0,4,8],
     [6,4,2]
-    # ETC, an array for each win combination
   ]
 
-def won?(board)
+  def won?(board)
   WIN_COMBINATIONS.each do |combo| #iterate over WIN_COMBINATIONS
     position_1 = board[combo[0]]
     position_2 = board[combo[1]]
@@ -27,4 +26,34 @@ def won?(board)
 	#do not set an else, as otherwise you are forcing a return before the loop finishes. 
   end
   false
+end
+
+def full?(board)
+  board.none? { |openMoves| openMoves == " "} 
+end
+
+def draw?(board)
+  #returns true if the board has not been won but is full,
+  if won?(board) == false && full?(board) == true
+    true 
+  #returns false if the board is not won and the board is not full,
+  elsif won?(board) == false && full?(board) == false 
+    false
+    #and returns false if the board is won 
+  elsif won?(board) == true
+    false
+  end
+end
+
+def over?(board)
+  if won?(board) || full?(board) || draw?(board)
+    return true
+  end
+end
+
+
+def winner(board)
+  if won?(board)
+    board[won?(board)[0]]
+  end
 end
