@@ -52,7 +52,6 @@ def winner(board)
       return "X"
     elsif board [win_position] == "O"
       return "O"
-    
     end
   end
 end
