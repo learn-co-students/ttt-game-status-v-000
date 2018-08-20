@@ -47,12 +47,13 @@ end
 
 
 def winner(board)
-  won?(board).all? do |won|
-    won == "X"
+  won?(board).each do |win_position|
+    if board[win_position] == "X"
       return "X"
-    won == "O"
+    elsif board [win_position] == "O"
       return "O"
     
+    end
   end
 end
 
