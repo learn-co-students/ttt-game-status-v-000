@@ -35,24 +35,14 @@ def draw?(board)
 end
 
 def over?(board)
-  if won?(board) == true && full?(board) == false
-    return true
-  elsif draw?(board) == true || full?(board) == true || won?(board) == true
-    return true
-  else 
-    return false
-  end
+  won?(board) || full?(board)
 end
 
 
-
 def winner(board)
-  won?(board).each do |win_position|
-    if board[win_position] == "X"
-      return "X"
-    elsif board [win_position] == "O"
-      return "O"
-    end
+  win = won?(board)
+  if win 
+    board[win.first]
   end
 end
 
