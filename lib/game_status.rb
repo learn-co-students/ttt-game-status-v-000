@@ -33,9 +33,9 @@ def draw?(board)
   full?(board) && !won?(board)
 end
 
-def over?(board)
-  won?(board) || full?(board)
-end
+# def over?(board)
+#   won?(board) || full?(board)
+# end
 
 def winner(board)
   winning_array = won?(board)
