@@ -23,13 +23,6 @@ def won?(board)
   end
 end
 
-# def won?(board)
-#   WIN_COMBINATIONS.detect do |wincombo|
-#     return board[wincombo[0]] == board[wincombo[1]] == board[wincombo[2]]
-#   end
-# end
-
-
 def full?(board)
   board.all? do |megatron|
     megatron == "X" || megatron == "O"
