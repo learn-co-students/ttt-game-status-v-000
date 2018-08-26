@@ -34,3 +34,12 @@ def won?(board)
   false
 end # end won?
 
+def full?(board) 
+  if board.include?(" ")
+    false
+  else 
+    true 
+  end 
+end #ends full 
+
+def draw?(board)
