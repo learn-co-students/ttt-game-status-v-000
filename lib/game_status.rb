@@ -21,13 +21,17 @@ def won?(board)
 end
  end   
   
-def full?(board)
- !board.any? == " " || !board.any? == nil
-end
+#def full?(board)
+# !board.any? == " " || !board.any? == nil
+#end
 
-def full?(board)
-board.each do |letter|
- if letter == "X" || letter == "O" && board.full?
-   true
-end
-end
+def full?(board) 
+ board.each do |letter| 
+   if letter == " " 
+    return false 
+     end 
+     end
+     end 
+      
+
+
