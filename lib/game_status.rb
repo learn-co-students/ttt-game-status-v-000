@@ -21,10 +21,6 @@ def won?(board)
 end
  end   
   
-#def full?(board)
-# !board.any? == " " || !board.any? == nil
-#end
-
 def full?(board) 
  board.each do |letter| 
    if letter == " " 
@@ -32,6 +28,8 @@ def full?(board)
      end 
      end
      end 
-      
+
+def draw(board)
+  
 
 
