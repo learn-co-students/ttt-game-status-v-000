@@ -36,15 +36,21 @@ or maybe... board.each do |index| if index == "X" return WIN_COMBINATIONS end
 
 
 
+=begin
 def won?(board)
   WIN_COMBINATIONS.each do |win|
     win = [0, 1, 2]
-    if board[win.all?] == "X" || board[win.all?] == "O"
+    if position_taken?(board, win[0..2]) == "X" or position_taken?(board, win[0..2]) == "O"
     end
   end
+=end
 
-
+def won?(board)
+  if !board.include?(index) == "X" && !board.include?(index) == "O"
+   return false
+  end
 end
+
 
 def full?(board)
   !board.any?(" ") || !board.any?("")
@@ -56,7 +62,8 @@ def draw?(board)
 end
 
 def over?(board)
-  won?(board) || full?(board) || draw?(board)
+if won?(board) || full?(board) || draw?(board)
+end
 end
 
 def winner(board)
