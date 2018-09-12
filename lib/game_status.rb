@@ -2,7 +2,6 @@
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
-
 # Define your WIN_COMBINATIONS constant
 
 
@@ -25,10 +24,10 @@ def won?(board)
   position_1 = board[win_index_1]
   position_2 = board[win_index_2]
   position_3 = board[win_index_3]
-   if position_1 == "X" && position_ == "X" && position_3 == "X"
-     return winning_combination
-   elsif position_1 == "O" && position_ == "O" && position_3 == "O"
-   return winning_combination
+   if position_1 == "X" && position_2 == "X" && position_3 == "X"
+     return win_combination
+   elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+   return win_combination
  end
   }
   false 
@@ -36,11 +35,11 @@ def won?(board)
 end
 
 def full?(board)
-  board.each? {|index| index == "X" || index =="O"}
+  board.all? {|index| index == "X" || index =="O"}
 end
 
 def draw?(board)
-  if !won?(board) && full?
+  if !won?(board) && full?(board)
     true 
   else
     false 
@@ -48,7 +47,7 @@ def draw?(board)
 end
 
 def over?(board)
-  if won? || full? || draw?
+  if won?(board) || full?(board) || draw?(board)
     true
   else
     false
@@ -56,17 +55,15 @@ def over?(board)
 end
 
 def winner(board)
-  index = []
-  index = won(board)
-  if index == false
-    nil
-  elsif 
-  board[win_index_1]] == "X"
-  "X"
-else
-  "O"
+  index = won?(board)
+  if index 
+    return board[index[0]]
+  end
 end
-end
+
+     
+
+
 
 
 
