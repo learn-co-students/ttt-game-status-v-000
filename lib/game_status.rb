@@ -31,6 +31,44 @@ def won?(board)
    return winning_combination
  end
   }
-  return false 
+  false 
   
 end
+
+def full?(board)
+  board.each? {|index| index == "X" || index =="O"}
+end
+
+def draw?(board)
+  if !won?(board) && full?
+    true 
+  else
+    false 
+  end
+end
+
+def over?(board)
+  if won? || full? || draw?
+    true
+  else
+    false
+  end
+end
+
+def winner(board)
+  index = []
+  index = won(board)
+  if index == false
+    nil
+  elsif 
+  board[win_index_1]] == "X"
+  "X"
+else
+  "O"
+end
+end
+
+
+
+  
+  
