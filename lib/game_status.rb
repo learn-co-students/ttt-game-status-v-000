@@ -1,7 +1,4 @@
-board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-
-
-
+require 'pry'
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
@@ -21,6 +18,50 @@ WIN_COMBINATIONS = [
 [2,4,6]
 
 ]
+
+
+def won?(board)
+  WIN_COMBINATIONS.each do |combo|
+
+    if board[combo[0]] == board[combo[1]] && board[combo[2]] == board[combo[1]] && position_taken?(board, combo[0])
+
+      return combo
+    end
+  end
+  false
+end
+
+
+def full?(board)
+  !board.any? { |i| i == " " || i == "" || i == nil }
+end
+
+def draw?(board)
+  full?(board) && !won?(board)
+end
+
+def over?(board)
+  won?(board) || draw?(board)
+end
+
+def winner(board)
+  if won?(board)
+     combo = won?(board)
+    board[combo[0]]
+ #if won?(board)
+  else
+   nil
+ end
+
+end
+
+
+
+
+
+
+
+
 
 
 
@@ -44,27 +85,3 @@ def won?(board)
     end
   end
 =end
-
-def won?(board)
-  if !board.include?(index) == "X" && !board.include?(index) == "O"
-   return false
-  end
-end
-
-
-def full?(board)
-  !board.any?(" ") || !board.any?("")
-end
-
-def draw?(board)
-  if full?(board) && !won?(board)
-  end
-end
-
-def over?(board)
-if won?(board) || full?(board) || draw?(board)
-end
-end
-
-def winner(board)
-end
