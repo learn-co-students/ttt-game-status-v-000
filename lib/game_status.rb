@@ -56,11 +56,11 @@ if won?(board)  || full?(board)  || draw?(board)
 end
 end
 
-def winner?(board)
-  if won?(board) == true
-  elsif position_1 == "X" && position_2 == "X" && position_3 == "X"
-      return "X"
-    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
-      return "O"
-    end
+def winner(board)
+winning_array = won?(board)
+  if winning_array
+  board[winning_array[0]]
+ else
+  nil
   end
+end
