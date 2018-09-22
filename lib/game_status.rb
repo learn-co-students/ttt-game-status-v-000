@@ -15,9 +15,9 @@ WIN_COMBINATIONS = [
 ]
 def won?(board)
   WIN_COMBINATIONS.select do |win_combination|
-    
-    if win_combination [0] == "X" 
-    return win_combination [0]
+
+    if win_combination [0] == "X" || win_combination [0] == "O"
+    return won?(board)
   else
     false
     end
