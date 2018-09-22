@@ -15,8 +15,9 @@ WIN_COMBINATIONS = [
 ]
 def won?(board)
   WIN_COMBINATIONS.select do |win_combination|
-  if win_combination == "X" && win_combination == "X" && win_combination == "X"
-    return win_combination
+    
+    if win_combination [0] == "X" 
+    return win_combination [0]
   else
     false
     end
