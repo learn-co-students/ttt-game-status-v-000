@@ -13,13 +13,17 @@ WIN_COMBINATIONS = [
   [0,4,8],
   [2,4,6]
 ]
-def won?(board)
-  WIN_COMBINATIONS.select do |win_combination|
 
-    if win_combination [0] == "X" || win_combination [0] == "O"
-    return won?(board)
+def input_to_index(user_input)
+  user_input.to_i - 1
+end
+
+def won?(board, player = "X", player_2 = "O")
+  index_win = WIN_COMBINATIONS.include? "X" || "O"
+    if board == [index_win]
+       true
+    return win_combination
   else
     false
     end
   end
-end
