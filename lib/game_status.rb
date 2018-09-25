@@ -20,9 +20,11 @@ end
 
 def won?(board)
   index_win = WIN_COMBINATIONS.each do |index|
-    if index_win(board) == "X"
-    return index_win
+    if board[index_win] == "X" && board[index_win] == "O"
+    return WIN_COMBINATIONS
   else
-    false
-    end
+    board[index_win] == " " || ""
+       return false
+     end
   end
+end
