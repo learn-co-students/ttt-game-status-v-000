@@ -24,3 +24,7 @@ def won?(board)
     board[win[0]] == "O" && board[win[1]] == "O" && board[win[2]] == "O"
   end
 end
+#only had to tell the block what to do for the first Iterate, and then it knows to go through all of the array indexes
+
+def full? (board)
+  full
