@@ -19,7 +19,7 @@ def input_to_index(user_input)
 end
 
 def won?(board)
-  index_win = WIN_COMBINATIONS.detect do |win|
+WIN_COMBINATIONS.detect do |win|
     board[win[0]] == "X" && board[win[1]] == "X" && board[win[2]] == "X" ||
     board[win[0]] == "O" && board[win[1]] == "O" && board[win[2]] == "O"
   end
@@ -27,4 +27,4 @@ end
 #only had to tell the block what to do for the first Iterate, and then it knows to go through all of the array indexes
 
 def full? (board)
-  full
+  full_board
