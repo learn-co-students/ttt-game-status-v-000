@@ -18,11 +18,10 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
-def won?(board, player = "X", player_2 = "O")
-  index_win = WIN_COMBINATIONS.include? "X" || "O"
-    if board == [index_win]
-       true
-    return win_combination
+def won?(board)
+  index_win = WIN_COMBINATIONS.each do |index|
+    if index_win(board) == "X"
+    return index_win
   else
     false
     end
