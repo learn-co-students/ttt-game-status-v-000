@@ -48,10 +48,6 @@ def winner(board)
   if !won?(board)
     return nil
   else
-    if board[won?(board)[0]].include?("X")
-      return "X"
-    else
-      return "O"
-    end
+    board[won?(board)[0]].include?("X") ? "X" : "O"
   end
 end
