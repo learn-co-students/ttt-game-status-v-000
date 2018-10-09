@@ -30,9 +30,57 @@ def won?(board)
         
         if position_1 == "X" && position_2 == "X" && position_3 == "X"
           return win_combination # return the win_combination indexes that won.
-        elseif position_1 == "O" && position_2 == "O" && position_3 == "O"
+        elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
           return win_combination
         end
+  end
+  false
+end
+
+def full?(board)
+  board.all? do |index|
+    if index == " "
+       false
+    else
+      true
+    end
+  end
+end
+
+def draw?(board)
+  if full?(board) == true
+    if won?(board) == false
+      true
+    else
+      false
+    end
+  else 
+    false
+  end
+end
+  
+def over?(board)
+  won?(board) || draw?(board)
+end
+
+def winner(board)
+  WIN_COMBINATIONS.each do |win_combination|
+      # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
+      # grab each index from the win_combination that composes a win.
+      win_index_1 = win_combination[0]
+      win_index_2 = win_combination[1]
+      win_index_3 = win_combination[2]
+      
+      
+      position_1 = board[win_index_1] # load the value of the board at win_index_1
+      position_2 = board[win_index_2] # load the value of the board at win_index_2
+      position_3 = board[win_index_3] # load the value of the board at win_index_3
+      
+      if position_1 == "X" && position_2 == "X" && position_3 == "X"
+        return "X"
+      elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+        return "O"
+      end
   end
   nil
 end
