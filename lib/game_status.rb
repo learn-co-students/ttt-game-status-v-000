@@ -1,4 +1,6 @@
 # Define your WIN_COMBINATIONS constant
+
+
 WIN_COMBINATIONS = [
   [0,1,2], #top row
   [3,4,5], #middle row
@@ -11,13 +13,16 @@ WIN_COMBINATIONS = [
  ]
 
 def won?(board)
+  
   WIN_COMBINATIONS.each do |combos|
-    if combos[0] && combos[1] && combos[2] == "X" 
+
+    if combos[0] && combos[1] && combos[2] == "X"
       return combos
-    elsif combos[0] && combos[1]  && combos[2]  == "O"
+    elsif combos[0] && combos[1] && combos[2]  == "O"
       return combos
     else
       return false
     end
+    
   end
 end
