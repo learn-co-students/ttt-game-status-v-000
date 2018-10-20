@@ -37,3 +37,10 @@ def over?
 end
 
 #create winner method
+def winner
+  if WIN_COMBINATIONS.detect {|won| board(index) == "X" || "O"}
+    return true
+  else
+    return false
+  end
+end
