@@ -15,11 +15,59 @@ WIN_COMBINATIONS = [
 ]
 
 def won?(board)
-  WIN_COMBINATIONS.each.do |win|
+  WIN_COMBINATIONS.each do |win|
   index = win[0]
-    if position_taken(board, index) == true && board[win[0]] == board[win[1]] && board[win[1]] == board[win[2]]
+    if position_taken?(board, index) == true && board[win[0]] == board[win[1]] && board[win[1]] == board[win[2]]
       return win
     end
   end
 false
 end
+
+def full? (board)
+  if board.include? (" ")
+    return false
+  else
+    return true
+  end
+end
+
+def draw? (board)
+  if !won?(board) && full?(board)
+    return true
+  else
+    return false
+  end
+end
+
+def over? (board)
+  if won?(board) || full?(board) || draw?(board)
+    return true
+  else
+    return false
+  end
+end
+
+def winner(board)
+  if won?(board)
+    return board[won?(board)[0]]
+  end
+end
+
+
+
+
+
+
+
+
+
+#  else WIN_COMBINATIONS.each do |win|
+#    if win(board,'X')
+#      return 'X'
+#    elsif win(board,'O')
+#      return 'O'
+#    end
+#  end
+#end
+# end
