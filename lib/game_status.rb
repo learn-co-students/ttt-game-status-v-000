@@ -17,16 +17,12 @@ WIN_COMBINATIONS = [[0, 1, 2],
 [2, 4, 6]]
 
 def won?(board)
-  winner = []
-empty_board = board.all? {|x| x == " "}
-WIN_COMBINATIONS.each do |sub_array|
-    if empty_board || full?(board)
-      return false
-    elsif sub_array.all? { |value| board[value] =="X" } || sub_array.all? { |value| board[value] =="O" }
-      winner = sub_array
-    end
+  WIN_COMBINATIONS.detect do |win_combination|
+    board[win_combination[0]] == board[win_combination[1]] &&
+    board[win_combination[1]] == board[win_combination[2]] &&
+    position_taken?(board, win_combination[0])
   end
-  winner
+ 
 end 
 
 
@@ -47,15 +43,9 @@ def over?(board)
 end 
 
 def winner(board)
-  index = []
-  index = won?(board)
-  if index == false
-    return nil
-  else
-    if board[index[0]] == "X"
-      return "X"
-    else
-      return "O"
-    end
-  end
+  if won?(board)
+    winner = won?(board)
+    board[winner[0]]
+  end 
+
 end 
