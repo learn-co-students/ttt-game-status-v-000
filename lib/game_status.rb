@@ -38,8 +38,6 @@ end
 def winner(board)
   if win_combo = won?(board)
     board[win_combo[0]]
-  elsif win_combo =won?(board)
-    board[win_combo[1]]
   else
     return nil
   end
