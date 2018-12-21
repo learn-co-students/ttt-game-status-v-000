@@ -9,8 +9,8 @@ WIN_COMBINATIONS = [
 [3,4,5], # Middle row 
 [6,7,8], # Bottom row
 [0,3,6], # Verticle first row win
-[1,4,7], # Verticle second row win
-[2,5,8], # Verticle third row win 
+[1,4,7], # Vertical second row win
+[2,5,8], # Vertical third row win 
 [0,4,8], # Diagonal top win
 [6,4,2] # Diagonal bottom win
 ]
