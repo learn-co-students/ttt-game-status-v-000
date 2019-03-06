@@ -41,19 +41,16 @@ def over?(board)
 end
 
 def winner(board)
-    #look in won? & return what is in any position of board[winning_combo[0]
-    #Save the winning combo (a 3 element array) in a variable. 
-    winning_combo  =  won?(board) ##will be a 3 position array like [0, 1, 2]
-  
-    # What I really need a the value of one (any) of those elements of winning_combo:
+    #look in won? & return the value of any element oF the winning_combo: 
     #I randomly chose to use winning_combo[0]
-    winner = board[winning_combo[0]]
   
-    if over?(board) && winner == "X"
+  if won?(board)
+    if board[won?(board)[0]] == "X"
       "X"
-    elsif over?(board) && winner == "O"
+    else board[won?(board)[0]] == "O"
       "O"
-    else
-      nil
     end
+  else
+    return nil
+  end
 end
