@@ -2,6 +2,6 @@
 source "https://rubygems.org"
 
 # gem "rails"
-
+gem 'rb-readline'
 gem 'rspec'
     gem 'pry'
