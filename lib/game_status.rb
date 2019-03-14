@@ -41,16 +41,27 @@ def over?(board)
 end
 
 def winner(board)
-    #look in won? & return the value of any element oF the winning_combo: 
-    #I randomly chose to use winning_combo[0]
-  
+  #first test if there WAS a winner yet, 
+  #& if so, find out which player token (X or O)
+  #otherwise if  no winner, return nil. 
   if won?(board)
-    if board[won?(board)[0]] == "X"
-      "X"
-    else board[won?(board)[0]] == "O"
-      "O"
-    end
-  else
-    return nil
+    #if no winner, then IF is falsey, so winner() returns nil. 
+    #board[won?(board)[0]] ONLY happens if there WAS a winner. 
+    board[won?(board)[0]]
   end
+  
 end
+
+
+
+# def winner(board)
+#     #look in won? & return the value of any element oF the winning_combo. 
+#     #I randomly chose to use winning_combo[0]
+#   board[won?(board)[0]]
+  
+#   # elsif board[won?(board)[0]] == "O"
+#   #     "O"
+#   # else
+#   #   nil
+#   # end
+# end
