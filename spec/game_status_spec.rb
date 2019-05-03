@@ -74,7 +74,7 @@ describe "./lib/game_status.rb" do
     it 'returns an array of matching indexes for a right diagonal win' do
       board = ["X", " ", "O", "X", "O", " ", "O", " ", " "]
 
-      expect(won?(board)).to match_array([2,4,6])
+      expect(won?(board)).to match_array([6,4,2])
     end
   end
 
