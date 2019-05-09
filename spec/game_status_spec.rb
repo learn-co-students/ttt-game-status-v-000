@@ -81,7 +81,6 @@ describe "./lib/game_status.rb" do
   describe '#full?' do
     it 'returns true for a draw' do
       board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
-
       expect(full?(board)).to be_truthy
     end
 
