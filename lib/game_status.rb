@@ -13,7 +13,7 @@ WIN_COMBINATIONS = [
  ]
 
 def won?(board)
-  
+
   WIN_COMBINATIONS.each do |combos|
 
     if combos[0] && combos[1] && combos[2] == "X"
@@ -23,6 +23,6 @@ def won?(board)
     else
       return false
     end
-    
+
   end
 end
