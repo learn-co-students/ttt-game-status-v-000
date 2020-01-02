@@ -46,7 +46,7 @@ def draw?(board)
 end
 
 def over?(board)
-  if draw?(board) || won?(board) || full?(board)
+  if won?(board) || full?(board)
     return true
   else
     return false
@@ -65,7 +65,7 @@ def winner(board)
       elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
         return "O"
       else
-        
+
       end
     end
   else
