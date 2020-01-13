@@ -93,7 +93,7 @@ def over?(board)
 end # (true) if the board has been won, is a draw, or is full
 
 def winner(board)
-if winning_combination = won?(board)
-board[winning_combination[0]]
-end
+  # && - what it does is it will return the first falsey value or the last truthy value and when both are falsey you get the first thing that is falsey
+  #.. so in our case that is going to be won?(board) is going to be nil because won?(board) is nil we won't get to board[won?(board)[0]] -> this protects us from trying to call [] on something that is nil.
+  won?(board) && board[won?(board)[0]]
 end # => the token, "X" or "O" - from the winning board
