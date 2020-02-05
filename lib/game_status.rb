@@ -1,5 +1,5 @@
 # Define your WIN_COMBINATIONS constant
-
+require "pry"
 
 WIN_COMBINATIONS = [
   [0,1,2], #top row
@@ -15,14 +15,13 @@ WIN_COMBINATIONS = [
 def won?(board)
 
   WIN_COMBINATIONS.each do |combos|
-
-    if combos[0] && combos[1] && combos[2] == "X"
-      return combos
-    elsif combos[0] && combos[1] && combos[2]  == "O"
-      return combos
+# binding.pry
+    if combos[board[0]] == board[combos[1]] && board[combos[2]] == board[combos[1]]
+      return false
     else
       return false
     end
+
 
   end
 end
