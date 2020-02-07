@@ -14,15 +14,9 @@ WIN_COMBINATIONS = [
 
 def won?(board)
 
-  WIN_COMBINATIONS.each do |combos|
+  WIN_COMBINATIONS.find do |combos|
 
-    if combos[0] && combos[1] && combos[2] == "X"
-      return combos
-    elsif combos[0] && combos[1] && combos[2]  == "O"
-      return combos
-    else
-      return false
-    end
+     board[combos[0]] == board[combos[1]] && board[combos[2]] == board[combos[1]] && board[combos[0]] != " "
 
   end
 end
