@@ -77,6 +77,9 @@ end
 def winner(board)
   if won_game = won?(board)
     return board[won_game.first]
+  end
+ end
+
   #binding.pry
  # if won?(board)
  #   return "X"
@@ -85,10 +88,12 @@ def winner(board)
  # else
  #   return nil
  # end
- end
-end
 
 
+# my lines 80 - 86 was not smart enough to evaluate for O only X and nil...so we needed to create a new variable won_game set it equal to our won method
+# then we needed to return board and in brackets by adding won_game it essentially gave us our winning combinations and the .first provided us with a winning X or O
+# binding.pry a way for you to evaluate your code based on the current scope that you're up to depending on where you wrote binding.pry in your codebase and you get an idea of what the variables are equiavalent to...gives you a sense of what you think might be wrong versus being able to actually see what it is inccorect in your code
+# .first is a built in method for the array data type in ruby...research .first
    # try solving this on paper then get into the code, they then wrestle with the code, make sure you understand the solution to thep roblem outside the code
 
 
