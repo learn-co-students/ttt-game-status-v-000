@@ -1,54 +1,37 @@
 WIN_COMBINATIONS = [
-  [0,1,2],
-  [3,4,5],
-  [6,7,8],
-  [0,3,6],
-  [1,4,7],
-  [2,5,8],
-  [0,4,8],
-  [2,4,6]
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [6, 4, 2]
 ]
 
-def position_taken?(board, index)
-  !(board[index].nil? || board[index] == " ")
-end
-
 def won?(board)
-  WIN_COMBINATIONS.detect do |win_combo|
-    board[win_combo[0]] == board[win_combo[1]] &&
-    board[win_combo[1]] == board[win_combo[2]] &&
-    position_taken?(board, win_combo[0])
+  WIN_COMBINATIONS.detect do |win_combination|
+    win_combination.all?{|index| board[index] == "X"} || win_combination.all?{|index| board[index] == "O"}
+    #board[win_combination[0]] == "X" && board[win_combination[1]] == "X" && board[win_combination[2]] == "X" || board[win_combination[0]] == "O" && board[win_combination[1]] == "O" && board[win_combination[2]] == "O"
   end
 end
 
 def full?(board)
-  if board.detect{|thing| thing == " "}
-    false
-  else
-    true
-  end
+  board.all?{|index| index == "X" || index == "O"}
 end
 
 def draw?(board)
-  if won?(board) == nil && full?(board) == true
-    true
-  end
+  !won?(board) && full?(board)
 end
 
 def over?(board)
-  if won?(board) == true || draw?(board) == true || full?(board) == true
-    true
-  end
+  won?(board) || draw?(board)
 end
 
 def winner(board)
-  if won?(board) != nil
-    won?(board).each do |x|
-      if board[x] == "X"
-        return "X"
-      else
-        return "O"
-      end
-    end
+  if won?(board) && won?(board).all?{|i| board[i] == "X"}
+    "X"
+  elsif won?(board) && won?(board).all?{|i| board[i] == "O"}
+    "O"
   end
 end
