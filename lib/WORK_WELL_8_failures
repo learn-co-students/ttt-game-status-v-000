@@ -23,7 +23,7 @@ board[win_combinations[0]] == "X" && board[win_combinations[1]] == "X" && board[
 
 def full?(board)
 #if board.none?{|player| player = " "}
-if board.all?{|player| player == "X" || player == "O"}
+if board.all?{|player| player = "X" || player = "O"}
 true
 else
   false
@@ -32,7 +32,6 @@ end
 #def full?(board)
 #  board.all? do |player|
 #    player = "X" || player = "O"
-# REMEMBER == not =
 #  end
 
 def draw?(board)
@@ -40,19 +39,5 @@ def draw?(board)
     true
   else
     false
-end
-end
-
-def over?(board)
-  if won?(board) || draw?(board) || full?(board)
-    true
-  else
-    false
-end
-end
-
-def winner(board)
-if win_combinations = won?(board)
-  board[win_combinations[0]]
 end
 end
