@@ -15,82 +15,47 @@ WIN_COMBINATIONS = [
   [2,4,6]# ETC, an array for each win combination
 ]
 
+#win_index_1 = win_combination[0]
+    #win_index_2 = win_combination[1]
+    #win_index_3 = win_combination[2]
+
+    #position_1 = board[win_index_1]
+    #position_2 = board[win_index_2]
+    #position_3 = board[win_index_3]
+
+
+
+
+
 def won?(board)
-  if board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-  return false
-   end
 
+ WIN_COMBINATIONS.detect do | win_combination |
 
-  if board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
-  return false
+location1 = win_combination[0]
+location2 = win_combination[1]
+location3 = win_combination[2]
+
+board[location1] == board[location2] && board[location2] == board[location3] && board[location1] != " "
+    end
 end
 
-  if board == ["X", "X", "X", "O", "O", " ", " ", " ", " "]
-   puts "[0,1,2]"
+def full?(board)
+board.none? { | position | position == " " }
 end
 
-  if board = ["O", "O", " ", "X", "X", "X", " ", " ", " "]
-
-  return WIN_COMBINATIONS[1]
+def draw?(board)
+full?(board) && !won?(board)
 end
 
-
-  if board = [" ", " ", " ", "O", "O", " ", "X", "X", "X"]
-
-  return WIN_COMBINATIONS[2]
+def over?(board)
+  won?(board) || draw?(board)
 end
 
-if board = ["O", " ", "X", "O", " ", "X", "O", " ", " "]
+def winner(board)
+  win_combination = won?(board)
+  if win_combination != nil
+    win_location = win_combination[0]
+    board[win_location]
 
-  return WIN_COMBINATIONS[3]
+  end
 end
-
-
-if board = ["X", "O", " ", "X", "O", " ", " ", "O", " "]
-
-  return WIN_COMBINATIONS[4]
-end
-
-
-if board = ["X", " ", "O", "X", " ", "O", " ", " ", "O"]
-
-  return WIN_COMBINATIONS[5]
-end
-
-
-  if board = ["X", " ", "O", " ", "X", "O", " ", " ", "X"]
-
-  return WIN_COMBINATIONS[6]
-end
-
-
-if board = ["X", " ", "O", "X", "O", " ", "O", " ", " "]
-  return WIN_COMBINATIONS[0]
-end
-end
-# won?
-#def won?(board)
-  #win_index_1 = win_combination[0]
-  #win_index_2 = win_combination[1]
-  #win_index_3 = win_combination[2]
-
-  #position_1 = board[win_index_1] # load the value of the board at win_index_1
-  #position_2 = board[win_index_2] # load the value of the board at win_index_2
-  #position_3 = board[win_index_3]
-  #board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-#[board].any?{|array| array == win_combination}
-#if position_1 == "X" && position_2 == "X" && position_3 == "X"
-#return win_combination # return the win_combination indexes that won.
-  #else
-    #false
-  #end
-#end
-#end
-
-
-#def won?(board)
-  #WINNING_COMBINATIONS.each do |line|
-    #return true if (line - board) == []
-  #end
-  #return false
-#end
