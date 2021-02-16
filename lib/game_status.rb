@@ -11,9 +11,9 @@ WIN_COMBINATIONS = [
   [1,4,7], #middle column
   [2,5,8] #right column
  ]
-
+# comment
 def won?(board)
-  
+
   WIN_COMBINATIONS.each do |combos|
 
     if combos[0] && combos[1] && combos[2] == "X"
@@ -23,6 +23,6 @@ def won?(board)
     else
       return false
     end
-    
+
   end
 end
