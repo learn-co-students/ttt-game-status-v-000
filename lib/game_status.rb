@@ -15,8 +15,10 @@ WIN_COMBINATIONS = [
   [2,5,8]   # Right vertical
 ]
 
+
+
 def won?(board)
-  WIN_COMBINATIONS .each do |combination|
+  WIN_COMBINATIONS.each do |combination|
     if board[combination[0]] == "X" && board[combination[1]] == "X" && board[combination[2]] == "X"
           return combination
         end
@@ -26,6 +28,7 @@ def won?(board)
 end
 false
 end
+
 
 def full?(board)
 board.all? {|position| position == "X" || position == "O"}
@@ -37,7 +40,6 @@ end
 
 def over?(board)
 won?(board) || draw?(board)
-
 end
 
 def winner(board)
