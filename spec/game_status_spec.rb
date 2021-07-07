@@ -19,13 +19,11 @@ describe "./lib/game_status.rb" do
   describe "#won?" do
     it 'returns falsey for an empty board' do
       board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-
       expect(won?(board)).to be_falsey
     end
 
     it 'returns falsey for a draw' do
       board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
-
       expect(won?(board)).to be_falsey
     end
 
@@ -37,7 +35,6 @@ describe "./lib/game_status.rb" do
 
     it 'returns an array of matching indexes for a middle row win' do
       board = ["O", "O", " ", "X", "X", "X", " ", " ", " "]
-
       expect(won?(board)).to match_array([3,4,5])
     end
 
