@@ -1,5 +1,5 @@
 require_relative '../lib/game_status.rb'
-
+require 'pry'
 describe "./lib/game_status.rb" do
   describe 'WIN_COMBINATIONS' do
     it 'defines a constant WIN_COMBINATIONS with arrays for each win combination' do
@@ -15,7 +15,7 @@ describe "./lib/game_status.rb" do
       expect(WIN_COMBINATIONS).to include_array([6,4,2])
     end
   end
-
+'filter_parameter_logging'
   describe "#won?" do
     it 'returns falsey for an empty board' do
       board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
@@ -33,6 +33,7 @@ describe "./lib/game_status.rb" do
       board = ["X", "X", "X", "O", "O", " ", " ", " ", " "]
 
       expect(won?(board)).to match_array([0,1,2])
+  
     end
 
     it 'returns an array of matching indexes for a middle row win' do
